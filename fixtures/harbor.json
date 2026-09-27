@@ -1,0 +1,2863 @@
+{
+  "workspace": "harbor",
+  "name": "Harbor Print",
+  "tagline": "Ideas make a brighter tomorrow",
+  "mark": "wave",
+  "agents": [
+    {
+      "id": "maya",
+      "name": "Maya",
+      "role": "AP agent",
+      "duty": "Retrieves verified supplier facts and payment policy from this workspace's private GBrain.",
+      "backedBy": "gbrain"
+    },
+    {
+      "id": "jordan",
+      "name": "Jordan",
+      "role": "Investigator",
+      "duty": "Runs the UFO investigation, recalling installed Memorable procedures.",
+      "backedBy": "ufo"
+    },
+    {
+      "id": "lena",
+      "name": "Lena",
+      "role": "Ops agent",
+      "duty": "Proposes and maintains simulated payment holds; never releases without the owner.",
+      "backedBy": "fia"
+    },
+    {
+      "id": "chris",
+      "name": "Chris",
+      "role": "Finance agent",
+      "duty": "Reconciles related invoices against the local ledger and policy window.",
+      "backedBy": "fia"
+    }
+  ],
+  "suppliers": [
+    {
+      "id": "SUP-001",
+      "name": "Brightmill Paper Co",
+      "category": "Paper stock",
+      "contactName": "Emery Dale",
+      "contactPhone": "+1-555-0138",
+      "emailDomain": "brightmillpaperco.example",
+      "bankLabel": "Fictional Harbor Bank",
+      "accountLast4": "4484"
+    },
+    {
+      "id": "SUP-002",
+      "name": "Inkwell Pigments",
+      "category": "Inks",
+      "contactName": "Harper Hollis",
+      "contactPhone": "+1-555-0139",
+      "emailDomain": "inkwellpigments.example",
+      "bankLabel": "Fictional Harbor Bank",
+      "accountLast4": "1323"
+    },
+    {
+      "id": "SUP-003",
+      "name": "Stonebridge Plate Makers",
+      "category": "Printing plates",
+      "contactName": "Noor Alder",
+      "contactPhone": "+1-555-0165",
+      "emailDomain": "stonebridgeplatemakers.example",
+      "bankLabel": "Sample Credit Union",
+      "accountLast4": "9681"
+    },
+    {
+      "id": "SUP-004",
+      "name": "Gullwing Freight",
+      "category": "Freight",
+      "contactName": "Kai Nash",
+      "contactPhone": "+1-555-0114",
+      "emailDomain": "gullwingfreight.example",
+      "bankLabel": "Demo National",
+      "accountLast4": "8587"
+    },
+    {
+      "id": "SUP-005",
+      "name": "Anchor Bindery",
+      "category": "Binding",
+      "contactName": "Quinn Fenn",
+      "contactPhone": "+1-555-0161",
+      "emailDomain": "anchorbindery.example",
+      "bankLabel": "Fictional Harbor Bank",
+      "accountLast4": "3562"
+    },
+    {
+      "id": "SUP-006",
+      "name": "Seabright Toner Supply",
+      "category": "Toner",
+      "contactName": "Blake Brook",
+      "contactPhone": "+1-555-0165",
+      "emailDomain": "seabrighttonersupply.example",
+      "bankLabel": "Example Mutual",
+      "accountLast4": "4125"
+    },
+    {
+      "id": "SUP-007",
+      "name": "Lighthouse Electric",
+      "category": "Utilities",
+      "contactName": "Devon Garland",
+      "contactPhone": "+1-555-0166",
+      "emailDomain": "lighthouseelectric.example",
+      "bankLabel": "Example Mutual",
+      "accountLast4": "8931"
+    },
+    {
+      "id": "SUP-008",
+      "name": "Marina Press Repair",
+      "category": "Maintenance",
+      "contactName": "Parker Marsh",
+      "contactPhone": "+1-555-0139",
+      "emailDomain": "marinapressrepair.example",
+      "bankLabel": "Demo National",
+      "accountLast4": "5783"
+    },
+    {
+      "id": "SUP-009",
+      "name": "Pier Nine Packaging",
+      "category": "Packaging",
+      "contactName": "Reese Brook",
+      "contactPhone": "+1-555-0117",
+      "emailDomain": "pierninepackaging.example",
+      "bankLabel": "Demo National",
+      "accountLast4": "3618"
+    },
+    {
+      "id": "SUP-010",
+      "name": "Tallship Laminates",
+      "category": "Lamination",
+      "contactName": "Avery Orwell",
+      "contactPhone": "+1-555-0148",
+      "emailDomain": "tallshiplaminates.example",
+      "bankLabel": "Fictional Harbor Bank",
+      "accountLast4": "2477"
+    },
+    {
+      "id": "SUP-011",
+      "name": "Heron Point Software",
+      "category": "Prepress software",
+      "contactName": "Noor Ellison",
+      "contactPhone": "+1-555-0132",
+      "emailDomain": "heronpointsoftware.example",
+      "bankLabel": "Sample Credit Union",
+      "accountLast4": "6298"
+    },
+    {
+      "id": "SUP-012",
+      "name": "Saltmarsh Cleaning",
+      "category": "Facilities",
+      "contactName": "Casey Orwell",
+      "contactPhone": "+1-555-0159",
+      "emailDomain": "saltmarshcleaning.example",
+      "bankLabel": "Example Mutual",
+      "accountLast4": "5089"
+    },
+    {
+      "id": "SUP-013",
+      "name": "Keel & Co Payroll",
+      "category": "Payroll",
+      "contactName": "Emery Rowan",
+      "contactPhone": "+1-555-0122",
+      "emailDomain": "keelcopayroll.example",
+      "bankLabel": "Demo National",
+      "accountLast4": "3711"
+    },
+    {
+      "id": "SUP-014",
+      "name": "Driftline Courier",
+      "category": "Courier",
+      "contactName": "Sage Fenn",
+      "contactPhone": "+1-555-0180",
+      "emailDomain": "driftlinecourier.example",
+      "bankLabel": "Demo National",
+      "accountLast4": "4473"
+    },
+    {
+      "id": "SUP-015",
+      "name": "Northstar Envelopes",
+      "category": "Envelopes",
+      "contactName": "Kai Ives",
+      "contactPhone": "+1-555-0190",
+      "emailDomain": "northstarenvelopes.example",
+      "bankLabel": "Example Mutual",
+      "accountLast4": "5041"
+    },
+    {
+      "id": "SUP-016",
+      "name": "Coral Reef Foils",
+      "category": "Foil stamping",
+      "contactName": "Devon Hollis",
+      "contactPhone": "+1-555-0189",
+      "emailDomain": "coralreeffoils.example",
+      "bankLabel": "Demo National",
+      "accountLast4": "5546"
+    },
+    {
+      "id": "SUP-017",
+      "name": "Tidepool Adhesives",
+      "category": "Adhesives",
+      "contactName": "Indira Brook",
+      "contactPhone": "+1-555-0118",
+      "emailDomain": "tidepooladhesives.example",
+      "bankLabel": "Example Mutual",
+      "accountLast4": "6327"
+    },
+    {
+      "id": "SUP-018",
+      "name": "Breakwater Insurance",
+      "category": "Insurance",
+      "contactName": "Jules Lyle",
+      "contactPhone": "+1-555-0130",
+      "emailDomain": "breakwaterinsurance.example",
+      "bankLabel": "Fictional Harbor Bank",
+      "accountLast4": "9975"
+    },
+    {
+      "id": "SUP-019",
+      "name": "Whitecap Cardstock",
+      "category": "Cardstock",
+      "contactName": "Noor Dale",
+      "contactPhone": "+1-555-0169",
+      "emailDomain": "whitecapcardstock.example",
+      "bankLabel": "Example Mutual",
+      "accountLast4": "4992"
+    },
+    {
+      "id": "SUP-020",
+      "name": "Mariner Ink Recycling",
+      "category": "Recycling",
+      "contactName": "Oren Quill",
+      "contactPhone": "+1-555-0162",
+      "emailDomain": "marinerinkrecycling.example",
+      "bankLabel": "Demo National",
+      "accountLast4": "5238"
+    },
+    {
+      "id": "SUP-021",
+      "name": "Estuary Office Supply",
+      "category": "Office supplies",
+      "contactName": "Parker Rowan",
+      "contactPhone": "+1-555-0132",
+      "emailDomain": "estuaryofficesupply.example",
+      "bankLabel": "Fictional Harbor Bank",
+      "accountLast4": "6041"
+    },
+    {
+      "id": "SUP-022",
+      "name": "Sandbar Signworks",
+      "category": "Wide-format",
+      "contactName": "Oren Garland",
+      "contactPhone": "+1-555-0185",
+      "emailDomain": "sandbarsignworks.example",
+      "bankLabel": "Demo National",
+      "accountLast4": "9023"
+    },
+    {
+      "id": "SUP-023",
+      "name": "Bayside Accounting",
+      "category": "Bookkeeping",
+      "contactName": "Jules Ellison",
+      "contactPhone": "+1-555-0158",
+      "emailDomain": "baysideaccounting.example",
+      "bankLabel": "Sample Credit Union",
+      "accountLast4": "2528"
+    },
+    {
+      "id": "SUP-024",
+      "name": "Crosswind Die Cutting",
+      "category": "Die cutting",
+      "contactName": "Logan Ellison",
+      "contactPhone": "+1-555-0139",
+      "emailDomain": "crosswinddiecutting.example",
+      "bankLabel": "Sample Credit Union",
+      "accountLast4": "2652"
+    },
+    {
+      "id": "SUP-025",
+      "name": "Shoreline Pallets",
+      "category": "Pallets",
+      "contactName": "Marin Fenn",
+      "contactPhone": "+1-555-0196",
+      "emailDomain": "shorelinepallets.example",
+      "bankLabel": "Demo National",
+      "accountLast4": "2188"
+    },
+    {
+      "id": "SUP-026",
+      "name": "Beaconhill Web Hosting",
+      "category": "Hosting",
+      "contactName": "Marin Alder",
+      "contactPhone": "+1-555-0161",
+      "emailDomain": "beaconhillwebhosting.example",
+      "bankLabel": "Sample Credit Union",
+      "accountLast4": "4359"
+    },
+    {
+      "id": "SUP-027",
+      "name": "Riptide Security",
+      "category": "Security",
+      "contactName": "Sage Ives",
+      "contactPhone": "+1-555-0110",
+      "emailDomain": "riptidesecurity.example",
+      "bankLabel": "Sample Credit Union",
+      "accountLast4": "3254"
+    },
+    {
+      "id": "SUP-028",
+      "name": "Kelp Forest Recycled Fibers",
+      "category": "Recycled paper",
+      "contactName": "Finley Rowan",
+      "contactPhone": "+1-555-0135",
+      "emailDomain": "kelpforestrecycledfibers.example",
+      "bankLabel": "Example Mutual",
+      "accountLast4": "3328"
+    },
+    {
+      "id": "SUP-029",
+      "name": "Oyster Bay Coatings",
+      "category": "Coatings",
+      "contactName": "Oren Marsh",
+      "contactPhone": "+1-555-0159",
+      "emailDomain": "oysterbaycoatings.example",
+      "bankLabel": "Fictional Harbor Bank",
+      "accountLast4": "9925"
+    },
+    {
+      "id": "SUP-030",
+      "name": "Windlass Equipment Leasing",
+      "category": "Equipment lease",
+      "contactName": "Marin Marsh",
+      "contactPhone": "+1-555-0161",
+      "emailDomain": "windlassequipmentleasing.example",
+      "bankLabel": "Fictional Harbor Bank",
+      "accountLast4": "8041"
+    }
+  ],
+  "invoices": [
+    {
+      "id": "HP-INV-0041",
+      "supplierId": "SUP-026",
+      "issuedAt": "2026-03-01T15:00:00.000Z",
+      "amountCents": 93970,
+      "status": "paid",
+      "paidAt": "2026-03-19T15:00:00.000Z",
+      "paidToLast4": "4359"
+    },
+    {
+      "id": "HP-INV-0048",
+      "supplierId": "SUP-030",
+      "issuedAt": "2026-03-01T15:00:00.000Z",
+      "amountCents": 360270,
+      "status": "paid",
+      "paidAt": "2026-03-21T15:00:00.000Z",
+      "paidToLast4": "8041"
+    },
+    {
+      "id": "HP-INV-0010",
+      "supplierId": "SUP-007",
+      "issuedAt": "2026-03-02T15:00:00.000Z",
+      "amountCents": 289930,
+      "status": "paid",
+      "paidAt": "2026-03-18T15:00:00.000Z",
+      "paidToLast4": "8931"
+    },
+    {
+      "id": "HP-INV-0006",
+      "supplierId": "SUP-005",
+      "issuedAt": "2026-03-03T15:00:00.000Z",
+      "amountCents": 416640,
+      "status": "paid",
+      "paidAt": "2026-03-22T15:00:00.000Z",
+      "paidToLast4": "3562"
+    },
+    {
+      "id": "HP-INV-0008",
+      "supplierId": "SUP-006",
+      "issuedAt": "2026-03-03T15:00:00.000Z",
+      "amountCents": 208950,
+      "status": "paid",
+      "paidAt": "2026-03-14T15:00:00.000Z",
+      "paidToLast4": "4125"
+    },
+    {
+      "id": "HP-INV-0026",
+      "supplierId": "SUP-018",
+      "issuedAt": "2026-03-03T15:00:00.000Z",
+      "amountCents": 171180,
+      "status": "paid",
+      "paidAt": "2026-03-12T15:00:00.000Z",
+      "paidToLast4": "9975"
+    },
+    {
+      "id": "HP-INV-0004",
+      "supplierId": "SUP-004",
+      "issuedAt": "2026-03-04T15:00:00.000Z",
+      "amountCents": 199190,
+      "status": "paid",
+      "paidAt": "2026-03-24T15:00:00.000Z",
+      "paidToLast4": "8587"
+    },
+    {
+      "id": "HP-INV-0011",
+      "supplierId": "SUP-008",
+      "issuedAt": "2026-03-04T15:00:00.000Z",
+      "amountCents": 56940,
+      "status": "paid",
+      "paidAt": "2026-03-22T15:00:00.000Z",
+      "paidToLast4": "5783"
+    },
+    {
+      "id": "HP-INV-0038",
+      "supplierId": "SUP-024",
+      "issuedAt": "2026-03-05T15:00:00.000Z",
+      "amountCents": 372720,
+      "status": "paid",
+      "paidAt": "2026-03-23T15:00:00.000Z",
+      "paidToLast4": "2652"
+    },
+    {
+      "id": "HP-INV-0018",
+      "supplierId": "SUP-011",
+      "issuedAt": "2026-03-08T15:00:00.000Z",
+      "amountCents": 483750,
+      "status": "paid",
+      "paidAt": "2026-03-25T15:00:00.000Z",
+      "paidToLast4": "6298"
+    },
+    {
+      "id": "HP-INV-0021",
+      "supplierId": "SUP-014",
+      "issuedAt": "2026-03-09T15:00:00.000Z",
+      "amountCents": 52200,
+      "status": "paid",
+      "paidAt": "2026-03-22T15:00:00.000Z",
+      "paidToLast4": "4473"
+    },
+    {
+      "id": "HP-INV-0039",
+      "supplierId": "SUP-025",
+      "issuedAt": "2026-03-09T15:00:00.000Z",
+      "amountCents": 404430,
+      "status": "paid",
+      "paidAt": "2026-03-20T15:00:00.000Z",
+      "paidToLast4": "2188"
+    },
+    {
+      "id": "HP-INV-0020",
+      "supplierId": "SUP-013",
+      "issuedAt": "2026-03-11T15:00:00.000Z",
+      "amountCents": 464180,
+      "status": "paid",
+      "paidAt": "2026-03-27T15:00:00.000Z",
+      "paidToLast4": "3711"
+    },
+    {
+      "id": "HP-INV-0032",
+      "supplierId": "SUP-021",
+      "issuedAt": "2026-03-11T15:00:00.000Z",
+      "amountCents": 202700,
+      "status": "paid",
+      "paidAt": "2026-03-19T15:00:00.000Z",
+      "paidToLast4": "6041"
+    },
+    {
+      "id": "HP-INV-0035",
+      "supplierId": "SUP-022",
+      "issuedAt": "2026-03-11T15:00:00.000Z",
+      "amountCents": 351530,
+      "status": "paid",
+      "paidAt": "2026-03-20T15:00:00.000Z",
+      "paidToLast4": "9023"
+    },
+    {
+      "id": "HP-INV-0002",
+      "supplierId": "SUP-002",
+      "issuedAt": "2026-03-13T15:00:00.000Z",
+      "amountCents": 166100,
+      "status": "paid",
+      "paidAt": "2026-03-25T15:00:00.000Z",
+      "paidToLast4": "1323"
+    },
+    {
+      "id": "HP-INV-0023",
+      "supplierId": "SUP-015",
+      "issuedAt": "2026-03-14T15:00:00.000Z",
+      "amountCents": 300300,
+      "status": "paid",
+      "paidAt": "2026-03-24T15:00:00.000Z",
+      "paidToLast4": "5041"
+    },
+    {
+      "id": "HP-INV-0033",
+      "supplierId": "SUP-021",
+      "issuedAt": "2026-03-14T15:00:00.000Z",
+      "amountCents": 496950,
+      "status": "paid",
+      "paidAt": "2026-04-02T15:00:00.000Z",
+      "paidToLast4": "6041"
+    },
+    {
+      "id": "HP-INV-0047",
+      "supplierId": "SUP-030",
+      "issuedAt": "2026-03-14T15:00:00.000Z",
+      "amountCents": 182730,
+      "status": "paid",
+      "paidAt": "2026-03-24T15:00:00.000Z",
+      "paidToLast4": "8041"
+    },
+    {
+      "id": "HP-INV-0028",
+      "supplierId": "SUP-019",
+      "issuedAt": "2026-03-15T15:00:00.000Z",
+      "amountCents": 291860,
+      "status": "paid",
+      "paidAt": "2026-03-31T15:00:00.000Z",
+      "paidToLast4": "4992"
+    },
+    {
+      "id": "HP-INV-0043",
+      "supplierId": "SUP-027",
+      "issuedAt": "2026-03-15T15:00:00.000Z",
+      "amountCents": 131580,
+      "status": "paid",
+      "paidAt": "2026-03-31T15:00:00.000Z",
+      "paidToLast4": "3254"
+    },
+    {
+      "id": "HP-INV-0012",
+      "supplierId": "SUP-008",
+      "issuedAt": "2026-03-16T15:00:00.000Z",
+      "amountCents": 298910,
+      "status": "paid",
+      "paidAt": "2026-03-28T15:00:00.000Z",
+      "paidToLast4": "5783"
+    },
+    {
+      "id": "HP-INV-0017",
+      "supplierId": "SUP-011",
+      "issuedAt": "2026-03-16T15:00:00.000Z",
+      "amountCents": 260990,
+      "status": "paid",
+      "paidAt": "2026-04-04T15:00:00.000Z",
+      "paidToLast4": "6298"
+    },
+    {
+      "id": "HP-INV-0022",
+      "supplierId": "SUP-014",
+      "issuedAt": "2026-03-16T15:00:00.000Z",
+      "amountCents": 207720,
+      "status": "paid",
+      "paidAt": "2026-04-01T15:00:00.000Z",
+      "paidToLast4": "4473"
+    },
+    {
+      "id": "HP-INV-0015",
+      "supplierId": "SUP-010",
+      "issuedAt": "2026-03-17T15:00:00.000Z",
+      "amountCents": 394660,
+      "status": "paid",
+      "paidAt": "2026-04-04T15:00:00.000Z",
+      "paidToLast4": "2477"
+    },
+    {
+      "id": "HP-INV-0024",
+      "supplierId": "SUP-016",
+      "issuedAt": "2026-03-17T15:00:00.000Z",
+      "amountCents": 55860,
+      "status": "paid",
+      "paidAt": "2026-03-28T15:00:00.000Z",
+      "paidToLast4": "5546"
+    },
+    {
+      "id": "HP-INV-0027",
+      "supplierId": "SUP-018",
+      "issuedAt": "2026-03-17T15:00:00.000Z",
+      "amountCents": 282220,
+      "status": "paid",
+      "paidAt": "2026-03-29T15:00:00.000Z",
+      "paidToLast4": "9975"
+    },
+    {
+      "id": "HP-INV-0030",
+      "supplierId": "SUP-020",
+      "issuedAt": "2026-03-17T15:00:00.000Z",
+      "amountCents": 79550,
+      "status": "paid",
+      "paidAt": "2026-04-01T15:00:00.000Z",
+      "paidToLast4": "5238"
+    },
+    {
+      "id": "HP-INV-0040",
+      "supplierId": "SUP-025",
+      "issuedAt": "2026-03-17T15:00:00.000Z",
+      "amountCents": 239130,
+      "status": "paid",
+      "paidAt": "2026-03-28T15:00:00.000Z",
+      "paidToLast4": "2188"
+    },
+    {
+      "id": "HP-INV-0046",
+      "supplierId": "SUP-029",
+      "issuedAt": "2026-03-17T15:00:00.000Z",
+      "amountCents": 333550,
+      "status": "paid",
+      "paidAt": "2026-03-29T15:00:00.000Z",
+      "paidToLast4": "9925"
+    },
+    {
+      "id": "HP-INV-0003",
+      "supplierId": "SUP-003",
+      "issuedAt": "2026-03-18T15:00:00.000Z",
+      "amountCents": 357260,
+      "status": "paid",
+      "paidAt": "2026-04-02T15:00:00.000Z",
+      "paidToLast4": "9681"
+    },
+    {
+      "id": "HP-INV-0019",
+      "supplierId": "SUP-012",
+      "issuedAt": "2026-03-19T15:00:00.000Z",
+      "amountCents": 147210,
+      "status": "paid",
+      "paidAt": "2026-03-26T15:00:00.000Z",
+      "paidToLast4": "5089"
+    },
+    {
+      "id": "HP-INV-0025",
+      "supplierId": "SUP-017",
+      "issuedAt": "2026-03-19T15:00:00.000Z",
+      "amountCents": 64080,
+      "status": "paid",
+      "paidAt": "2026-04-01T15:00:00.000Z",
+      "paidToLast4": "6327"
+    },
+    {
+      "id": "HP-INV-0036",
+      "supplierId": "SUP-023",
+      "issuedAt": "2026-03-19T15:00:00.000Z",
+      "amountCents": 211920,
+      "status": "paid",
+      "paidAt": "2026-03-30T15:00:00.000Z",
+      "paidToLast4": "2528"
+    },
+    {
+      "id": "HP-INV-0037",
+      "supplierId": "SUP-024",
+      "issuedAt": "2026-03-19T15:00:00.000Z",
+      "amountCents": 497170,
+      "status": "paid",
+      "paidAt": "2026-03-26T15:00:00.000Z",
+      "paidToLast4": "2652"
+    },
+    {
+      "id": "HP-INV-0005",
+      "supplierId": "SUP-004",
+      "issuedAt": "2026-03-21T15:00:00.000Z",
+      "amountCents": 259450,
+      "status": "paid",
+      "paidAt": "2026-03-29T15:00:00.000Z",
+      "paidToLast4": "8587"
+    },
+    {
+      "id": "HP-INV-0013",
+      "supplierId": "SUP-009",
+      "issuedAt": "2026-03-21T15:00:00.000Z",
+      "amountCents": 186390,
+      "status": "paid",
+      "paidAt": "2026-04-05T15:00:00.000Z",
+      "paidToLast4": "3618"
+    },
+    {
+      "id": "HP-INV-0009",
+      "supplierId": "SUP-006",
+      "issuedAt": "2026-03-22T15:00:00.000Z",
+      "amountCents": 403500,
+      "status": "paid",
+      "paidAt": "2026-04-06T15:00:00.000Z",
+      "paidToLast4": "4125"
+    },
+    {
+      "id": "HP-INV-0014",
+      "supplierId": "SUP-009",
+      "issuedAt": "2026-03-22T15:00:00.000Z",
+      "amountCents": 435410,
+      "status": "paid",
+      "paidAt": "2026-04-04T15:00:00.000Z",
+      "paidToLast4": "3618"
+    },
+    {
+      "id": "HP-INV-0042",
+      "supplierId": "SUP-026",
+      "issuedAt": "2026-03-22T15:00:00.000Z",
+      "amountCents": 247300,
+      "status": "paid",
+      "paidAt": "2026-04-08T15:00:00.000Z",
+      "paidToLast4": "4359"
+    },
+    {
+      "id": "HP-INV-0044",
+      "supplierId": "SUP-028",
+      "issuedAt": "2026-03-22T15:00:00.000Z",
+      "amountCents": 479880,
+      "status": "paid",
+      "paidAt": "2026-04-09T15:00:00.000Z",
+      "paidToLast4": "3328"
+    },
+    {
+      "id": "HP-INV-0007",
+      "supplierId": "SUP-005",
+      "issuedAt": "2026-03-23T15:00:00.000Z",
+      "amountCents": 297280,
+      "status": "paid",
+      "paidAt": "2026-04-01T15:00:00.000Z",
+      "paidToLast4": "3562"
+    },
+    {
+      "id": "HP-INV-0016",
+      "supplierId": "SUP-010",
+      "issuedAt": "2026-03-23T15:00:00.000Z",
+      "amountCents": 348100,
+      "status": "paid",
+      "paidAt": "2026-04-09T15:00:00.000Z",
+      "paidToLast4": "2477"
+    },
+    {
+      "id": "HP-INV-0029",
+      "supplierId": "SUP-019",
+      "issuedAt": "2026-03-23T15:00:00.000Z",
+      "amountCents": 303040,
+      "status": "paid",
+      "paidAt": "2026-04-08T15:00:00.000Z",
+      "paidToLast4": "4992"
+    },
+    {
+      "id": "HP-INV-0045",
+      "supplierId": "SUP-028",
+      "issuedAt": "2026-03-24T15:00:00.000Z",
+      "amountCents": 151950,
+      "status": "paid",
+      "paidAt": "2026-04-11T15:00:00.000Z",
+      "paidToLast4": "3328"
+    },
+    {
+      "id": "HP-INV-0001",
+      "supplierId": "SUP-001",
+      "issuedAt": "2026-03-26T15:00:00.000Z",
+      "amountCents": 267360,
+      "status": "paid",
+      "paidAt": "2026-04-05T15:00:00.000Z",
+      "paidToLast4": "4484"
+    },
+    {
+      "id": "HP-INV-0031",
+      "supplierId": "SUP-020",
+      "issuedAt": "2026-03-26T15:00:00.000Z",
+      "amountCents": 470350,
+      "status": "paid",
+      "paidAt": "2026-04-14T15:00:00.000Z",
+      "paidToLast4": "5238"
+    },
+    {
+      "id": "HP-INV-0034",
+      "supplierId": "SUP-022",
+      "issuedAt": "2026-03-26T15:00:00.000Z",
+      "amountCents": 379030,
+      "status": "paid",
+      "paidAt": "2026-04-02T15:00:00.000Z",
+      "paidToLast4": "9023"
+    },
+    {
+      "id": "HP-INV-0069",
+      "supplierId": "SUP-016",
+      "issuedAt": "2026-04-01T15:00:00.000Z",
+      "amountCents": 51990,
+      "status": "paid",
+      "paidAt": "2026-04-19T15:00:00.000Z",
+      "paidToLast4": "5546"
+    },
+    {
+      "id": "HP-INV-0082",
+      "supplierId": "SUP-025",
+      "issuedAt": "2026-04-01T15:00:00.000Z",
+      "amountCents": 347180,
+      "status": "paid",
+      "paidAt": "2026-04-20T15:00:00.000Z",
+      "paidToLast4": "2188"
+    },
+    {
+      "id": "HP-INV-0083",
+      "supplierId": "SUP-025",
+      "issuedAt": "2026-04-01T15:00:00.000Z",
+      "amountCents": 321670,
+      "status": "paid",
+      "paidAt": "2026-04-20T15:00:00.000Z",
+      "paidToLast4": "2188"
+    },
+    {
+      "id": "HP-INV-0091",
+      "supplierId": "SUP-030",
+      "issuedAt": "2026-04-01T15:00:00.000Z",
+      "amountCents": 388550,
+      "status": "paid",
+      "paidAt": "2026-04-09T15:00:00.000Z",
+      "paidToLast4": "8041"
+    },
+    {
+      "id": "HP-INV-0056",
+      "supplierId": "SUP-006",
+      "issuedAt": "2026-04-03T15:00:00.000Z",
+      "amountCents": 297100,
+      "status": "paid",
+      "paidAt": "2026-04-19T15:00:00.000Z",
+      "paidToLast4": "4125"
+    },
+    {
+      "id": "HP-INV-0073",
+      "supplierId": "SUP-019",
+      "issuedAt": "2026-04-03T15:00:00.000Z",
+      "amountCents": 288290,
+      "status": "paid",
+      "paidAt": "2026-04-11T15:00:00.000Z",
+      "paidToLast4": "4992"
+    },
+    {
+      "id": "HP-INV-0090",
+      "supplierId": "SUP-029",
+      "issuedAt": "2026-04-03T15:00:00.000Z",
+      "amountCents": 55910,
+      "status": "paid",
+      "paidAt": "2026-04-20T15:00:00.000Z",
+      "paidToLast4": "9925"
+    },
+    {
+      "id": "HP-INV-0058",
+      "supplierId": "SUP-008",
+      "issuedAt": "2026-04-04T15:00:00.000Z",
+      "amountCents": 151310,
+      "status": "paid",
+      "paidAt": "2026-04-20T15:00:00.000Z",
+      "paidToLast4": "5783"
+    },
+    {
+      "id": "HP-INV-0067",
+      "supplierId": "SUP-014",
+      "issuedAt": "2026-04-04T15:00:00.000Z",
+      "amountCents": 274750,
+      "status": "paid",
+      "paidAt": "2026-04-17T15:00:00.000Z",
+      "paidToLast4": "4473"
+    },
+    {
+      "id": "HP-INV-0079",
+      "supplierId": "SUP-023",
+      "issuedAt": "2026-04-04T15:00:00.000Z",
+      "amountCents": 432290,
+      "status": "paid",
+      "paidAt": "2026-04-15T15:00:00.000Z",
+      "paidToLast4": "2528"
+    },
+    {
+      "id": "HP-INV-0068",
+      "supplierId": "SUP-015",
+      "issuedAt": "2026-04-05T15:00:00.000Z",
+      "amountCents": 174590,
+      "status": "paid",
+      "paidAt": "2026-04-13T15:00:00.000Z",
+      "paidToLast4": "5041"
+    },
+    {
+      "id": "HP-INV-0074",
+      "supplierId": "SUP-020",
+      "issuedAt": "2026-04-05T15:00:00.000Z",
+      "amountCents": 418430,
+      "status": "paid",
+      "paidAt": "2026-04-17T15:00:00.000Z",
+      "paidToLast4": "5238"
+    },
+    {
+      "id": "HP-INV-0065",
+      "supplierId": "SUP-012",
+      "issuedAt": "2026-04-06T15:00:00.000Z",
+      "amountCents": 431180,
+      "status": "paid",
+      "paidAt": "2026-04-15T15:00:00.000Z",
+      "paidToLast4": "5089"
+    },
+    {
+      "id": "HP-INV-0049",
+      "supplierId": "SUP-001",
+      "issuedAt": "2026-04-07T15:00:00.000Z",
+      "amountCents": 489980,
+      "status": "paid",
+      "paidAt": "2026-04-24T15:00:00.000Z",
+      "paidToLast4": "4484"
+    },
+    {
+      "id": "HP-INV-0057",
+      "supplierId": "SUP-007",
+      "issuedAt": "2026-04-07T15:00:00.000Z",
+      "amountCents": 133230,
+      "status": "paid",
+      "paidAt": "2026-04-14T15:00:00.000Z",
+      "paidToLast4": "8931"
+    },
+    {
+      "id": "HP-INV-0078",
+      "supplierId": "SUP-022",
+      "issuedAt": "2026-04-07T15:00:00.000Z",
+      "amountCents": 203810,
+      "status": "paid",
+      "paidAt": "2026-04-14T15:00:00.000Z",
+      "paidToLast4": "9023"
+    },
+    {
+      "id": "HP-INV-0086",
+      "supplierId": "SUP-027",
+      "issuedAt": "2026-04-07T15:00:00.000Z",
+      "amountCents": 82800,
+      "status": "paid",
+      "paidAt": "2026-04-22T15:00:00.000Z",
+      "paidToLast4": "3254"
+    },
+    {
+      "id": "HP-INV-0053",
+      "supplierId": "SUP-005",
+      "issuedAt": "2026-04-09T15:00:00.000Z",
+      "amountCents": 107740,
+      "status": "paid",
+      "paidAt": "2026-04-22T15:00:00.000Z",
+      "paidToLast4": "3562"
+    },
+    {
+      "id": "HP-INV-0085",
+      "supplierId": "SUP-026",
+      "issuedAt": "2026-04-09T15:00:00.000Z",
+      "amountCents": 135390,
+      "status": "paid",
+      "paidAt": "2026-04-28T15:00:00.000Z",
+      "paidToLast4": "4359"
+    },
+    {
+      "id": "HP-INV-0089",
+      "supplierId": "SUP-029",
+      "issuedAt": "2026-04-10T15:00:00.000Z",
+      "amountCents": 454910,
+      "status": "paid",
+      "paidAt": "2026-04-21T15:00:00.000Z",
+      "paidToLast4": "9925"
+    },
+    {
+      "id": "HP-INV-0050",
+      "supplierId": "SUP-002",
+      "issuedAt": "2026-04-11T15:00:00.000Z",
+      "amountCents": 124190,
+      "status": "paid",
+      "paidAt": "2026-04-20T15:00:00.000Z",
+      "paidToLast4": "1323"
+    },
+    {
+      "id": "HP-INV-0062",
+      "supplierId": "SUP-010",
+      "issuedAt": "2026-04-11T15:00:00.000Z",
+      "amountCents": 263690,
+      "status": "paid",
+      "paidAt": "2026-04-26T15:00:00.000Z",
+      "paidToLast4": "2477"
+    },
+    {
+      "id": "HP-INV-0054",
+      "supplierId": "SUP-005",
+      "issuedAt": "2026-04-13T15:00:00.000Z",
+      "amountCents": 257480,
+      "status": "paid",
+      "paidAt": "2026-04-23T15:00:00.000Z",
+      "paidToLast4": "3562"
+    },
+    {
+      "id": "HP-INV-0064",
+      "supplierId": "SUP-012",
+      "issuedAt": "2026-04-15T15:00:00.000Z",
+      "amountCents": 250120,
+      "status": "paid",
+      "paidAt": "2026-04-22T15:00:00.000Z",
+      "paidToLast4": "5089"
+    },
+    {
+      "id": "HP-INV-0072",
+      "supplierId": "SUP-018",
+      "issuedAt": "2026-04-15T15:00:00.000Z",
+      "amountCents": 362700,
+      "status": "paid",
+      "paidAt": "2026-05-04T15:00:00.000Z",
+      "paidToLast4": "9975"
+    },
+    {
+      "id": "HP-INV-0055",
+      "supplierId": "SUP-006",
+      "issuedAt": "2026-04-16T15:00:00.000Z",
+      "amountCents": 393140,
+      "status": "paid",
+      "paidAt": "2026-04-24T15:00:00.000Z",
+      "paidToLast4": "4125"
+    },
+    {
+      "id": "HP-INV-0084",
+      "supplierId": "SUP-026",
+      "issuedAt": "2026-04-16T15:00:00.000Z",
+      "amountCents": 112720,
+      "status": "paid",
+      "paidAt": "2026-05-02T15:00:00.000Z",
+      "paidToLast4": "4359"
+    },
+    {
+      "id": "HP-INV-0088",
+      "supplierId": "SUP-028",
+      "issuedAt": "2026-04-16T15:00:00.000Z",
+      "amountCents": 311220,
+      "status": "paid",
+      "paidAt": "2026-04-30T15:00:00.000Z",
+      "paidToLast4": "3328"
+    },
+    {
+      "id": "HP-INV-0060",
+      "supplierId": "SUP-009",
+      "issuedAt": "2026-04-17T15:00:00.000Z",
+      "amountCents": 400970,
+      "status": "paid",
+      "paidAt": "2026-04-25T15:00:00.000Z",
+      "paidToLast4": "3618"
+    },
+    {
+      "id": "HP-INV-0087",
+      "supplierId": "SUP-027",
+      "issuedAt": "2026-04-18T15:00:00.000Z",
+      "amountCents": 141410,
+      "status": "paid",
+      "paidAt": "2026-05-07T15:00:00.000Z",
+      "paidToLast4": "3254"
+    },
+    {
+      "id": "HP-INV-0081",
+      "supplierId": "SUP-024",
+      "issuedAt": "2026-04-19T15:00:00.000Z",
+      "amountCents": 333010,
+      "status": "paid",
+      "paidAt": "2026-04-26T15:00:00.000Z",
+      "paidToLast4": "2652"
+    },
+    {
+      "id": "HP-INV-0063",
+      "supplierId": "SUP-011",
+      "issuedAt": "2026-04-20T15:00:00.000Z",
+      "amountCents": 162620,
+      "status": "paid",
+      "paidAt": "2026-05-05T15:00:00.000Z",
+      "paidToLast4": "6298"
+    },
+    {
+      "id": "HP-INV-0066",
+      "supplierId": "SUP-013",
+      "issuedAt": "2026-04-21T15:00:00.000Z",
+      "amountCents": 341280,
+      "status": "paid",
+      "paidAt": "2026-05-09T15:00:00.000Z",
+      "paidToLast4": "3711"
+    },
+    {
+      "id": "HP-INV-0052",
+      "supplierId": "SUP-004",
+      "issuedAt": "2026-04-22T15:00:00.000Z",
+      "amountCents": 340680,
+      "status": "paid",
+      "paidAt": "2026-05-03T15:00:00.000Z",
+      "paidToLast4": "8587"
+    },
+    {
+      "id": "HP-INV-0071",
+      "supplierId": "SUP-018",
+      "issuedAt": "2026-04-22T15:00:00.000Z",
+      "amountCents": 134610,
+      "status": "paid",
+      "paidAt": "2026-05-03T15:00:00.000Z",
+      "paidToLast4": "9975"
+    },
+    {
+      "id": "HP-INV-0059",
+      "supplierId": "SUP-008",
+      "issuedAt": "2026-04-23T15:00:00.000Z",
+      "amountCents": 350500,
+      "status": "paid",
+      "paidAt": "2026-04-30T15:00:00.000Z",
+      "paidToLast4": "5783"
+    },
+    {
+      "id": "HP-INV-0051",
+      "supplierId": "SUP-003",
+      "issuedAt": "2026-04-24T15:00:00.000Z",
+      "amountCents": 424730,
+      "status": "paid",
+      "paidAt": "2026-05-11T15:00:00.000Z",
+      "paidToLast4": "9681"
+    },
+    {
+      "id": "HP-INV-0077",
+      "supplierId": "SUP-021",
+      "issuedAt": "2026-04-24T15:00:00.000Z",
+      "amountCents": 62540,
+      "status": "paid",
+      "paidAt": "2026-05-02T15:00:00.000Z",
+      "paidToLast4": "6041"
+    },
+    {
+      "id": "HP-INV-0080",
+      "supplierId": "SUP-024",
+      "issuedAt": "2026-04-24T15:00:00.000Z",
+      "amountCents": 302270,
+      "status": "paid",
+      "paidAt": "2026-05-13T15:00:00.000Z",
+      "paidToLast4": "2652"
+    },
+    {
+      "id": "HP-INV-0061",
+      "supplierId": "SUP-010",
+      "issuedAt": "2026-04-25T15:00:00.000Z",
+      "amountCents": 272320,
+      "status": "paid",
+      "paidAt": "2026-05-09T15:00:00.000Z",
+      "paidToLast4": "2477"
+    },
+    {
+      "id": "HP-INV-0075",
+      "supplierId": "SUP-020",
+      "issuedAt": "2026-04-25T15:00:00.000Z",
+      "amountCents": 410840,
+      "status": "paid",
+      "paidAt": "2026-05-04T15:00:00.000Z",
+      "paidToLast4": "5238"
+    },
+    {
+      "id": "HP-INV-0070",
+      "supplierId": "SUP-017",
+      "issuedAt": "2026-04-26T15:00:00.000Z",
+      "amountCents": 132600,
+      "status": "paid",
+      "paidAt": "2026-05-12T15:00:00.000Z",
+      "paidToLast4": "6327"
+    },
+    {
+      "id": "HP-INV-0076",
+      "supplierId": "SUP-021",
+      "issuedAt": "2026-04-26T15:00:00.000Z",
+      "amountCents": 51750,
+      "status": "paid",
+      "paidAt": "2026-05-12T15:00:00.000Z",
+      "paidToLast4": "6041"
+    },
+    {
+      "id": "HP-INV-0102",
+      "supplierId": "SUP-008",
+      "issuedAt": "2026-05-01T15:00:00.000Z",
+      "amountCents": 327470,
+      "status": "paid",
+      "paidAt": "2026-05-11T15:00:00.000Z",
+      "paidToLast4": "5783"
+    },
+    {
+      "id": "HP-INV-0108",
+      "supplierId": "SUP-012",
+      "issuedAt": "2026-05-01T15:00:00.000Z",
+      "amountCents": 120570,
+      "status": "paid",
+      "paidAt": "2026-05-11T15:00:00.000Z",
+      "paidToLast4": "5089"
+    },
+    {
+      "id": "HP-INV-0113",
+      "supplierId": "SUP-017",
+      "issuedAt": "2026-05-01T15:00:00.000Z",
+      "amountCents": 440930,
+      "status": "paid",
+      "paidAt": "2026-05-18T15:00:00.000Z",
+      "paidToLast4": "6327"
+    },
+    {
+      "id": "HP-INV-0123",
+      "supplierId": "SUP-023",
+      "issuedAt": "2026-05-01T15:00:00.000Z",
+      "amountCents": 341180,
+      "status": "paid",
+      "paidAt": "2026-05-11T15:00:00.000Z",
+      "paidToLast4": "2528"
+    },
+    {
+      "id": "HP-INV-0127",
+      "supplierId": "SUP-026",
+      "issuedAt": "2026-05-01T15:00:00.000Z",
+      "amountCents": 168050,
+      "status": "paid",
+      "paidAt": "2026-05-15T15:00:00.000Z",
+      "paidToLast4": "4359"
+    },
+    {
+      "id": "HP-INV-0130",
+      "supplierId": "SUP-027",
+      "issuedAt": "2026-05-02T15:00:00.000Z",
+      "amountCents": 210690,
+      "status": "paid",
+      "paidAt": "2026-05-14T15:00:00.000Z",
+      "paidToLast4": "3254"
+    },
+    {
+      "id": "HP-INV-0134",
+      "supplierId": "SUP-030",
+      "issuedAt": "2026-05-03T15:00:00.000Z",
+      "amountCents": 386050,
+      "status": "paid",
+      "paidAt": "2026-05-18T15:00:00.000Z",
+      "paidToLast4": "8041"
+    },
+    {
+      "id": "HP-INV-0096",
+      "supplierId": "SUP-003",
+      "issuedAt": "2026-05-04T15:00:00.000Z",
+      "amountCents": 294410,
+      "status": "paid",
+      "paidAt": "2026-05-16T15:00:00.000Z",
+      "paidToLast4": "9681"
+    },
+    {
+      "id": "HP-INV-0106",
+      "supplierId": "SUP-011",
+      "issuedAt": "2026-05-04T15:00:00.000Z",
+      "amountCents": 478680,
+      "status": "paid",
+      "paidAt": "2026-05-14T15:00:00.000Z",
+      "paidToLast4": "6298"
+    },
+    {
+      "id": "HP-INV-0118",
+      "supplierId": "SUP-020",
+      "issuedAt": "2026-05-05T15:00:00.000Z",
+      "amountCents": 307900,
+      "status": "paid",
+      "paidAt": "2026-05-25T15:00:00.000Z",
+      "paidToLast4": "5238"
+    },
+    {
+      "id": "HP-INV-0101",
+      "supplierId": "SUP-007",
+      "issuedAt": "2026-05-07T15:00:00.000Z",
+      "amountCents": 445400,
+      "status": "paid",
+      "paidAt": "2026-05-25T15:00:00.000Z",
+      "paidToLast4": "8931"
+    },
+    {
+      "id": "HP-INV-0131",
+      "supplierId": "SUP-028",
+      "issuedAt": "2026-05-07T15:00:00.000Z",
+      "amountCents": 201550,
+      "status": "paid",
+      "paidAt": "2026-05-18T15:00:00.000Z",
+      "paidToLast4": "3328"
+    },
+    {
+      "id": "HP-INV-0125",
+      "supplierId": "SUP-025",
+      "issuedAt": "2026-05-10T15:00:00.000Z",
+      "amountCents": 49740,
+      "status": "paid",
+      "paidAt": "2026-05-17T15:00:00.000Z",
+      "paidToLast4": "2188"
+    },
+    {
+      "id": "HP-INV-0100",
+      "supplierId": "SUP-006",
+      "issuedAt": "2026-05-11T15:00:00.000Z",
+      "amountCents": 397920,
+      "status": "paid",
+      "paidAt": "2026-05-20T15:00:00.000Z",
+      "paidToLast4": "4125"
+    },
+    {
+      "id": "HP-INV-0111",
+      "supplierId": "SUP-015",
+      "issuedAt": "2026-05-11T15:00:00.000Z",
+      "amountCents": 449950,
+      "status": "paid",
+      "paidAt": "2026-05-27T15:00:00.000Z",
+      "paidToLast4": "5041"
+    },
+    {
+      "id": "HP-INV-0115",
+      "supplierId": "SUP-019",
+      "issuedAt": "2026-05-11T15:00:00.000Z",
+      "amountCents": 107960,
+      "status": "paid",
+      "paidAt": "2026-05-23T15:00:00.000Z",
+      "paidToLast4": "4992"
+    },
+    {
+      "id": "HP-INV-0117",
+      "supplierId": "SUP-020",
+      "issuedAt": "2026-05-11T15:00:00.000Z",
+      "amountCents": 120740,
+      "status": "paid",
+      "paidAt": "2026-05-23T15:00:00.000Z",
+      "paidToLast4": "5238"
+    },
+    {
+      "id": "HP-INV-0126",
+      "supplierId": "SUP-025",
+      "issuedAt": "2026-05-11T15:00:00.000Z",
+      "amountCents": 311500,
+      "status": "paid",
+      "paidAt": "2026-05-26T15:00:00.000Z",
+      "paidToLast4": "2188"
+    },
+    {
+      "id": "HP-INV-0132",
+      "supplierId": "SUP-029",
+      "issuedAt": "2026-05-11T15:00:00.000Z",
+      "amountCents": 222720,
+      "status": "paid",
+      "paidAt": "2026-05-24T15:00:00.000Z",
+      "paidToLast4": "9925"
+    },
+    {
+      "id": "HP-INV-0129",
+      "supplierId": "SUP-027",
+      "issuedAt": "2026-05-12T15:00:00.000Z",
+      "amountCents": 310280,
+      "status": "paid",
+      "paidAt": "2026-05-27T15:00:00.000Z",
+      "paidToLast4": "3254"
+    },
+    {
+      "id": "HP-INV-0098",
+      "supplierId": "SUP-005",
+      "issuedAt": "2026-05-13T15:00:00.000Z",
+      "amountCents": 297530,
+      "status": "paid",
+      "paidAt": "2026-05-20T15:00:00.000Z",
+      "paidToLast4": "3562"
+    },
+    {
+      "id": "HP-INV-0128",
+      "supplierId": "SUP-026",
+      "issuedAt": "2026-05-13T15:00:00.000Z",
+      "amountCents": 171810,
+      "status": "paid",
+      "paidAt": "2026-05-25T15:00:00.000Z",
+      "paidToLast4": "4359"
+    },
+    {
+      "id": "HP-INV-0114",
+      "supplierId": "SUP-018",
+      "issuedAt": "2026-05-14T15:00:00.000Z",
+      "amountCents": 338000,
+      "status": "paid",
+      "paidAt": "2026-06-03T15:00:00.000Z",
+      "paidToLast4": "9975"
+    },
+    {
+      "id": "HP-INV-0135",
+      "supplierId": "SUP-030",
+      "issuedAt": "2026-05-14T15:00:00.000Z",
+      "amountCents": 179090,
+      "status": "paid",
+      "paidAt": "2026-05-23T15:00:00.000Z",
+      "paidToLast4": "8041"
+    },
+    {
+      "id": "HP-INV-0099",
+      "supplierId": "SUP-005",
+      "issuedAt": "2026-05-15T15:00:00.000Z",
+      "amountCents": 467700,
+      "status": "paid",
+      "paidAt": "2026-06-01T15:00:00.000Z",
+      "paidToLast4": "3562"
+    },
+    {
+      "id": "HP-INV-0097",
+      "supplierId": "SUP-004",
+      "issuedAt": "2026-05-16T15:00:00.000Z",
+      "amountCents": 329560,
+      "status": "paid",
+      "paidAt": "2026-06-04T15:00:00.000Z",
+      "paidToLast4": "8587"
+    },
+    {
+      "id": "HP-INV-0110",
+      "supplierId": "SUP-014",
+      "issuedAt": "2026-05-16T15:00:00.000Z",
+      "amountCents": 390060,
+      "status": "paid",
+      "paidAt": "2026-05-25T15:00:00.000Z",
+      "paidToLast4": "4473"
+    },
+    {
+      "id": "HP-INV-0120",
+      "supplierId": "SUP-021",
+      "issuedAt": "2026-05-16T15:00:00.000Z",
+      "amountCents": 205390,
+      "status": "paid",
+      "paidAt": "2026-06-04T15:00:00.000Z",
+      "paidToLast4": "6041"
+    },
+    {
+      "id": "HP-INV-0122",
+      "supplierId": "SUP-023",
+      "issuedAt": "2026-05-16T15:00:00.000Z",
+      "amountCents": 224120,
+      "status": "paid",
+      "paidAt": "2026-05-26T15:00:00.000Z",
+      "paidToLast4": "2528"
+    },
+    {
+      "id": "HP-INV-0095",
+      "supplierId": "SUP-002",
+      "issuedAt": "2026-05-18T15:00:00.000Z",
+      "amountCents": 482800,
+      "status": "paid",
+      "paidAt": "2026-06-06T15:00:00.000Z",
+      "paidToLast4": "1323"
+    },
+    {
+      "id": "HP-INV-0104",
+      "supplierId": "SUP-009",
+      "issuedAt": "2026-05-18T15:00:00.000Z",
+      "amountCents": 358700,
+      "status": "paid",
+      "paidAt": "2026-05-30T15:00:00.000Z",
+      "paidToLast4": "3618"
+    },
+    {
+      "id": "HP-INV-0107",
+      "supplierId": "SUP-011",
+      "issuedAt": "2026-05-18T15:00:00.000Z",
+      "amountCents": 248510,
+      "status": "paid",
+      "paidAt": "2026-06-07T15:00:00.000Z",
+      "paidToLast4": "6298"
+    },
+    {
+      "id": "HP-INV-0112",
+      "supplierId": "SUP-016",
+      "issuedAt": "2026-05-18T15:00:00.000Z",
+      "amountCents": 323240,
+      "status": "paid",
+      "paidAt": "2026-06-05T15:00:00.000Z",
+      "paidToLast4": "5546"
+    },
+    {
+      "id": "HP-INV-0119",
+      "supplierId": "SUP-021",
+      "issuedAt": "2026-05-18T15:00:00.000Z",
+      "amountCents": 57280,
+      "status": "paid",
+      "paidAt": "2026-05-26T15:00:00.000Z",
+      "paidToLast4": "6041"
+    },
+    {
+      "id": "HP-INV-0133",
+      "supplierId": "SUP-029",
+      "issuedAt": "2026-05-18T15:00:00.000Z",
+      "amountCents": 362550,
+      "status": "paid",
+      "paidAt": "2026-05-25T15:00:00.000Z",
+      "paidToLast4": "9925"
+    },
+    {
+      "id": "HP-INV-0124",
+      "supplierId": "SUP-024",
+      "issuedAt": "2026-05-19T15:00:00.000Z",
+      "amountCents": 408740,
+      "status": "paid",
+      "paidAt": "2026-06-06T15:00:00.000Z",
+      "paidToLast4": "2652"
+    },
+    {
+      "id": "HP-INV-0092",
+      "supplierId": "SUP-001",
+      "issuedAt": "2026-05-21T15:00:00.000Z",
+      "amountCents": 90690,
+      "status": "paid",
+      "paidAt": "2026-05-30T15:00:00.000Z",
+      "paidToLast4": "4484"
+    },
+    {
+      "id": "HP-INV-0103",
+      "supplierId": "SUP-009",
+      "issuedAt": "2026-05-21T15:00:00.000Z",
+      "amountCents": 214490,
+      "status": "paid",
+      "paidAt": "2026-06-01T15:00:00.000Z",
+      "paidToLast4": "3618"
+    },
+    {
+      "id": "HP-INV-0105",
+      "supplierId": "SUP-010",
+      "issuedAt": "2026-05-21T15:00:00.000Z",
+      "amountCents": 50500,
+      "status": "paid",
+      "paidAt": "2026-06-01T15:00:00.000Z",
+      "paidToLast4": "2477"
+    },
+    {
+      "id": "HP-INV-0121",
+      "supplierId": "SUP-022",
+      "issuedAt": "2026-05-21T15:00:00.000Z",
+      "amountCents": 396200,
+      "status": "paid",
+      "paidAt": "2026-06-04T15:00:00.000Z",
+      "paidToLast4": "9023"
+    },
+    {
+      "id": "HP-INV-0093",
+      "supplierId": "SUP-001",
+      "issuedAt": "2026-05-22T15:00:00.000Z",
+      "amountCents": 458020,
+      "status": "paid",
+      "paidAt": "2026-06-01T15:00:00.000Z",
+      "paidToLast4": "4484"
+    },
+    {
+      "id": "HP-INV-0109",
+      "supplierId": "SUP-013",
+      "issuedAt": "2026-05-22T15:00:00.000Z",
+      "amountCents": 285490,
+      "status": "paid",
+      "paidAt": "2026-06-07T15:00:00.000Z",
+      "paidToLast4": "3711"
+    },
+    {
+      "id": "HP-INV-0116",
+      "supplierId": "SUP-019",
+      "issuedAt": "2026-05-24T15:00:00.000Z",
+      "amountCents": 418290,
+      "status": "paid",
+      "paidAt": "2026-06-10T15:00:00.000Z",
+      "paidToLast4": "4992"
+    },
+    {
+      "id": "HP-INV-0094",
+      "supplierId": "SUP-002",
+      "issuedAt": "2026-05-25T15:00:00.000Z",
+      "amountCents": 61260,
+      "status": "paid",
+      "paidAt": "2026-06-04T15:00:00.000Z",
+      "paidToLast4": "1323"
+    },
+    {
+      "id": "HP-INV-0140",
+      "supplierId": "SUP-003",
+      "issuedAt": "2026-06-01T15:00:00.000Z",
+      "amountCents": 212430,
+      "status": "paid",
+      "paidAt": "2026-06-17T15:00:00.000Z",
+      "paidToLast4": "9681"
+    },
+    {
+      "id": "HP-INV-0149",
+      "supplierId": "SUP-009",
+      "issuedAt": "2026-06-01T15:00:00.000Z",
+      "amountCents": 124800,
+      "status": "paid",
+      "paidAt": "2026-06-12T15:00:00.000Z",
+      "paidToLast4": "3618"
+    },
+    {
+      "id": "HP-INV-0142",
+      "supplierId": "SUP-005",
+      "issuedAt": "2026-06-02T15:00:00.000Z",
+      "amountCents": 477090,
+      "status": "paid",
+      "paidAt": "2026-06-19T15:00:00.000Z",
+      "paidToLast4": "3562"
+    },
+    {
+      "id": "HP-INV-0150",
+      "supplierId": "SUP-010",
+      "issuedAt": "2026-06-02T15:00:00.000Z",
+      "amountCents": 200060,
+      "status": "paid",
+      "paidAt": "2026-06-13T15:00:00.000Z",
+      "paidToLast4": "2477"
+    },
+    {
+      "id": "HP-INV-0179",
+      "supplierId": "SUP-028",
+      "issuedAt": "2026-06-03T15:00:00.000Z",
+      "amountCents": 203970,
+      "status": "paid",
+      "paidAt": "2026-06-20T15:00:00.000Z",
+      "paidToLast4": "3328"
+    },
+    {
+      "id": "HP-INV-0148",
+      "supplierId": "SUP-009",
+      "issuedAt": "2026-06-04T15:00:00.000Z",
+      "amountCents": 246450,
+      "status": "paid",
+      "paidAt": "2026-06-15T15:00:00.000Z",
+      "paidToLast4": "3618"
+    },
+    {
+      "id": "HP-INV-0170",
+      "supplierId": "SUP-023",
+      "issuedAt": "2026-06-04T15:00:00.000Z",
+      "amountCents": 164430,
+      "status": "paid",
+      "paidAt": "2026-06-11T15:00:00.000Z",
+      "paidToLast4": "2528"
+    },
+    {
+      "id": "HP-INV-0172",
+      "supplierId": "SUP-024",
+      "issuedAt": "2026-06-04T15:00:00.000Z",
+      "amountCents": 144490,
+      "status": "paid",
+      "paidAt": "2026-06-22T15:00:00.000Z",
+      "paidToLast4": "2652"
+    },
+    {
+      "id": "HP-INV-0147",
+      "supplierId": "SUP-008",
+      "issuedAt": "2026-06-05T15:00:00.000Z",
+      "amountCents": 123890,
+      "status": "paid",
+      "paidAt": "2026-06-14T15:00:00.000Z",
+      "paidToLast4": "5783"
+    },
+    {
+      "id": "HP-INV-0156",
+      "supplierId": "SUP-014",
+      "issuedAt": "2026-06-05T15:00:00.000Z",
+      "amountCents": 331330,
+      "status": "paid",
+      "paidAt": "2026-06-25T15:00:00.000Z",
+      "paidToLast4": "4473"
+    },
+    {
+      "id": "HP-INV-0160",
+      "supplierId": "SUP-017",
+      "issuedAt": "2026-06-05T15:00:00.000Z",
+      "amountCents": 171860,
+      "status": "paid",
+      "paidAt": "2026-06-15T15:00:00.000Z",
+      "paidToLast4": "6327"
+    },
+    {
+      "id": "HP-INV-0164",
+      "supplierId": "SUP-019",
+      "issuedAt": "2026-06-05T15:00:00.000Z",
+      "amountCents": 67590,
+      "status": "paid",
+      "paidAt": "2026-06-20T15:00:00.000Z",
+      "paidToLast4": "4992"
+    },
+    {
+      "id": "HP-INV-0182",
+      "supplierId": "SUP-030",
+      "issuedAt": "2026-06-05T15:00:00.000Z",
+      "amountCents": 244460,
+      "status": "paid",
+      "paidAt": "2026-06-21T15:00:00.000Z",
+      "paidToLast4": "8041"
+    },
+    {
+      "id": "HP-INV-0157",
+      "supplierId": "SUP-014",
+      "issuedAt": "2026-06-06T15:00:00.000Z",
+      "amountCents": 352390,
+      "status": "paid",
+      "paidAt": "2026-06-17T15:00:00.000Z",
+      "paidToLast4": "4473"
+    },
+    {
+      "id": "HP-INV-0161",
+      "supplierId": "SUP-017",
+      "issuedAt": "2026-06-06T15:00:00.000Z",
+      "amountCents": 421130,
+      "status": "paid",
+      "paidAt": "2026-06-14T15:00:00.000Z",
+      "paidToLast4": "6327"
+    },
+    {
+      "id": "HP-INV-0137",
+      "supplierId": "SUP-002",
+      "issuedAt": "2026-06-08T15:00:00.000Z",
+      "amountCents": 323970,
+      "status": "paid",
+      "paidAt": "2026-06-15T15:00:00.000Z",
+      "paidToLast4": "1323"
+    },
+    {
+      "id": "HP-INV-0138",
+      "supplierId": "SUP-002",
+      "issuedAt": "2026-06-08T15:00:00.000Z",
+      "amountCents": 275880,
+      "status": "paid",
+      "paidAt": "2026-06-16T15:00:00.000Z",
+      "paidToLast4": "1323"
+    },
+    {
+      "id": "HP-INV-0152",
+      "supplierId": "SUP-011",
+      "issuedAt": "2026-06-08T15:00:00.000Z",
+      "amountCents": 450180,
+      "status": "paid",
+      "paidAt": "2026-06-21T15:00:00.000Z",
+      "paidToLast4": "6298"
+    },
+    {
+      "id": "HP-INV-0154",
+      "supplierId": "SUP-013",
+      "issuedAt": "2026-06-08T15:00:00.000Z",
+      "amountCents": 266240,
+      "status": "paid",
+      "paidAt": "2026-06-22T15:00:00.000Z",
+      "paidToLast4": "3711"
+    },
+    {
+      "id": "HP-INV-0176",
+      "supplierId": "SUP-026",
+      "issuedAt": "2026-06-08T15:00:00.000Z",
+      "amountCents": 333350,
+      "status": "paid",
+      "paidAt": "2026-06-21T15:00:00.000Z",
+      "paidToLast4": "4359"
+    },
+    {
+      "id": "HP-INV-0136",
+      "supplierId": "SUP-001",
+      "issuedAt": "2026-06-09T15:00:00.000Z",
+      "amountCents": 50990,
+      "status": "paid",
+      "paidAt": "2026-06-21T15:00:00.000Z",
+      "paidToLast4": "4484"
+    },
+    {
+      "id": "HP-INV-0166",
+      "supplierId": "SUP-020",
+      "issuedAt": "2026-06-09T15:00:00.000Z",
+      "amountCents": 139910,
+      "status": "paid",
+      "paidAt": "2026-06-19T15:00:00.000Z",
+      "paidToLast4": "5238"
+    },
+    {
+      "id": "HP-INV-0174",
+      "supplierId": "SUP-025",
+      "issuedAt": "2026-06-09T15:00:00.000Z",
+      "amountCents": 496440,
+      "status": "paid",
+      "paidAt": "2026-06-17T15:00:00.000Z",
+      "paidToLast4": "2188"
+    },
+    {
+      "id": "HP-INV-0169",
+      "supplierId": "SUP-022",
+      "issuedAt": "2026-06-10T15:00:00.000Z",
+      "amountCents": 91780,
+      "status": "paid",
+      "paidAt": "2026-06-22T15:00:00.000Z",
+      "paidToLast4": "9023"
+    },
+    {
+      "id": "HP-INV-0173",
+      "supplierId": "SUP-024",
+      "issuedAt": "2026-06-10T15:00:00.000Z",
+      "amountCents": 497590,
+      "status": "paid",
+      "paidAt": "2026-06-21T15:00:00.000Z",
+      "paidToLast4": "2652"
+    },
+    {
+      "id": "HP-INV-0171",
+      "supplierId": "SUP-023",
+      "issuedAt": "2026-06-12T15:00:00.000Z",
+      "amountCents": 96590,
+      "status": "paid",
+      "paidAt": "2026-06-29T15:00:00.000Z",
+      "paidToLast4": "2528"
+    },
+    {
+      "id": "HP-INV-0165",
+      "supplierId": "SUP-020",
+      "issuedAt": "2026-06-14T15:00:00.000Z",
+      "amountCents": 343530,
+      "status": "paid",
+      "paidAt": "2026-06-25T15:00:00.000Z",
+      "paidToLast4": "5238"
+    },
+    {
+      "id": "HP-INV-0163",
+      "supplierId": "SUP-018",
+      "issuedAt": "2026-06-15T15:00:00.000Z",
+      "amountCents": 257440,
+      "status": "paid",
+      "paidAt": "2026-07-04T15:00:00.000Z",
+      "paidToLast4": "9975"
+    },
+    {
+      "id": "HP-INV-0178",
+      "supplierId": "SUP-027",
+      "issuedAt": "2026-06-16T15:00:00.000Z",
+      "amountCents": 161070,
+      "status": "paid",
+      "paidAt": "2026-07-06T15:00:00.000Z",
+      "paidToLast4": "3254"
+    },
+    {
+      "id": "HP-INV-0141",
+      "supplierId": "SUP-004",
+      "issuedAt": "2026-06-17T15:00:00.000Z",
+      "amountCents": 134490,
+      "status": "paid",
+      "paidAt": "2026-07-06T15:00:00.000Z",
+      "paidToLast4": "8587"
+    },
+    {
+      "id": "HP-INV-0143",
+      "supplierId": "SUP-005",
+      "issuedAt": "2026-06-17T15:00:00.000Z",
+      "amountCents": 137550,
+      "status": "paid",
+      "paidAt": "2026-06-27T15:00:00.000Z",
+      "paidToLast4": "3562"
+    },
+    {
+      "id": "HP-INV-0167",
+      "supplierId": "SUP-021",
+      "issuedAt": "2026-06-18T15:00:00.000Z",
+      "amountCents": 375960,
+      "status": "paid",
+      "paidAt": "2026-06-26T15:00:00.000Z",
+      "paidToLast4": "6041"
+    },
+    {
+      "id": "HP-INV-0181",
+      "supplierId": "SUP-030",
+      "issuedAt": "2026-06-18T15:00:00.000Z",
+      "amountCents": 334060,
+      "status": "paid",
+      "paidAt": "2026-07-08T15:00:00.000Z",
+      "paidToLast4": "8041"
+    },
+    {
+      "id": "HP-INV-0139",
+      "supplierId": "SUP-003",
+      "issuedAt": "2026-06-19T15:00:00.000Z",
+      "amountCents": 264200,
+      "status": "paid",
+      "paidAt": "2026-06-27T15:00:00.000Z",
+      "paidToLast4": "9681"
+    },
+    {
+      "id": "HP-INV-0145",
+      "supplierId": "SUP-006",
+      "issuedAt": "2026-06-19T15:00:00.000Z",
+      "amountCents": 244430,
+      "status": "paid",
+      "paidAt": "2026-07-06T15:00:00.000Z",
+      "paidToLast4": "4125"
+    },
+    {
+      "id": "HP-INV-0175",
+      "supplierId": "SUP-026",
+      "issuedAt": "2026-06-19T15:00:00.000Z",
+      "amountCents": 55400,
+      "status": "paid",
+      "paidAt": "2026-06-28T15:00:00.000Z",
+      "paidToLast4": "4359"
+    },
+    {
+      "id": "HP-INV-0146",
+      "supplierId": "SUP-007",
+      "issuedAt": "2026-06-20T15:00:00.000Z",
+      "amountCents": 379940,
+      "status": "paid",
+      "paidAt": "2026-07-04T15:00:00.000Z",
+      "paidToLast4": "8931"
+    },
+    {
+      "id": "HP-INV-0159",
+      "supplierId": "SUP-016",
+      "issuedAt": "2026-06-20T15:00:00.000Z",
+      "amountCents": 495930,
+      "status": "paid",
+      "paidAt": "2026-07-10T15:00:00.000Z",
+      "paidToLast4": "5546"
+    },
+    {
+      "id": "HP-INV-0162",
+      "supplierId": "SUP-018",
+      "issuedAt": "2026-06-20T15:00:00.000Z",
+      "amountCents": 474050,
+      "status": "paid",
+      "paidAt": "2026-06-29T15:00:00.000Z",
+      "paidToLast4": "9975"
+    },
+    {
+      "id": "HP-INV-0155",
+      "supplierId": "SUP-013",
+      "issuedAt": "2026-06-21T15:00:00.000Z",
+      "amountCents": 405830,
+      "status": "paid",
+      "paidAt": "2026-07-02T15:00:00.000Z",
+      "paidToLast4": "3711"
+    },
+    {
+      "id": "HP-INV-0158",
+      "supplierId": "SUP-015",
+      "issuedAt": "2026-06-21T15:00:00.000Z",
+      "amountCents": 331380,
+      "status": "paid",
+      "paidAt": "2026-07-01T15:00:00.000Z",
+      "paidToLast4": "5041"
+    },
+    {
+      "id": "HP-INV-0144",
+      "supplierId": "SUP-006",
+      "issuedAt": "2026-06-22T15:00:00.000Z",
+      "amountCents": 57900,
+      "status": "paid",
+      "paidAt": "2026-07-07T15:00:00.000Z",
+      "paidToLast4": "4125"
+    },
+    {
+      "id": "HP-INV-0177",
+      "supplierId": "SUP-027",
+      "issuedAt": "2026-06-22T15:00:00.000Z",
+      "amountCents": 43270,
+      "status": "paid",
+      "paidAt": "2026-07-04T15:00:00.000Z",
+      "paidToLast4": "3254"
+    },
+    {
+      "id": "HP-INV-0180",
+      "supplierId": "SUP-029",
+      "issuedAt": "2026-06-22T15:00:00.000Z",
+      "amountCents": 107380,
+      "status": "paid",
+      "paidAt": "2026-07-06T15:00:00.000Z",
+      "paidToLast4": "9925"
+    },
+    {
+      "id": "HP-INV-0153",
+      "supplierId": "SUP-012",
+      "issuedAt": "2026-06-24T15:00:00.000Z",
+      "amountCents": 401800,
+      "status": "paid",
+      "paidAt": "2026-07-09T15:00:00.000Z",
+      "paidToLast4": "5089"
+    },
+    {
+      "id": "HP-INV-0168",
+      "supplierId": "SUP-021",
+      "issuedAt": "2026-06-24T15:00:00.000Z",
+      "amountCents": 333160,
+      "status": "paid",
+      "paidAt": "2026-07-13T15:00:00.000Z",
+      "paidToLast4": "6041"
+    },
+    {
+      "id": "HP-INV-0151",
+      "supplierId": "SUP-011",
+      "issuedAt": "2026-06-25T15:00:00.000Z",
+      "amountCents": 215090,
+      "status": "paid",
+      "paidAt": "2026-07-09T15:00:00.000Z",
+      "paidToLast4": "6298"
+    },
+    {
+      "id": "HP-INV-0184",
+      "supplierId": "SUP-001",
+      "issuedAt": "2026-07-01T15:00:00.000Z",
+      "amountCents": 266900,
+      "status": "paid",
+      "paidAt": "2026-07-18T15:00:00.000Z",
+      "paidToLast4": "4484"
+    },
+    {
+      "id": "HP-INV-0186",
+      "supplierId": "SUP-002",
+      "issuedAt": "2026-07-01T15:00:00.000Z",
+      "amountCents": 477680,
+      "status": "paid",
+      "paidAt": "2026-07-09T15:00:00.000Z",
+      "paidToLast4": "1323"
+    },
+    {
+      "id": "HP-INV-0188",
+      "supplierId": "SUP-004",
+      "issuedAt": "2026-07-02T15:00:00.000Z",
+      "amountCents": 378100,
+      "status": "paid",
+      "paidAt": "2026-07-16T15:00:00.000Z",
+      "paidToLast4": "8587"
+    },
+    {
+      "id": "HP-INV-0196",
+      "supplierId": "SUP-008",
+      "issuedAt": "2026-07-02T15:00:00.000Z",
+      "amountCents": 64660,
+      "status": "paid",
+      "paidAt": "2026-07-10T15:00:00.000Z",
+      "paidToLast4": "5783"
+    },
+    {
+      "id": "HP-INV-0199",
+      "supplierId": "SUP-010",
+      "issuedAt": "2026-07-03T15:00:00.000Z",
+      "amountCents": 352050,
+      "status": "paid",
+      "paidAt": "2026-07-16T15:00:00.000Z",
+      "paidToLast4": "2477"
+    },
+    {
+      "id": "HP-INV-0204",
+      "supplierId": "SUP-013",
+      "issuedAt": "2026-07-03T15:00:00.000Z",
+      "amountCents": 79940,
+      "status": "paid",
+      "paidAt": "2026-07-19T15:00:00.000Z",
+      "paidToLast4": "3711"
+    },
+    {
+      "id": "HP-INV-0220",
+      "supplierId": "SUP-023",
+      "issuedAt": "2026-07-04T15:00:00.000Z",
+      "amountCents": 52200,
+      "status": "paid",
+      "paidAt": "2026-07-18T15:00:00.000Z",
+      "paidToLast4": "2528"
+    },
+    {
+      "id": "HP-INV-0213",
+      "supplierId": "SUP-019",
+      "issuedAt": "2026-07-05T15:00:00.000Z",
+      "amountCents": 410470,
+      "status": "paid",
+      "paidAt": "2026-07-22T15:00:00.000Z",
+      "paidToLast4": "4992"
+    },
+    {
+      "id": "HP-INV-0190",
+      "supplierId": "SUP-005",
+      "issuedAt": "2026-07-06T15:00:00.000Z",
+      "amountCents": 453840,
+      "status": "paid",
+      "paidAt": "2026-07-19T15:00:00.000Z",
+      "paidToLast4": "3562"
+    },
+    {
+      "id": "HP-INV-0227",
+      "supplierId": "SUP-028",
+      "issuedAt": "2026-07-06T15:00:00.000Z",
+      "amountCents": 193040,
+      "status": "paid",
+      "paidAt": "2026-07-15T15:00:00.000Z",
+      "paidToLast4": "3328"
+    },
+    {
+      "id": "HP-INV-0230",
+      "supplierId": "SUP-030",
+      "issuedAt": "2026-07-06T15:00:00.000Z",
+      "amountCents": 87450,
+      "status": "paid",
+      "paidAt": "2026-07-22T15:00:00.000Z",
+      "paidToLast4": "8041"
+    },
+    {
+      "id": "HP-INV-0198",
+      "supplierId": "SUP-009",
+      "issuedAt": "2026-07-08T15:00:00.000Z",
+      "amountCents": 47410,
+      "status": "paid",
+      "paidAt": "2026-07-26T15:00:00.000Z",
+      "paidToLast4": "3618"
+    },
+    {
+      "id": "HP-INV-0206",
+      "supplierId": "SUP-014",
+      "issuedAt": "2026-07-10T15:00:00.000Z",
+      "amountCents": 389900,
+      "status": "paid",
+      "paidAt": "2026-07-24T15:00:00.000Z",
+      "paidToLast4": "4473"
+    },
+    {
+      "id": "HP-INV-0211",
+      "supplierId": "SUP-018",
+      "issuedAt": "2026-07-10T15:00:00.000Z",
+      "amountCents": 243420,
+      "status": "paid",
+      "paidAt": "2026-07-22T15:00:00.000Z",
+      "paidToLast4": "9975"
+    },
+    {
+      "id": "HP-INV-0226",
+      "supplierId": "SUP-027",
+      "issuedAt": "2026-07-10T15:00:00.000Z",
+      "amountCents": 99700,
+      "status": "paid",
+      "paidAt": "2026-07-17T15:00:00.000Z",
+      "paidToLast4": "3254"
+    },
+    {
+      "id": "HP-INV-0202",
+      "supplierId": "SUP-011",
+      "issuedAt": "2026-07-12T15:00:00.000Z",
+      "amountCents": 497140,
+      "status": "paid",
+      "paidAt": "2026-07-29T15:00:00.000Z",
+      "paidToLast4": "6298"
+    },
+    {
+      "id": "HP-INV-0214",
+      "supplierId": "SUP-020",
+      "issuedAt": "2026-07-12T15:00:00.000Z",
+      "amountCents": 164100,
+      "status": "paid",
+      "paidAt": "2026-07-24T15:00:00.000Z",
+      "paidToLast4": "5238"
+    },
+    {
+      "id": "HP-INV-0187",
+      "supplierId": "SUP-003",
+      "issuedAt": "2026-07-13T15:00:00.000Z",
+      "amountCents": 66190,
+      "status": "paid",
+      "paidAt": "2026-07-27T15:00:00.000Z",
+      "paidToLast4": "9681"
+    },
+    {
+      "id": "HP-INV-0203",
+      "supplierId": "SUP-012",
+      "issuedAt": "2026-07-13T15:00:00.000Z",
+      "amountCents": 175650,
+      "status": "paid",
+      "paidAt": "2026-07-20T15:00:00.000Z",
+      "paidToLast4": "5089"
+    },
+    {
+      "id": "HP-INV-0208",
+      "supplierId": "SUP-016",
+      "issuedAt": "2026-07-13T15:00:00.000Z",
+      "amountCents": 174720,
+      "status": "paid",
+      "paidAt": "2026-07-24T15:00:00.000Z",
+      "paidToLast4": "5546"
+    },
+    {
+      "id": "HP-INV-0215",
+      "supplierId": "SUP-020",
+      "issuedAt": "2026-07-13T15:00:00.000Z",
+      "amountCents": 438590,
+      "status": "paid",
+      "paidAt": "2026-07-30T15:00:00.000Z",
+      "paidToLast4": "5238"
+    },
+    {
+      "id": "HP-INV-0224",
+      "supplierId": "SUP-025",
+      "issuedAt": "2026-07-13T15:00:00.000Z",
+      "amountCents": 189060,
+      "status": "paid",
+      "paidAt": "2026-07-28T15:00:00.000Z",
+      "paidToLast4": "2188"
+    },
+    {
+      "id": "HP-INV-0212",
+      "supplierId": "SUP-018",
+      "issuedAt": "2026-07-14T15:00:00.000Z",
+      "amountCents": 303460,
+      "status": "paid",
+      "paidAt": "2026-07-21T15:00:00.000Z",
+      "paidToLast4": "9975"
+    },
+    {
+      "id": "HP-INV-0221",
+      "supplierId": "SUP-023",
+      "issuedAt": "2026-07-14T15:00:00.000Z",
+      "amountCents": 418520,
+      "status": "paid",
+      "paidAt": "2026-07-31T15:00:00.000Z",
+      "paidToLast4": "2528"
+    },
+    {
+      "id": "HP-INV-0185",
+      "supplierId": "SUP-002",
+      "issuedAt": "2026-07-15T15:00:00.000Z",
+      "amountCents": 333330,
+      "status": "paid",
+      "paidAt": "2026-08-03T15:00:00.000Z",
+      "paidToLast4": "1323"
+    },
+    {
+      "id": "HP-INV-0197",
+      "supplierId": "SUP-009",
+      "issuedAt": "2026-07-15T15:00:00.000Z",
+      "amountCents": 285330,
+      "status": "paid",
+      "paidAt": "2026-08-02T15:00:00.000Z",
+      "paidToLast4": "3618"
+    },
+    {
+      "id": "HP-INV-0207",
+      "supplierId": "SUP-015",
+      "issuedAt": "2026-07-15T15:00:00.000Z",
+      "amountCents": 90730,
+      "status": "paid",
+      "paidAt": "2026-08-02T15:00:00.000Z",
+      "paidToLast4": "5041"
+    },
+    {
+      "id": "HP-INV-0210",
+      "supplierId": "SUP-017",
+      "issuedAt": "2026-07-15T15:00:00.000Z",
+      "amountCents": 380490,
+      "status": "paid",
+      "paidAt": "2026-08-04T15:00:00.000Z",
+      "paidToLast4": "6327"
+    },
+    {
+      "id": "HP-INV-0223",
+      "supplierId": "SUP-024",
+      "issuedAt": "2026-07-15T15:00:00.000Z",
+      "amountCents": 135750,
+      "status": "paid",
+      "paidAt": "2026-08-02T15:00:00.000Z",
+      "paidToLast4": "2652"
+    },
+    {
+      "id": "HP-INV-0191",
+      "supplierId": "SUP-005",
+      "issuedAt": "2026-07-18T15:00:00.000Z",
+      "amountCents": 239640,
+      "status": "paid",
+      "paidAt": "2026-07-30T15:00:00.000Z",
+      "paidToLast4": "3562"
+    },
+    {
+      "id": "HP-INV-0193",
+      "supplierId": "SUP-006",
+      "issuedAt": "2026-07-18T15:00:00.000Z",
+      "amountCents": 238350,
+      "status": "paid",
+      "paidAt": "2026-08-05T15:00:00.000Z",
+      "paidToLast4": "4125"
+    },
+    {
+      "id": "HP-INV-0194",
+      "supplierId": "SUP-007",
+      "issuedAt": "2026-07-18T15:00:00.000Z",
+      "amountCents": 351120,
+      "status": "paid",
+      "paidAt": "2026-07-26T15:00:00.000Z",
+      "paidToLast4": "8931"
+    },
+    {
+      "id": "HP-INV-0229",
+      "supplierId": "SUP-030",
+      "issuedAt": "2026-07-18T15:00:00.000Z",
+      "amountCents": 62680,
+      "status": "paid",
+      "paidAt": "2026-07-31T15:00:00.000Z",
+      "paidToLast4": "8041"
+    },
+    {
+      "id": "HP-INV-0218",
+      "supplierId": "SUP-022",
+      "issuedAt": "2026-07-19T15:00:00.000Z",
+      "amountCents": 169810,
+      "status": "paid",
+      "paidAt": "2026-07-29T15:00:00.000Z",
+      "paidToLast4": "9023"
+    },
+    {
+      "id": "HP-INV-0222",
+      "supplierId": "SUP-024",
+      "issuedAt": "2026-07-19T15:00:00.000Z",
+      "amountCents": 406550,
+      "status": "paid",
+      "paidAt": "2026-07-28T15:00:00.000Z",
+      "paidToLast4": "2652"
+    },
+    {
+      "id": "HP-INV-0201",
+      "supplierId": "SUP-011",
+      "issuedAt": "2026-07-20T15:00:00.000Z",
+      "amountCents": 131260,
+      "status": "paid",
+      "paidAt": "2026-08-08T15:00:00.000Z",
+      "paidToLast4": "6298"
+    },
+    {
+      "id": "HP-INV-0216",
+      "supplierId": "SUP-021",
+      "issuedAt": "2026-07-20T15:00:00.000Z",
+      "amountCents": 149130,
+      "status": "paid",
+      "paidAt": "2026-08-04T15:00:00.000Z",
+      "paidToLast4": "6041"
+    },
+    {
+      "id": "HP-INV-0219",
+      "supplierId": "SUP-022",
+      "issuedAt": "2026-07-20T15:00:00.000Z",
+      "amountCents": 114390,
+      "status": "paid",
+      "paidAt": "2026-08-02T15:00:00.000Z",
+      "paidToLast4": "9023"
+    },
+    {
+      "id": "HP-INV-0183",
+      "supplierId": "SUP-001",
+      "issuedAt": "2026-07-21T15:00:00.000Z",
+      "amountCents": 321430,
+      "status": "paid",
+      "paidAt": "2026-08-03T15:00:00.000Z",
+      "paidToLast4": "4484"
+    },
+    {
+      "id": "HP-INV-0189",
+      "supplierId": "SUP-004",
+      "issuedAt": "2026-07-21T15:00:00.000Z",
+      "amountCents": 277150,
+      "status": "paid",
+      "paidAt": "2026-07-28T15:00:00.000Z",
+      "paidToLast4": "8587"
+    },
+    {
+      "id": "HP-INV-0205",
+      "supplierId": "SUP-014",
+      "issuedAt": "2026-07-21T15:00:00.000Z",
+      "amountCents": 398800,
+      "status": "paid",
+      "paidAt": "2026-08-06T15:00:00.000Z",
+      "paidToLast4": "4473"
+    },
+    {
+      "id": "HP-INV-0217",
+      "supplierId": "SUP-021",
+      "issuedAt": "2026-07-21T15:00:00.000Z",
+      "amountCents": 288140,
+      "status": "paid",
+      "paidAt": "2026-08-01T15:00:00.000Z",
+      "paidToLast4": "6041"
+    },
+    {
+      "id": "HP-INV-0195",
+      "supplierId": "SUP-008",
+      "issuedAt": "2026-07-24T15:00:00.000Z",
+      "amountCents": 135600,
+      "status": "paid",
+      "paidAt": "2026-08-11T15:00:00.000Z",
+      "paidToLast4": "5783"
+    },
+    {
+      "id": "HP-INV-0200",
+      "supplierId": "SUP-010",
+      "issuedAt": "2026-07-24T15:00:00.000Z",
+      "amountCents": 382010,
+      "status": "paid",
+      "paidAt": "2026-08-01T15:00:00.000Z",
+      "paidToLast4": "2477"
+    },
+    {
+      "id": "HP-INV-0209",
+      "supplierId": "SUP-017",
+      "issuedAt": "2026-07-24T15:00:00.000Z",
+      "amountCents": 356130,
+      "status": "paid",
+      "paidAt": "2026-08-09T15:00:00.000Z",
+      "paidToLast4": "6327"
+    },
+    {
+      "id": "HP-INV-0228",
+      "supplierId": "SUP-029",
+      "issuedAt": "2026-07-24T15:00:00.000Z",
+      "amountCents": 339710,
+      "status": "paid",
+      "paidAt": "2026-08-06T15:00:00.000Z",
+      "paidToLast4": "9925"
+    },
+    {
+      "id": "HP-INV-0192",
+      "supplierId": "SUP-006",
+      "issuedAt": "2026-07-25T15:00:00.000Z",
+      "amountCents": 498180,
+      "status": "paid",
+      "paidAt": "2026-08-14T15:00:00.000Z",
+      "paidToLast4": "4125"
+    },
+    {
+      "id": "HP-INV-0225",
+      "supplierId": "SUP-026",
+      "issuedAt": "2026-07-26T15:00:00.000Z",
+      "amountCents": 438600,
+      "status": "paid",
+      "paidAt": "2026-08-05T15:00:00.000Z",
+      "paidToLast4": "4359"
+    },
+    {
+      "id": "HP-INV-0244",
+      "supplierId": "SUP-008",
+      "issuedAt": "2026-08-01T15:00:00.000Z",
+      "amountCents": 404920,
+      "status": "paid",
+      "paidAt": "2026-08-21T15:00:00.000Z",
+      "paidToLast4": "5783"
+    },
+    {
+      "id": "HP-INV-0245",
+      "supplierId": "SUP-009",
+      "issuedAt": "2026-08-01T15:00:00.000Z",
+      "amountCents": 220590,
+      "status": "paid",
+      "paidAt": "2026-08-14T15:00:00.000Z",
+      "paidToLast4": "3618"
+    },
+    {
+      "id": "HP-INV-0237",
+      "supplierId": "SUP-005",
+      "issuedAt": "2026-08-02T15:00:00.000Z",
+      "amountCents": 63140,
+      "status": "paid",
+      "paidAt": "2026-08-10T15:00:00.000Z",
+      "paidToLast4": "3562"
+    },
+    {
+      "id": "HP-INV-0238",
+      "supplierId": "SUP-005",
+      "issuedAt": "2026-08-03T15:00:00.000Z",
+      "amountCents": 288380,
+      "status": "paid",
+      "paidAt": "2026-08-10T15:00:00.000Z",
+      "paidToLast4": "3562"
+    },
+    {
+      "id": "HP-INV-0263",
+      "supplierId": "SUP-020",
+      "issuedAt": "2026-08-03T15:00:00.000Z",
+      "amountCents": 154680,
+      "status": "paid",
+      "paidAt": "2026-08-10T15:00:00.000Z",
+      "paidToLast4": "5238"
+    },
+    {
+      "id": "HP-INV-0266",
+      "supplierId": "SUP-021",
+      "issuedAt": "2026-08-03T15:00:00.000Z",
+      "amountCents": 394020,
+      "status": "paid",
+      "paidAt": "2026-08-10T15:00:00.000Z",
+      "paidToLast4": "6041"
+    },
+    {
+      "id": "HP-INV-0269",
+      "supplierId": "SUP-023",
+      "issuedAt": "2026-08-03T15:00:00.000Z",
+      "amountCents": 90390,
+      "status": "paid",
+      "paidAt": "2026-08-23T15:00:00.000Z",
+      "paidToLast4": "2528"
+    },
+    {
+      "id": "HP-INV-0232",
+      "supplierId": "SUP-002",
+      "issuedAt": "2026-08-04T15:00:00.000Z",
+      "amountCents": 68740,
+      "status": "paid",
+      "paidAt": "2026-08-22T15:00:00.000Z",
+      "paidToLast4": "1323"
+    },
+    {
+      "id": "HP-INV-0239",
+      "supplierId": "SUP-006",
+      "issuedAt": "2026-08-05T15:00:00.000Z",
+      "amountCents": 175600,
+      "status": "paid",
+      "paidAt": "2026-08-25T15:00:00.000Z",
+      "paidToLast4": "4125"
+    },
+    {
+      "id": "HP-INV-0252",
+      "supplierId": "SUP-013",
+      "issuedAt": "2026-08-05T15:00:00.000Z",
+      "amountCents": 115010,
+      "status": "paid",
+      "paidAt": "2026-08-20T15:00:00.000Z",
+      "paidToLast4": "3711"
+    },
+    {
+      "id": "HP-INV-0273",
+      "supplierId": "SUP-026",
+      "issuedAt": "2026-08-06T15:00:00.000Z",
+      "amountCents": 329380,
+      "status": "paid",
+      "paidAt": "2026-08-18T15:00:00.000Z",
+      "paidToLast4": "4359"
+    },
+    {
+      "id": "HP-INV-0240",
+      "supplierId": "SUP-006",
+      "issuedAt": "2026-08-07T15:00:00.000Z",
+      "amountCents": 120940,
+      "status": "paid",
+      "paidAt": "2026-08-21T15:00:00.000Z",
+      "paidToLast4": "4125"
+    },
+    {
+      "id": "HP-INV-0278",
+      "supplierId": "SUP-029",
+      "issuedAt": "2026-08-07T15:00:00.000Z",
+      "amountCents": 130210,
+      "status": "paid",
+      "paidAt": "2026-08-20T15:00:00.000Z",
+      "paidToLast4": "9925"
+    },
+    {
+      "id": "HP-INV-0233",
+      "supplierId": "SUP-002",
+      "issuedAt": "2026-08-08T15:00:00.000Z",
+      "amountCents": 364980,
+      "status": "paid",
+      "paidAt": "2026-08-28T15:00:00.000Z",
+      "paidToLast4": "1323"
+    },
+    {
+      "id": "HP-INV-0248",
+      "supplierId": "SUP-010",
+      "issuedAt": "2026-08-08T15:00:00.000Z",
+      "amountCents": 123720,
+      "status": "paid",
+      "paidAt": "2026-08-20T15:00:00.000Z",
+      "paidToLast4": "2477"
+    },
+    {
+      "id": "HP-INV-0250",
+      "supplierId": "SUP-012",
+      "issuedAt": "2026-08-08T15:00:00.000Z",
+      "amountCents": 297300,
+      "status": "paid",
+      "paidAt": "2026-08-21T15:00:00.000Z",
+      "paidToLast4": "5089"
+    },
+    {
+      "id": "HP-INV-0271",
+      "supplierId": "SUP-024",
+      "issuedAt": "2026-08-08T15:00:00.000Z",
+      "amountCents": 76390,
+      "status": "paid",
+      "paidAt": "2026-08-17T15:00:00.000Z",
+      "paidToLast4": "2652"
+    },
+    {
+      "id": "HP-INV-0255",
+      "supplierId": "SUP-015",
+      "issuedAt": "2026-08-09T15:00:00.000Z",
+      "amountCents": 324550,
+      "status": "paid",
+      "paidAt": "2026-08-22T15:00:00.000Z",
+      "paidToLast4": "5041"
+    },
+    {
+      "id": "HP-INV-0241",
+      "supplierId": "SUP-007",
+      "issuedAt": "2026-08-10T15:00:00.000Z",
+      "amountCents": 44220,
+      "status": "paid",
+      "paidAt": "2026-08-18T15:00:00.000Z",
+      "paidToLast4": "8931"
+    },
+    {
+      "id": "HP-INV-0243",
+      "supplierId": "SUP-008",
+      "issuedAt": "2026-08-10T15:00:00.000Z",
+      "amountCents": 297860,
+      "status": "paid",
+      "paidAt": "2026-08-23T15:00:00.000Z",
+      "paidToLast4": "5783"
+    },
+    {
+      "id": "HP-INV-0235",
+      "supplierId": "SUP-003",
+      "issuedAt": "2026-08-11T15:00:00.000Z",
+      "amountCents": 325520,
+      "status": "paid",
+      "paidAt": "2026-08-18T15:00:00.000Z",
+      "paidToLast4": "9681"
+    },
+    {
+      "id": "HP-INV-0242",
+      "supplierId": "SUP-007",
+      "issuedAt": "2026-08-11T15:00:00.000Z",
+      "amountCents": 379050,
+      "status": "paid",
+      "paidAt": "2026-08-25T15:00:00.000Z",
+      "paidToLast4": "8931"
+    },
+    {
+      "id": "HP-INV-0270",
+      "supplierId": "SUP-024",
+      "issuedAt": "2026-08-13T15:00:00.000Z",
+      "amountCents": 408140,
+      "status": "paid",
+      "paidAt": "2026-08-23T15:00:00.000Z",
+      "paidToLast4": "2652"
+    },
+    {
+      "id": "HP-INV-0258",
+      "supplierId": "SUP-017",
+      "issuedAt": "2026-08-15T15:00:00.000Z",
+      "amountCents": 429240,
+      "status": "paid",
+      "paidAt": "2026-08-30T15:00:00.000Z",
+      "paidToLast4": "6327"
+    },
+    {
+      "id": "HP-INV-0261",
+      "supplierId": "SUP-019",
+      "issuedAt": "2026-08-16T15:00:00.000Z",
+      "amountCents": 377240,
+      "status": "paid",
+      "paidAt": "2026-09-02T15:00:00.000Z",
+      "paidToLast4": "4992"
+    },
+    {
+      "id": "HP-INV-0262",
+      "supplierId": "SUP-019",
+      "issuedAt": "2026-08-16T15:00:00.000Z",
+      "amountCents": 180830,
+      "status": "paid",
+      "paidAt": "2026-08-30T15:00:00.000Z",
+      "paidToLast4": "4992"
+    },
+    {
+      "id": "HP-INV-0274",
+      "supplierId": "SUP-026",
+      "issuedAt": "2026-08-17T15:00:00.000Z",
+      "amountCents": 129980,
+      "status": "paid",
+      "paidAt": "2026-08-31T15:00:00.000Z",
+      "paidToLast4": "4359"
+    },
+    {
+      "id": "HP-INV-0276",
+      "supplierId": "SUP-028",
+      "issuedAt": "2026-08-17T15:00:00.000Z",
+      "amountCents": 187740,
+      "status": "paid",
+      "paidAt": "2026-08-30T15:00:00.000Z",
+      "paidToLast4": "3328"
+    },
+    {
+      "id": "HP-INV-0231",
+      "supplierId": "SUP-001",
+      "issuedAt": "2026-08-18T15:00:00.000Z",
+      "amountCents": 462060,
+      "status": "paid",
+      "paidAt": "2026-09-02T15:00:00.000Z",
+      "paidToLast4": "4484"
+    },
+    {
+      "id": "HP-INV-0236",
+      "supplierId": "SUP-004",
+      "issuedAt": "2026-08-18T15:00:00.000Z",
+      "amountCents": 106410,
+      "status": "paid",
+      "paidAt": "2026-08-27T15:00:00.000Z",
+      "paidToLast4": "8587"
+    },
+    {
+      "id": "HP-INV-0247",
+      "supplierId": "SUP-010",
+      "issuedAt": "2026-08-18T15:00:00.000Z",
+      "amountCents": 342370,
+      "status": "paid",
+      "paidAt": "2026-09-01T15:00:00.000Z",
+      "paidToLast4": "2477"
+    },
+    {
+      "id": "HP-INV-0249",
+      "supplierId": "SUP-011",
+      "issuedAt": "2026-08-18T15:00:00.000Z",
+      "amountCents": 215210,
+      "status": "paid",
+      "paidAt": "2026-09-07T15:00:00.000Z",
+      "paidToLast4": "6298"
+    },
+    {
+      "id": "HP-INV-0260",
+      "supplierId": "SUP-018",
+      "issuedAt": "2026-08-18T15:00:00.000Z",
+      "amountCents": 160180,
+      "status": "paid",
+      "paidAt": "2026-08-30T15:00:00.000Z",
+      "paidToLast4": "9975"
+    },
+    {
+      "id": "HP-INV-0265",
+      "supplierId": "SUP-021",
+      "issuedAt": "2026-08-19T15:00:00.000Z",
+      "amountCents": 80960,
+      "status": "paid",
+      "paidAt": "2026-08-27T15:00:00.000Z",
+      "paidToLast4": "6041"
+    },
+    {
+      "id": "HP-INV-0246",
+      "supplierId": "SUP-009",
+      "issuedAt": "2026-08-20T15:00:00.000Z",
+      "amountCents": 284340,
+      "status": "paid",
+      "paidAt": "2026-09-08T15:00:00.000Z",
+      "paidToLast4": "3618"
+    },
+    {
+      "id": "HP-INV-0251",
+      "supplierId": "SUP-013",
+      "issuedAt": "2026-08-20T15:00:00.000Z",
+      "amountCents": 432720,
+      "status": "paid",
+      "paidAt": "2026-09-04T15:00:00.000Z",
+      "paidToLast4": "3711"
+    },
+    {
+      "id": "HP-INV-0268",
+      "supplierId": "SUP-023",
+      "issuedAt": "2026-08-20T15:00:00.000Z",
+      "amountCents": 117150,
+      "status": "paid",
+      "paidAt": "2026-08-27T15:00:00.000Z",
+      "paidToLast4": "2528"
+    },
+    {
+      "id": "HP-INV-0280",
+      "supplierId": "SUP-030",
+      "issuedAt": "2026-08-20T15:00:00.000Z",
+      "amountCents": 306220,
+      "status": "paid",
+      "paidAt": "2026-08-28T15:00:00.000Z",
+      "paidToLast4": "8041"
+    },
+    {
+      "id": "HP-INV-0264",
+      "supplierId": "SUP-020",
+      "issuedAt": "2026-08-21T15:00:00.000Z",
+      "amountCents": 60560,
+      "status": "paid",
+      "paidAt": "2026-09-05T15:00:00.000Z",
+      "paidToLast4": "5238"
+    },
+    {
+      "id": "HP-INV-0272",
+      "supplierId": "SUP-025",
+      "issuedAt": "2026-08-21T15:00:00.000Z",
+      "amountCents": 119830,
+      "status": "paid",
+      "paidAt": "2026-09-04T15:00:00.000Z",
+      "paidToLast4": "2188"
+    },
+    {
+      "id": "HP-INV-0254",
+      "supplierId": "SUP-014",
+      "issuedAt": "2026-08-22T15:00:00.000Z",
+      "amountCents": 261670,
+      "status": "paid",
+      "paidAt": "2026-09-06T15:00:00.000Z",
+      "paidToLast4": "4473"
+    },
+    {
+      "id": "HP-INV-0267",
+      "supplierId": "SUP-022",
+      "issuedAt": "2026-08-22T15:00:00.000Z",
+      "amountCents": 278170,
+      "status": "paid",
+      "paidAt": "2026-09-01T15:00:00.000Z",
+      "paidToLast4": "9023"
+    },
+    {
+      "id": "HP-INV-0275",
+      "supplierId": "SUP-027",
+      "issuedAt": "2026-08-22T15:00:00.000Z",
+      "amountCents": 261260,
+      "status": "paid",
+      "paidAt": "2026-09-10T15:00:00.000Z",
+      "paidToLast4": "3254"
+    },
+    {
+      "id": "HP-INV-0279",
+      "supplierId": "SUP-029",
+      "issuedAt": "2026-08-23T15:00:00.000Z",
+      "amountCents": 273550,
+      "status": "paid",
+      "paidAt": "2026-09-06T15:00:00.000Z",
+      "paidToLast4": "9925"
+    },
+    {
+      "id": "HP-INV-0234",
+      "supplierId": "SUP-003",
+      "issuedAt": "2026-08-24T15:00:00.000Z",
+      "amountCents": 417750,
+      "status": "paid",
+      "paidAt": "2026-09-13T15:00:00.000Z",
+      "paidToLast4": "9681"
+    },
+    {
+      "id": "HP-INV-0256",
+      "supplierId": "SUP-015",
+      "issuedAt": "2026-08-24T15:00:00.000Z",
+      "amountCents": 120950,
+      "status": "paid",
+      "paidAt": "2026-09-11T15:00:00.000Z",
+      "paidToLast4": "5041"
+    },
+    {
+      "id": "HP-INV-0257",
+      "supplierId": "SUP-016",
+      "issuedAt": "2026-08-24T15:00:00.000Z",
+      "amountCents": 322050,
+      "status": "paid",
+      "paidAt": "2026-09-04T15:00:00.000Z",
+      "paidToLast4": "5546"
+    },
+    {
+      "id": "HP-INV-0259",
+      "supplierId": "SUP-018",
+      "issuedAt": "2026-08-24T15:00:00.000Z",
+      "amountCents": 159880,
+      "status": "paid",
+      "paidAt": "2026-09-11T15:00:00.000Z",
+      "paidToLast4": "9975"
+    },
+    {
+      "id": "HP-INV-0277",
+      "supplierId": "SUP-028",
+      "issuedAt": "2026-08-25T15:00:00.000Z",
+      "amountCents": 497340,
+      "status": "paid",
+      "paidAt": "2026-09-13T15:00:00.000Z",
+      "paidToLast4": "3328"
+    },
+    {
+      "id": "HP-INV-0253",
+      "supplierId": "SUP-014",
+      "issuedAt": "2026-08-26T15:00:00.000Z",
+      "amountCents": 51320,
+      "status": "paid",
+      "paidAt": "2026-09-09T15:00:00.000Z",
+      "paidToLast4": "4473"
+    }
+  ],
+  "messages": [],
+  "replay": null,
+  "canary": "CANARY-HARBOR-2d7e94"
+}

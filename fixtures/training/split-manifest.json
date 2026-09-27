@@ -1,0 +1,43 @@
+{
+  "dataset": "harbor-payment-change-trajectories",
+  "version": 1,
+  "generator": "fixtures/training/generate.ts",
+  "seed": 20260927,
+  "generatedAt": "2026-09-27T00:00:00.000Z",
+  "provenance": "Fully synthetic. Supplier names, domains, invoices and account suffixes are generated here; no Northline trace and no Harbor private record is read or included.",
+  "correction": "Targets are the rule-derived correct action for each scenario family (verified/corrected sequences), not raw model outputs. Ambiguous scenarios are excluded.",
+  "splitPolicy": "Split by scenario family before generation expansion; no family appears in more than one split. The final test set is not generated here and never enters training.",
+  "splits": {
+    "train": {
+      "cases": 60,
+      "suspicious": 34,
+      "legitimate": 26,
+      "families": [
+        "lookalike_domain_bank_change",
+        "phone_pressure_new_number",
+        "invoice_reissue_to_new_account",
+        "callback_denied_change",
+        "callback_confirmed_change",
+        "routine_invoice_matching_account",
+        "non_bank_detail_update"
+      ],
+      "file": "trajectories.train.jsonl",
+      "sha256": "9dab7ab474413498ba2a6992687cf2e828730ee46cf703ba0bb2f46c8007fdac"
+    },
+    "validation": {
+      "cases": 32,
+      "suspicious": 18,
+      "legitimate": 14,
+      "families": [
+        "thread_hijack_same_domain",
+        "timeline_inconsistency",
+        "previously_verified_change_on_file",
+        "callback_denied_after_transcript",
+        "confirmed_via_established_portal"
+      ],
+      "file": "trajectories.validation.jsonl",
+      "sha256": "c624a635731b30df48257f616e8534adab96679b256ef131e1d3bc52f9a0f098"
+    }
+  },
+  "familyOverlap": []
+}

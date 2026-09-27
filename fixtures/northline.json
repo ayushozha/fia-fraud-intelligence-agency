@@ -1,0 +1,2794 @@
+{
+  "workspace": "northline",
+  "name": "Northline Roasters",
+  "tagline": "Coffee for a brighter tomorrow",
+  "mark": "leaf",
+  "agents": [
+    {
+      "id": "maya",
+      "name": "Maya",
+      "role": "AP agent",
+      "duty": "Retrieves verified supplier facts and payment policy from this workspace's private GBrain.",
+      "backedBy": "gbrain"
+    },
+    {
+      "id": "jordan",
+      "name": "Jordan",
+      "role": "Investigator",
+      "duty": "Runs the UFO investigation, recalling installed Memorable procedures.",
+      "backedBy": "ufo"
+    },
+    {
+      "id": "lena",
+      "name": "Lena",
+      "role": "Ops agent",
+      "duty": "Proposes and maintains simulated payment holds; never releases without the owner.",
+      "backedBy": "fia"
+    },
+    {
+      "id": "chris",
+      "name": "Chris",
+      "role": "Finance agent",
+      "duty": "Reconciles related invoices against the local ledger and policy window.",
+      "backedBy": "fia"
+    }
+  ],
+  "suppliers": [
+    {
+      "id": "SUP-001",
+      "name": "Cascade Bean Importers",
+      "category": "Green coffee",
+      "contactName": "Logan Keene",
+      "contactPhone": "+1-555-0164",
+      "emailDomain": "cascadebeanimporters.example",
+      "bankLabel": "Sample Credit Union",
+      "accountLast4": "8656"
+    },
+    {
+      "id": "SUP-002",
+      "name": "Ridgeway Roast Supply",
+      "category": "Roasting equipment",
+      "contactName": "Logan Brook",
+      "contactPhone": "+1-555-0157",
+      "emailDomain": "ridgewayroastsupply.example",
+      "bankLabel": "Sample Credit Union",
+      "accountLast4": "5052"
+    },
+    {
+      "id": "SUP-003",
+      "name": "Morning Pack Co",
+      "category": "Packaging",
+      "contactName": "Kai Quill",
+      "contactPhone": "+1-555-0147",
+      "emailDomain": "morningpackco.example",
+      "bankLabel": "Sample Credit Union",
+      "accountLast4": "7133"
+    },
+    {
+      "id": "SUP-004",
+      "name": "Sunfield Dairy Partners",
+      "category": "Dairy",
+      "contactName": "Devon Dale",
+      "contactPhone": "+1-555-0134",
+      "emailDomain": "sunfielddairypartners.example",
+      "bankLabel": "Example Mutual",
+      "accountLast4": "4392"
+    },
+    {
+      "id": "SUP-005",
+      "name": "Copperline Logistics",
+      "category": "Freight",
+      "contactName": "Marin Carver",
+      "contactPhone": "+1-555-0163",
+      "emailDomain": "copperlinelogistics.example",
+      "bankLabel": "Sample Credit Union",
+      "accountLast4": "4765"
+    },
+    {
+      "id": "SUP-006",
+      "name": "Evergreen Burlap Works",
+      "category": "Sacks and bags",
+      "contactName": "Reese Quill",
+      "contactPhone": "+1-555-0179",
+      "emailDomain": "evergreenburlapworks.example",
+      "bankLabel": "Example Mutual",
+      "accountLast4": "6607"
+    },
+    {
+      "id": "SUP-007",
+      "name": "Highvale Farms Collective",
+      "category": "Green coffee",
+      "contactName": "Finley Brook",
+      "contactPhone": "+1-555-0176",
+      "emailDomain": "highvalefarmscollective.example",
+      "bankLabel": "Demo National",
+      "accountLast4": "3671"
+    },
+    {
+      "id": "SUP-008",
+      "name": "Tidewater Glassworks",
+      "category": "Retail jars",
+      "contactName": "Casey Orwell",
+      "contactPhone": "+1-555-0141",
+      "emailDomain": "tidewaterglassworks.example",
+      "bankLabel": "Sample Credit Union",
+      "accountLast4": "6190"
+    },
+    {
+      "id": "SUP-009",
+      "name": "Northgate Utilities",
+      "category": "Utilities",
+      "contactName": "Reese Carver",
+      "contactPhone": "+1-555-0186",
+      "emailDomain": "northgateutilities.example",
+      "bankLabel": "Demo National",
+      "accountLast4": "4462"
+    },
+    {
+      "id": "SUP-010",
+      "name": "Pinecrest Print Shop",
+      "category": "Labels",
+      "contactName": "Avery Brook",
+      "contactPhone": "+1-555-0185",
+      "emailDomain": "pinecrestprintshop.example",
+      "bankLabel": "Example Mutual",
+      "accountLast4": "5734"
+    },
+    {
+      "id": "SUP-011",
+      "name": "Silverleaf Tea Traders",
+      "category": "Tea",
+      "contactName": "Finley Keene",
+      "contactPhone": "+1-555-0176",
+      "emailDomain": "silverleafteatraders.example",
+      "bankLabel": "Fictional Harbor Bank",
+      "accountLast4": "6796"
+    },
+    {
+      "id": "SUP-012",
+      "name": "Maple Hollow Syrups",
+      "category": "Syrups",
+      "contactName": "Avery Ives",
+      "contactPhone": "+1-555-0167",
+      "emailDomain": "maplehollowsyrups.example",
+      "bankLabel": "Demo National",
+      "accountLast4": "4853"
+    },
+    {
+      "id": "SUP-013",
+      "name": "Granite Peak Cleaning",
+      "category": "Facilities",
+      "contactName": "Kai Hollis",
+      "contactPhone": "+1-555-0114",
+      "emailDomain": "granitepeakcleaning.example",
+      "bankLabel": "Sample Credit Union",
+      "accountLast4": "4774"
+    },
+    {
+      "id": "SUP-014",
+      "name": "Bluebird Cafe Fixtures",
+      "category": "Fixtures",
+      "contactName": "Quinn Garland",
+      "contactPhone": "+1-555-0159",
+      "emailDomain": "bluebirdcafefixtures.example",
+      "bankLabel": "Example Mutual",
+      "accountLast4": "8581"
+    },
+    {
+      "id": "SUP-015",
+      "name": "Lantern Payroll Services",
+      "category": "Payroll",
+      "contactName": "Devon Carver",
+      "contactPhone": "+1-555-0166",
+      "emailDomain": "lanternpayrollservices.example",
+      "bankLabel": "Sample Credit Union",
+      "accountLast4": "2129"
+    },
+    {
+      "id": "SUP-016",
+      "name": "Orchard Lane Bakery",
+      "category": "Wholesale pastry",
+      "contactName": "Indira Hollis",
+      "contactPhone": "+1-555-0194",
+      "emailDomain": "orchardlanebakery.example",
+      "bankLabel": "Demo National",
+      "accountLast4": "6669"
+    },
+    {
+      "id": "SUP-017",
+      "name": "Riverbend Water Filters",
+      "category": "Water systems",
+      "contactName": "Jules Stroud",
+      "contactPhone": "+1-555-0162",
+      "emailDomain": "riverbendwaterfilters.example",
+      "bankLabel": "Example Mutual",
+      "accountLast4": "3770"
+    },
+    {
+      "id": "SUP-018",
+      "name": "Summit Grinder Repair",
+      "category": "Maintenance",
+      "contactName": "Logan Alder",
+      "contactPhone": "+1-555-0189",
+      "emailDomain": "summitgrinderrepair.example",
+      "bankLabel": "Example Mutual",
+      "accountLast4": "4673"
+    },
+    {
+      "id": "SUP-019",
+      "name": "Coastal Cold Chain",
+      "category": "Refrigerated freight",
+      "contactName": "Casey Brook",
+      "contactPhone": "+1-555-0177",
+      "emailDomain": "coastalcoldchain.example",
+      "bankLabel": "Sample Credit Union",
+      "accountLast4": "5626"
+    },
+    {
+      "id": "SUP-020",
+      "name": "Willow Creek Insurance",
+      "category": "Insurance",
+      "contactName": "Casey Lyle",
+      "contactPhone": "+1-555-0165",
+      "emailDomain": "willowcreekinsurance.example",
+      "bankLabel": "Demo National",
+      "accountLast4": "9652"
+    },
+    {
+      "id": "SUP-021",
+      "name": "Harvest Moon Cocoa",
+      "category": "Cocoa",
+      "contactName": "Marin Marsh",
+      "contactPhone": "+1-555-0161",
+      "emailDomain": "harvestmooncocoa.example",
+      "bankLabel": "Example Mutual",
+      "accountLast4": "1849"
+    },
+    {
+      "id": "SUP-022",
+      "name": "Starling Web Studio",
+      "category": "Web services",
+      "contactName": "Oren Nash",
+      "contactPhone": "+1-555-0199",
+      "emailDomain": "starlingwebstudio.example",
+      "bankLabel": "Sample Credit Union",
+      "accountLast4": "2215"
+    },
+    {
+      "id": "SUP-023",
+      "name": "Beacon Office Supply",
+      "category": "Office supplies",
+      "contactName": "Casey Marsh",
+      "contactPhone": "+1-555-0197",
+      "emailDomain": "beaconofficesupply.example",
+      "bankLabel": "Example Mutual",
+      "accountLast4": "9329"
+    },
+    {
+      "id": "SUP-024",
+      "name": "Foxglove Florals",
+      "category": "Store decor",
+      "contactName": "Indira Pryor",
+      "contactPhone": "+1-555-0168",
+      "emailDomain": "foxgloveflorals.example",
+      "bankLabel": "Fictional Harbor Bank",
+      "accountLast4": "3579"
+    },
+    {
+      "id": "SUP-025",
+      "name": "Ironwood Pallet Co",
+      "category": "Pallets",
+      "contactName": "Oren Jarrow",
+      "contactPhone": "+1-555-0166",
+      "emailDomain": "ironwoodpalletco.example",
+      "bankLabel": "Fictional Harbor Bank",
+      "accountLast4": "7463"
+    },
+    {
+      "id": "SUP-026",
+      "name": "Meadowbrook Oat Milk",
+      "category": "Plant milk",
+      "contactName": "Harper Brook",
+      "contactPhone": "+1-555-0159",
+      "emailDomain": "meadowbrookoatmilk.example",
+      "bankLabel": "Example Mutual",
+      "accountLast4": "2629"
+    },
+    {
+      "id": "SUP-027",
+      "name": "Clearwater Accounting",
+      "category": "Bookkeeping",
+      "contactName": "Reese Stroud",
+      "contactPhone": "+1-555-0177",
+      "emailDomain": "clearwateraccounting.example",
+      "bankLabel": "Fictional Harbor Bank",
+      "accountLast4": "4897"
+    },
+    {
+      "id": "SUP-028",
+      "name": "Driftwood Signage",
+      "category": "Signage",
+      "contactName": "Sage Lyle",
+      "contactPhone": "+1-555-0173",
+      "emailDomain": "driftwoodsignage.example",
+      "bankLabel": "Sample Credit Union",
+      "accountLast4": "1007"
+    },
+    {
+      "id": "SUP-029",
+      "name": "Kestrel Security Systems",
+      "category": "Security",
+      "contactName": "Kai Jarrow",
+      "contactPhone": "+1-555-0124",
+      "emailDomain": "kestrelsecuritysystems.example",
+      "bankLabel": "Demo National",
+      "accountLast4": "1573"
+    },
+    {
+      "id": "SUP-030",
+      "name": "Juniper Compostables",
+      "category": "Compostable cups",
+      "contactName": "Blake Tamsin",
+      "contactPhone": "+1-555-0165",
+      "emailDomain": "junipercompostables.example",
+      "bankLabel": "Sample Credit Union",
+      "accountLast4": "8513"
+    }
+  ],
+  "invoices": [
+    {
+      "id": "NR-INV-0022",
+      "supplierId": "SUP-016",
+      "issuedAt": "2026-03-02T15:00:00.000Z",
+      "amountCents": 334480,
+      "status": "paid",
+      "paidAt": "2026-03-14T15:00:00.000Z",
+      "paidToLast4": "6669"
+    },
+    {
+      "id": "NR-INV-0004",
+      "supplierId": "SUP-003",
+      "issuedAt": "2026-03-03T15:00:00.000Z",
+      "amountCents": 232020,
+      "status": "paid",
+      "paidAt": "2026-03-10T15:00:00.000Z",
+      "paidToLast4": "7133"
+    },
+    {
+      "id": "NR-INV-0023",
+      "supplierId": "SUP-016",
+      "issuedAt": "2026-03-03T15:00:00.000Z",
+      "amountCents": 86890,
+      "status": "paid",
+      "paidAt": "2026-03-22T15:00:00.000Z",
+      "paidToLast4": "6669"
+    },
+    {
+      "id": "NR-INV-0034",
+      "supplierId": "SUP-023",
+      "issuedAt": "2026-03-03T15:00:00.000Z",
+      "amountCents": 257040,
+      "status": "paid",
+      "paidAt": "2026-03-15T15:00:00.000Z",
+      "paidToLast4": "9329"
+    },
+    {
+      "id": "NR-INV-0008",
+      "supplierId": "SUP-007",
+      "issuedAt": "2026-03-04T15:00:00.000Z",
+      "amountCents": 40640,
+      "status": "paid",
+      "paidAt": "2026-03-18T15:00:00.000Z",
+      "paidToLast4": "3671"
+    },
+    {
+      "id": "NR-INV-0016",
+      "supplierId": "SUP-013",
+      "issuedAt": "2026-03-04T15:00:00.000Z",
+      "amountCents": 342590,
+      "status": "paid",
+      "paidAt": "2026-03-21T15:00:00.000Z",
+      "paidToLast4": "4774"
+    },
+    {
+      "id": "NR-INV-0009",
+      "supplierId": "SUP-008",
+      "issuedAt": "2026-03-05T15:00:00.000Z",
+      "amountCents": 480430,
+      "status": "paid",
+      "paidAt": "2026-03-12T15:00:00.000Z",
+      "paidToLast4": "6190"
+    },
+    {
+      "id": "NR-INV-0018",
+      "supplierId": "SUP-014",
+      "issuedAt": "2026-03-05T15:00:00.000Z",
+      "amountCents": 423630,
+      "status": "paid",
+      "paidAt": "2026-03-24T15:00:00.000Z",
+      "paidToLast4": "8581"
+    },
+    {
+      "id": "NR-INV-0020",
+      "supplierId": "SUP-015",
+      "issuedAt": "2026-03-05T15:00:00.000Z",
+      "amountCents": 481810,
+      "status": "paid",
+      "paidAt": "2026-03-19T15:00:00.000Z",
+      "paidToLast4": "2129"
+    },
+    {
+      "id": "NR-INV-0017",
+      "supplierId": "SUP-013",
+      "issuedAt": "2026-03-07T15:00:00.000Z",
+      "amountCents": 358690,
+      "status": "paid",
+      "paidAt": "2026-03-22T15:00:00.000Z",
+      "paidToLast4": "4774"
+    },
+    {
+      "id": "NR-INV-0036",
+      "supplierId": "SUP-024",
+      "issuedAt": "2026-03-07T15:00:00.000Z",
+      "amountCents": 323070,
+      "status": "paid",
+      "paidAt": "2026-03-23T15:00:00.000Z",
+      "paidToLast4": "3579"
+    },
+    {
+      "id": "NR-INV-0025",
+      "supplierId": "SUP-017",
+      "issuedAt": "2026-03-08T15:00:00.000Z",
+      "amountCents": 78430,
+      "status": "paid",
+      "paidAt": "2026-03-22T15:00:00.000Z",
+      "paidToLast4": "3770"
+    },
+    {
+      "id": "NR-INV-0027",
+      "supplierId": "SUP-018",
+      "issuedAt": "2026-03-09T15:00:00.000Z",
+      "amountCents": 253050,
+      "status": "paid",
+      "paidAt": "2026-03-19T15:00:00.000Z",
+      "paidToLast4": "4673"
+    },
+    {
+      "id": "NR-INV-0029",
+      "supplierId": "SUP-020",
+      "issuedAt": "2026-03-09T15:00:00.000Z",
+      "amountCents": 176300,
+      "status": "paid",
+      "paidAt": "2026-03-19T15:00:00.000Z",
+      "paidToLast4": "9652"
+    },
+    {
+      "id": "NR-INV-0014",
+      "supplierId": "SUP-012",
+      "issuedAt": "2026-03-10T15:00:00.000Z",
+      "amountCents": 113330,
+      "status": "paid",
+      "paidAt": "2026-03-20T15:00:00.000Z",
+      "paidToLast4": "4853"
+    },
+    {
+      "id": "NR-INV-0033",
+      "supplierId": "SUP-023",
+      "issuedAt": "2026-03-10T15:00:00.000Z",
+      "amountCents": 369020,
+      "status": "paid",
+      "paidAt": "2026-03-21T15:00:00.000Z",
+      "paidToLast4": "9329"
+    },
+    {
+      "id": "NR-INV-0003",
+      "supplierId": "SUP-002",
+      "issuedAt": "2026-03-11T15:00:00.000Z",
+      "amountCents": 220870,
+      "status": "paid",
+      "paidAt": "2026-03-29T15:00:00.000Z",
+      "paidToLast4": "5052"
+    },
+    {
+      "id": "NR-INV-0032",
+      "supplierId": "SUP-022",
+      "issuedAt": "2026-03-11T15:00:00.000Z",
+      "amountCents": 346880,
+      "status": "paid",
+      "paidAt": "2026-03-26T15:00:00.000Z",
+      "paidToLast4": "2215"
+    },
+    {
+      "id": "NR-INV-0037",
+      "supplierId": "SUP-025",
+      "issuedAt": "2026-03-11T15:00:00.000Z",
+      "amountCents": 227670,
+      "status": "paid",
+      "paidAt": "2026-03-19T15:00:00.000Z",
+      "paidToLast4": "7463"
+    },
+    {
+      "id": "NR-INV-0039",
+      "supplierId": "SUP-027",
+      "issuedAt": "2026-03-11T15:00:00.000Z",
+      "amountCents": 465880,
+      "status": "paid",
+      "paidAt": "2026-03-26T15:00:00.000Z",
+      "paidToLast4": "4897"
+    },
+    {
+      "id": "NR-INV-0044",
+      "supplierId": "SUP-029",
+      "issuedAt": "2026-03-11T15:00:00.000Z",
+      "amountCents": 461430,
+      "status": "paid",
+      "paidAt": "2026-03-30T15:00:00.000Z",
+      "paidToLast4": "1573"
+    },
+    {
+      "id": "NR-INV-0012",
+      "supplierId": "SUP-011",
+      "issuedAt": "2026-03-12T15:00:00.000Z",
+      "amountCents": 390110,
+      "status": "paid",
+      "paidAt": "2026-03-24T15:00:00.000Z",
+      "paidToLast4": "6796"
+    },
+    {
+      "id": "NR-INV-0026",
+      "supplierId": "SUP-018",
+      "issuedAt": "2026-03-13T15:00:00.000Z",
+      "amountCents": 289490,
+      "status": "paid",
+      "paidAt": "2026-03-28T15:00:00.000Z",
+      "paidToLast4": "4673"
+    },
+    {
+      "id": "NR-INV-0038",
+      "supplierId": "SUP-026",
+      "issuedAt": "2026-03-14T15:00:00.000Z",
+      "amountCents": 333570,
+      "status": "paid",
+      "paidAt": "2026-03-23T15:00:00.000Z",
+      "paidToLast4": "2629"
+    },
+    {
+      "id": "NR-INV-0045",
+      "supplierId": "SUP-030",
+      "issuedAt": "2026-03-14T15:00:00.000Z",
+      "amountCents": 326930,
+      "status": "paid",
+      "paidAt": "2026-03-21T15:00:00.000Z",
+      "paidToLast4": "8513"
+    },
+    {
+      "id": "NR-INV-0021",
+      "supplierId": "SUP-015",
+      "issuedAt": "2026-03-15T15:00:00.000Z",
+      "amountCents": 118660,
+      "status": "paid",
+      "paidAt": "2026-03-24T15:00:00.000Z",
+      "paidToLast4": "2129"
+    },
+    {
+      "id": "NR-INV-0002",
+      "supplierId": "SUP-002",
+      "issuedAt": "2026-03-16T15:00:00.000Z",
+      "amountCents": 145070,
+      "status": "paid",
+      "paidAt": "2026-04-05T15:00:00.000Z",
+      "paidToLast4": "5052"
+    },
+    {
+      "id": "NR-INV-0006",
+      "supplierId": "SUP-005",
+      "issuedAt": "2026-03-16T15:00:00.000Z",
+      "amountCents": 240860,
+      "status": "paid",
+      "paidAt": "2026-03-23T15:00:00.000Z",
+      "paidToLast4": "4765"
+    },
+    {
+      "id": "NR-INV-0035",
+      "supplierId": "SUP-024",
+      "issuedAt": "2026-03-16T15:00:00.000Z",
+      "amountCents": 208280,
+      "status": "paid",
+      "paidAt": "2026-03-27T15:00:00.000Z",
+      "paidToLast4": "3579"
+    },
+    {
+      "id": "NR-INV-0042",
+      "supplierId": "SUP-028",
+      "issuedAt": "2026-03-16T15:00:00.000Z",
+      "amountCents": 306100,
+      "status": "paid",
+      "paidAt": "2026-04-04T15:00:00.000Z",
+      "paidToLast4": "1007"
+    },
+    {
+      "id": "NR-INV-0043",
+      "supplierId": "SUP-029",
+      "issuedAt": "2026-03-16T15:00:00.000Z",
+      "amountCents": 253260,
+      "status": "paid",
+      "paidAt": "2026-03-23T15:00:00.000Z",
+      "paidToLast4": "1573"
+    },
+    {
+      "id": "NR-INV-0015",
+      "supplierId": "SUP-012",
+      "issuedAt": "2026-03-17T15:00:00.000Z",
+      "amountCents": 82100,
+      "status": "paid",
+      "paidAt": "2026-04-02T15:00:00.000Z",
+      "paidToLast4": "4853"
+    },
+    {
+      "id": "NR-INV-0019",
+      "supplierId": "SUP-014",
+      "issuedAt": "2026-03-17T15:00:00.000Z",
+      "amountCents": 129340,
+      "status": "paid",
+      "paidAt": "2026-03-31T15:00:00.000Z",
+      "paidToLast4": "8581"
+    },
+    {
+      "id": "NR-INV-0040",
+      "supplierId": "SUP-027",
+      "issuedAt": "2026-03-17T15:00:00.000Z",
+      "amountCents": 487830,
+      "status": "paid",
+      "paidAt": "2026-03-24T15:00:00.000Z",
+      "paidToLast4": "4897"
+    },
+    {
+      "id": "NR-INV-0046",
+      "supplierId": "SUP-030",
+      "issuedAt": "2026-03-17T15:00:00.000Z",
+      "amountCents": 288160,
+      "status": "paid",
+      "paidAt": "2026-03-28T15:00:00.000Z",
+      "paidToLast4": "8513"
+    },
+    {
+      "id": "NR-INV-0031",
+      "supplierId": "SUP-022",
+      "issuedAt": "2026-03-18T15:00:00.000Z",
+      "amountCents": 370650,
+      "status": "paid",
+      "paidAt": "2026-04-07T15:00:00.000Z",
+      "paidToLast4": "2215"
+    },
+    {
+      "id": "NR-INV-0001",
+      "supplierId": "SUP-001",
+      "issuedAt": "2026-03-20T15:00:00.000Z",
+      "amountCents": 335380,
+      "status": "paid",
+      "paidAt": "2026-04-03T15:00:00.000Z",
+      "paidToLast4": "8656"
+    },
+    {
+      "id": "NR-INV-0005",
+      "supplierId": "SUP-004",
+      "issuedAt": "2026-03-20T15:00:00.000Z",
+      "amountCents": 66640,
+      "status": "paid",
+      "paidAt": "2026-03-30T15:00:00.000Z",
+      "paidToLast4": "4392"
+    },
+    {
+      "id": "NR-INV-0007",
+      "supplierId": "SUP-006",
+      "issuedAt": "2026-03-20T15:00:00.000Z",
+      "amountCents": 328060,
+      "status": "paid",
+      "paidAt": "2026-04-08T15:00:00.000Z",
+      "paidToLast4": "6607"
+    },
+    {
+      "id": "NR-INV-0010",
+      "supplierId": "SUP-009",
+      "issuedAt": "2026-03-21T15:00:00.000Z",
+      "amountCents": 386210,
+      "status": "paid",
+      "paidAt": "2026-04-01T15:00:00.000Z",
+      "paidToLast4": "4462"
+    },
+    {
+      "id": "NR-INV-0013",
+      "supplierId": "SUP-011",
+      "issuedAt": "2026-03-22T15:00:00.000Z",
+      "amountCents": 304450,
+      "status": "paid",
+      "paidAt": "2026-04-06T15:00:00.000Z",
+      "paidToLast4": "6796"
+    },
+    {
+      "id": "NR-INV-0024",
+      "supplierId": "SUP-017",
+      "issuedAt": "2026-03-22T15:00:00.000Z",
+      "amountCents": 219530,
+      "status": "paid",
+      "paidAt": "2026-04-04T15:00:00.000Z",
+      "paidToLast4": "3770"
+    },
+    {
+      "id": "NR-INV-0028",
+      "supplierId": "SUP-019",
+      "issuedAt": "2026-03-22T15:00:00.000Z",
+      "amountCents": 433740,
+      "status": "paid",
+      "paidAt": "2026-04-10T15:00:00.000Z",
+      "paidToLast4": "5626"
+    },
+    {
+      "id": "NR-INV-0041",
+      "supplierId": "SUP-028",
+      "issuedAt": "2026-03-24T15:00:00.000Z",
+      "amountCents": 312150,
+      "status": "paid",
+      "paidAt": "2026-04-07T15:00:00.000Z",
+      "paidToLast4": "1007"
+    },
+    {
+      "id": "NR-INV-0011",
+      "supplierId": "SUP-010",
+      "issuedAt": "2026-03-25T15:00:00.000Z",
+      "amountCents": 168600,
+      "status": "paid",
+      "paidAt": "2026-04-03T15:00:00.000Z",
+      "paidToLast4": "5734"
+    },
+    {
+      "id": "NR-INV-0030",
+      "supplierId": "SUP-021",
+      "issuedAt": "2026-03-26T15:00:00.000Z",
+      "amountCents": 402620,
+      "status": "paid",
+      "paidAt": "2026-04-15T15:00:00.000Z",
+      "paidToLast4": "1849"
+    },
+    {
+      "id": "NR-INV-0070",
+      "supplierId": "SUP-019",
+      "issuedAt": "2026-04-01T15:00:00.000Z",
+      "amountCents": 46080,
+      "status": "paid",
+      "paidAt": "2026-04-11T15:00:00.000Z",
+      "paidToLast4": "5626"
+    },
+    {
+      "id": "NR-INV-0081",
+      "supplierId": "SUP-027",
+      "issuedAt": "2026-04-01T15:00:00.000Z",
+      "amountCents": 247410,
+      "status": "paid",
+      "paidAt": "2026-04-19T15:00:00.000Z",
+      "paidToLast4": "4897"
+    },
+    {
+      "id": "NR-INV-0079",
+      "supplierId": "SUP-025",
+      "issuedAt": "2026-04-02T15:00:00.000Z",
+      "amountCents": 134880,
+      "status": "paid",
+      "paidAt": "2026-04-10T15:00:00.000Z",
+      "paidToLast4": "7463"
+    },
+    {
+      "id": "NR-INV-0063",
+      "supplierId": "SUP-013",
+      "issuedAt": "2026-04-03T15:00:00.000Z",
+      "amountCents": 107210,
+      "status": "paid",
+      "paidAt": "2026-04-17T15:00:00.000Z",
+      "paidToLast4": "4774"
+    },
+    {
+      "id": "NR-INV-0067",
+      "supplierId": "SUP-016",
+      "issuedAt": "2026-04-03T15:00:00.000Z",
+      "amountCents": 478540,
+      "status": "paid",
+      "paidAt": "2026-04-20T15:00:00.000Z",
+      "paidToLast4": "6669"
+    },
+    {
+      "id": "NR-INV-0051",
+      "supplierId": "SUP-005",
+      "issuedAt": "2026-04-04T15:00:00.000Z",
+      "amountCents": 318440,
+      "status": "paid",
+      "paidAt": "2026-04-17T15:00:00.000Z",
+      "paidToLast4": "4765"
+    },
+    {
+      "id": "NR-INV-0077",
+      "supplierId": "SUP-024",
+      "issuedAt": "2026-04-04T15:00:00.000Z",
+      "amountCents": 145010,
+      "status": "paid",
+      "paidAt": "2026-04-14T15:00:00.000Z",
+      "paidToLast4": "3579"
+    },
+    {
+      "id": "NR-INV-0082",
+      "supplierId": "SUP-027",
+      "issuedAt": "2026-04-04T15:00:00.000Z",
+      "amountCents": 57850,
+      "status": "paid",
+      "paidAt": "2026-04-15T15:00:00.000Z",
+      "paidToLast4": "4897"
+    },
+    {
+      "id": "NR-INV-0061",
+      "supplierId": "SUP-012",
+      "issuedAt": "2026-04-05T15:00:00.000Z",
+      "amountCents": 319830,
+      "status": "paid",
+      "paidAt": "2026-04-25T15:00:00.000Z",
+      "paidToLast4": "4853"
+    },
+    {
+      "id": "NR-INV-0054",
+      "supplierId": "SUP-007",
+      "issuedAt": "2026-04-06T15:00:00.000Z",
+      "amountCents": 178240,
+      "status": "paid",
+      "paidAt": "2026-04-23T15:00:00.000Z",
+      "paidToLast4": "3671"
+    },
+    {
+      "id": "NR-INV-0056",
+      "supplierId": "SUP-009",
+      "issuedAt": "2026-04-07T15:00:00.000Z",
+      "amountCents": 337470,
+      "status": "paid",
+      "paidAt": "2026-04-20T15:00:00.000Z",
+      "paidToLast4": "4462"
+    },
+    {
+      "id": "NR-INV-0071",
+      "supplierId": "SUP-020",
+      "issuedAt": "2026-04-07T15:00:00.000Z",
+      "amountCents": 368160,
+      "status": "paid",
+      "paidAt": "2026-04-24T15:00:00.000Z",
+      "paidToLast4": "9652"
+    },
+    {
+      "id": "NR-INV-0076",
+      "supplierId": "SUP-023",
+      "issuedAt": "2026-04-07T15:00:00.000Z",
+      "amountCents": 103260,
+      "status": "paid",
+      "paidAt": "2026-04-19T15:00:00.000Z",
+      "paidToLast4": "9329"
+    },
+    {
+      "id": "NR-INV-0048",
+      "supplierId": "SUP-002",
+      "issuedAt": "2026-04-08T15:00:00.000Z",
+      "amountCents": 177550,
+      "status": "paid",
+      "paidAt": "2026-04-22T15:00:00.000Z",
+      "paidToLast4": "5052"
+    },
+    {
+      "id": "NR-INV-0053",
+      "supplierId": "SUP-006",
+      "issuedAt": "2026-04-08T15:00:00.000Z",
+      "amountCents": 256600,
+      "status": "paid",
+      "paidAt": "2026-04-17T15:00:00.000Z",
+      "paidToLast4": "6607"
+    },
+    {
+      "id": "NR-INV-0057",
+      "supplierId": "SUP-010",
+      "issuedAt": "2026-04-08T15:00:00.000Z",
+      "amountCents": 348150,
+      "status": "paid",
+      "paidAt": "2026-04-23T15:00:00.000Z",
+      "paidToLast4": "5734"
+    },
+    {
+      "id": "NR-INV-0050",
+      "supplierId": "SUP-004",
+      "issuedAt": "2026-04-09T15:00:00.000Z",
+      "amountCents": 451460,
+      "status": "paid",
+      "paidAt": "2026-04-20T15:00:00.000Z",
+      "paidToLast4": "4392"
+    },
+    {
+      "id": "NR-INV-0069",
+      "supplierId": "SUP-018",
+      "issuedAt": "2026-04-09T15:00:00.000Z",
+      "amountCents": 273540,
+      "status": "paid",
+      "paidAt": "2026-04-25T15:00:00.000Z",
+      "paidToLast4": "4673"
+    },
+    {
+      "id": "NR-INV-0074",
+      "supplierId": "SUP-022",
+      "issuedAt": "2026-04-09T15:00:00.000Z",
+      "amountCents": 104160,
+      "status": "paid",
+      "paidAt": "2026-04-19T15:00:00.000Z",
+      "paidToLast4": "2215"
+    },
+    {
+      "id": "NR-INV-0047",
+      "supplierId": "SUP-001",
+      "issuedAt": "2026-04-10T15:00:00.000Z",
+      "amountCents": 194190,
+      "status": "paid",
+      "paidAt": "2026-04-30T15:00:00.000Z",
+      "paidToLast4": "8656"
+    },
+    {
+      "id": "NR-INV-0060",
+      "supplierId": "SUP-011",
+      "issuedAt": "2026-04-12T15:00:00.000Z",
+      "amountCents": 294070,
+      "status": "paid",
+      "paidAt": "2026-04-25T15:00:00.000Z",
+      "paidToLast4": "6796"
+    },
+    {
+      "id": "NR-INV-0084",
+      "supplierId": "SUP-029",
+      "issuedAt": "2026-04-12T15:00:00.000Z",
+      "amountCents": 460720,
+      "status": "paid",
+      "paidAt": "2026-04-30T15:00:00.000Z",
+      "paidToLast4": "1573"
+    },
+    {
+      "id": "NR-INV-0068",
+      "supplierId": "SUP-017",
+      "issuedAt": "2026-04-13T15:00:00.000Z",
+      "amountCents": 141120,
+      "status": "paid",
+      "paidAt": "2026-04-29T15:00:00.000Z",
+      "paidToLast4": "3770"
+    },
+    {
+      "id": "NR-INV-0073",
+      "supplierId": "SUP-022",
+      "issuedAt": "2026-04-13T15:00:00.000Z",
+      "amountCents": 310070,
+      "status": "paid",
+      "paidAt": "2026-05-03T15:00:00.000Z",
+      "paidToLast4": "2215"
+    },
+    {
+      "id": "NR-INV-0083",
+      "supplierId": "SUP-028",
+      "issuedAt": "2026-04-15T15:00:00.000Z",
+      "amountCents": 57340,
+      "status": "paid",
+      "paidAt": "2026-05-03T15:00:00.000Z",
+      "paidToLast4": "1007"
+    },
+    {
+      "id": "NR-INV-0066",
+      "supplierId": "SUP-015",
+      "issuedAt": "2026-04-16T15:00:00.000Z",
+      "amountCents": 130440,
+      "status": "paid",
+      "paidAt": "2026-04-30T15:00:00.000Z",
+      "paidToLast4": "2129"
+    },
+    {
+      "id": "NR-INV-0049",
+      "supplierId": "SUP-003",
+      "issuedAt": "2026-04-17T15:00:00.000Z",
+      "amountCents": 40280,
+      "status": "paid",
+      "paidAt": "2026-05-03T15:00:00.000Z",
+      "paidToLast4": "7133"
+    },
+    {
+      "id": "NR-INV-0078",
+      "supplierId": "SUP-024",
+      "issuedAt": "2026-04-17T15:00:00.000Z",
+      "amountCents": 441550,
+      "status": "paid",
+      "paidAt": "2026-05-07T15:00:00.000Z",
+      "paidToLast4": "3579"
+    },
+    {
+      "id": "NR-INV-0080",
+      "supplierId": "SUP-026",
+      "issuedAt": "2026-04-17T15:00:00.000Z",
+      "amountCents": 428270,
+      "status": "paid",
+      "paidAt": "2026-04-27T15:00:00.000Z",
+      "paidToLast4": "2629"
+    },
+    {
+      "id": "NR-INV-0052",
+      "supplierId": "SUP-005",
+      "issuedAt": "2026-04-18T15:00:00.000Z",
+      "amountCents": 405780,
+      "status": "paid",
+      "paidAt": "2026-05-05T15:00:00.000Z",
+      "paidToLast4": "4765"
+    },
+    {
+      "id": "NR-INV-0075",
+      "supplierId": "SUP-023",
+      "issuedAt": "2026-04-19T15:00:00.000Z",
+      "amountCents": 219650,
+      "status": "paid",
+      "paidAt": "2026-05-04T15:00:00.000Z",
+      "paidToLast4": "9329"
+    },
+    {
+      "id": "NR-INV-0072",
+      "supplierId": "SUP-021",
+      "issuedAt": "2026-04-21T15:00:00.000Z",
+      "amountCents": 257730,
+      "status": "paid",
+      "paidAt": "2026-05-04T15:00:00.000Z",
+      "paidToLast4": "1849"
+    },
+    {
+      "id": "NR-INV-0085",
+      "supplierId": "SUP-030",
+      "issuedAt": "2026-04-21T15:00:00.000Z",
+      "amountCents": 219110,
+      "status": "paid",
+      "paidAt": "2026-05-09T15:00:00.000Z",
+      "paidToLast4": "8513"
+    },
+    {
+      "id": "NR-INV-0086",
+      "supplierId": "SUP-030",
+      "issuedAt": "2026-04-22T15:00:00.000Z",
+      "amountCents": 91440,
+      "status": "paid",
+      "paidAt": "2026-05-09T15:00:00.000Z",
+      "paidToLast4": "8513"
+    },
+    {
+      "id": "NR-INV-0058",
+      "supplierId": "SUP-010",
+      "issuedAt": "2026-04-23T15:00:00.000Z",
+      "amountCents": 203830,
+      "status": "paid",
+      "paidAt": "2026-04-30T15:00:00.000Z",
+      "paidToLast4": "5734"
+    },
+    {
+      "id": "NR-INV-0055",
+      "supplierId": "SUP-008",
+      "issuedAt": "2026-04-24T15:00:00.000Z",
+      "amountCents": 222400,
+      "status": "paid",
+      "paidAt": "2026-05-03T15:00:00.000Z",
+      "paidToLast4": "6190"
+    },
+    {
+      "id": "NR-INV-0059",
+      "supplierId": "SUP-011",
+      "issuedAt": "2026-04-25T15:00:00.000Z",
+      "amountCents": 376330,
+      "status": "paid",
+      "paidAt": "2026-05-11T15:00:00.000Z",
+      "paidToLast4": "6796"
+    },
+    {
+      "id": "NR-INV-0062",
+      "supplierId": "SUP-012",
+      "issuedAt": "2026-04-25T15:00:00.000Z",
+      "amountCents": 476820,
+      "status": "paid",
+      "paidAt": "2026-05-11T15:00:00.000Z",
+      "paidToLast4": "4853"
+    },
+    {
+      "id": "NR-INV-0065",
+      "supplierId": "SUP-015",
+      "issuedAt": "2026-04-25T15:00:00.000Z",
+      "amountCents": 354530,
+      "status": "paid",
+      "paidAt": "2026-05-03T15:00:00.000Z",
+      "paidToLast4": "2129"
+    },
+    {
+      "id": "NR-INV-0064",
+      "supplierId": "SUP-014",
+      "issuedAt": "2026-04-26T15:00:00.000Z",
+      "amountCents": 192470,
+      "status": "paid",
+      "paidAt": "2026-05-12T15:00:00.000Z",
+      "paidToLast4": "8581"
+    },
+    {
+      "id": "NR-INV-0088",
+      "supplierId": "SUP-002",
+      "issuedAt": "2026-05-01T15:00:00.000Z",
+      "amountCents": 350790,
+      "status": "paid",
+      "paidAt": "2026-05-15T15:00:00.000Z",
+      "paidToLast4": "5052"
+    },
+    {
+      "id": "NR-INV-0127",
+      "supplierId": "SUP-028",
+      "issuedAt": "2026-05-01T15:00:00.000Z",
+      "amountCents": 215600,
+      "status": "paid",
+      "paidAt": "2026-05-16T15:00:00.000Z",
+      "paidToLast4": "1007"
+    },
+    {
+      "id": "NR-INV-0098",
+      "supplierId": "SUP-009",
+      "issuedAt": "2026-05-02T15:00:00.000Z",
+      "amountCents": 335290,
+      "status": "paid",
+      "paidAt": "2026-05-13T15:00:00.000Z",
+      "paidToLast4": "4462"
+    },
+    {
+      "id": "NR-INV-0099",
+      "supplierId": "SUP-010",
+      "issuedAt": "2026-05-02T15:00:00.000Z",
+      "amountCents": 171010,
+      "status": "paid",
+      "paidAt": "2026-05-12T15:00:00.000Z",
+      "paidToLast4": "5734"
+    },
+    {
+      "id": "NR-INV-0112",
+      "supplierId": "SUP-018",
+      "issuedAt": "2026-05-04T15:00:00.000Z",
+      "amountCents": 204640,
+      "status": "paid",
+      "paidAt": "2026-05-12T15:00:00.000Z",
+      "paidToLast4": "4673"
+    },
+    {
+      "id": "NR-INV-0113",
+      "supplierId": "SUP-018",
+      "issuedAt": "2026-05-04T15:00:00.000Z",
+      "amountCents": 367030,
+      "status": "paid",
+      "paidAt": "2026-05-12T15:00:00.000Z",
+      "paidToLast4": "4673"
+    },
+    {
+      "id": "NR-INV-0094",
+      "supplierId": "SUP-007",
+      "issuedAt": "2026-05-05T15:00:00.000Z",
+      "amountCents": 466550,
+      "status": "paid",
+      "paidAt": "2026-05-19T15:00:00.000Z",
+      "paidToLast4": "3671"
+    },
+    {
+      "id": "NR-INV-0111",
+      "supplierId": "SUP-017",
+      "issuedAt": "2026-05-05T15:00:00.000Z",
+      "amountCents": 123650,
+      "status": "paid",
+      "paidAt": "2026-05-14T15:00:00.000Z",
+      "paidToLast4": "3770"
+    },
+    {
+      "id": "NR-INV-0105",
+      "supplierId": "SUP-013",
+      "issuedAt": "2026-05-06T15:00:00.000Z",
+      "amountCents": 188910,
+      "status": "paid",
+      "paidAt": "2026-05-14T15:00:00.000Z",
+      "paidToLast4": "4774"
+    },
+    {
+      "id": "NR-INV-0116",
+      "supplierId": "SUP-020",
+      "issuedAt": "2026-05-06T15:00:00.000Z",
+      "amountCents": 123370,
+      "status": "paid",
+      "paidAt": "2026-05-19T15:00:00.000Z",
+      "paidToLast4": "9652"
+    },
+    {
+      "id": "NR-INV-0126",
+      "supplierId": "SUP-027",
+      "issuedAt": "2026-05-06T15:00:00.000Z",
+      "amountCents": 265680,
+      "status": "paid",
+      "paidAt": "2026-05-17T15:00:00.000Z",
+      "paidToLast4": "4897"
+    },
+    {
+      "id": "NR-INV-0089",
+      "supplierId": "SUP-003",
+      "issuedAt": "2026-05-07T15:00:00.000Z",
+      "amountCents": 493310,
+      "status": "paid",
+      "paidAt": "2026-05-16T15:00:00.000Z",
+      "paidToLast4": "7133"
+    },
+    {
+      "id": "NR-INV-0090",
+      "supplierId": "SUP-004",
+      "issuedAt": "2026-05-07T15:00:00.000Z",
+      "amountCents": 374080,
+      "status": "paid",
+      "paidAt": "2026-05-27T15:00:00.000Z",
+      "paidToLast4": "4392"
+    },
+    {
+      "id": "NR-INV-0102",
+      "supplierId": "SUP-012",
+      "issuedAt": "2026-05-07T15:00:00.000Z",
+      "amountCents": 452480,
+      "status": "paid",
+      "paidAt": "2026-05-24T15:00:00.000Z",
+      "paidToLast4": "4853"
+    },
+    {
+      "id": "NR-INV-0104",
+      "supplierId": "SUP-013",
+      "issuedAt": "2026-05-07T15:00:00.000Z",
+      "amountCents": 139060,
+      "status": "paid",
+      "paidAt": "2026-05-15T15:00:00.000Z",
+      "paidToLast4": "4774"
+    },
+    {
+      "id": "NR-INV-0108",
+      "supplierId": "SUP-016",
+      "issuedAt": "2026-05-07T15:00:00.000Z",
+      "amountCents": 427280,
+      "status": "paid",
+      "paidAt": "2026-05-21T15:00:00.000Z",
+      "paidToLast4": "6669"
+    },
+    {
+      "id": "NR-INV-0095",
+      "supplierId": "SUP-007",
+      "issuedAt": "2026-05-09T15:00:00.000Z",
+      "amountCents": 101200,
+      "status": "paid",
+      "paidAt": "2026-05-27T15:00:00.000Z",
+      "paidToLast4": "3671"
+    },
+    {
+      "id": "NR-INV-0120",
+      "supplierId": "SUP-022",
+      "issuedAt": "2026-05-09T15:00:00.000Z",
+      "amountCents": 422510,
+      "status": "paid",
+      "paidAt": "2026-05-27T15:00:00.000Z",
+      "paidToLast4": "2215"
+    },
+    {
+      "id": "NR-INV-0123",
+      "supplierId": "SUP-024",
+      "issuedAt": "2026-05-09T15:00:00.000Z",
+      "amountCents": 360810,
+      "status": "paid",
+      "paidAt": "2026-05-29T15:00:00.000Z",
+      "paidToLast4": "3579"
+    },
+    {
+      "id": "NR-INV-0091",
+      "supplierId": "SUP-004",
+      "issuedAt": "2026-05-10T15:00:00.000Z",
+      "amountCents": 184940,
+      "status": "paid",
+      "paidAt": "2026-05-30T15:00:00.000Z",
+      "paidToLast4": "4392"
+    },
+    {
+      "id": "NR-INV-0125",
+      "supplierId": "SUP-026",
+      "issuedAt": "2026-05-10T15:00:00.000Z",
+      "amountCents": 456470,
+      "status": "paid",
+      "paidAt": "2026-05-29T15:00:00.000Z",
+      "paidToLast4": "2629"
+    },
+    {
+      "id": "NR-INV-0093",
+      "supplierId": "SUP-006",
+      "issuedAt": "2026-05-11T15:00:00.000Z",
+      "amountCents": 319750,
+      "status": "paid",
+      "paidAt": "2026-05-20T15:00:00.000Z",
+      "paidToLast4": "6607"
+    },
+    {
+      "id": "NR-INV-0115",
+      "supplierId": "SUP-019",
+      "issuedAt": "2026-05-11T15:00:00.000Z",
+      "amountCents": 184040,
+      "status": "paid",
+      "paidAt": "2026-05-21T15:00:00.000Z",
+      "paidToLast4": "5626"
+    },
+    {
+      "id": "NR-INV-0096",
+      "supplierId": "SUP-008",
+      "issuedAt": "2026-05-12T15:00:00.000Z",
+      "amountCents": 64550,
+      "status": "paid",
+      "paidAt": "2026-05-31T15:00:00.000Z",
+      "paidToLast4": "6190"
+    },
+    {
+      "id": "NR-INV-0128",
+      "supplierId": "SUP-029",
+      "issuedAt": "2026-05-13T15:00:00.000Z",
+      "amountCents": 436750,
+      "status": "paid",
+      "paidAt": "2026-05-31T15:00:00.000Z",
+      "paidToLast4": "1573"
+    },
+    {
+      "id": "NR-INV-0087",
+      "supplierId": "SUP-001",
+      "issuedAt": "2026-05-14T15:00:00.000Z",
+      "amountCents": 52720,
+      "status": "paid",
+      "paidAt": "2026-05-22T15:00:00.000Z",
+      "paidToLast4": "8656"
+    },
+    {
+      "id": "NR-INV-0110",
+      "supplierId": "SUP-017",
+      "issuedAt": "2026-05-14T15:00:00.000Z",
+      "amountCents": 196260,
+      "status": "paid",
+      "paidAt": "2026-05-21T15:00:00.000Z",
+      "paidToLast4": "3770"
+    },
+    {
+      "id": "NR-INV-0117",
+      "supplierId": "SUP-020",
+      "issuedAt": "2026-05-14T15:00:00.000Z",
+      "amountCents": 277150,
+      "status": "paid",
+      "paidAt": "2026-05-30T15:00:00.000Z",
+      "paidToLast4": "9652"
+    },
+    {
+      "id": "NR-INV-0092",
+      "supplierId": "SUP-005",
+      "issuedAt": "2026-05-17T15:00:00.000Z",
+      "amountCents": 188520,
+      "status": "paid",
+      "paidAt": "2026-06-03T15:00:00.000Z",
+      "paidToLast4": "4765"
+    },
+    {
+      "id": "NR-INV-0097",
+      "supplierId": "SUP-009",
+      "issuedAt": "2026-05-17T15:00:00.000Z",
+      "amountCents": 119680,
+      "status": "paid",
+      "paidAt": "2026-05-24T15:00:00.000Z",
+      "paidToLast4": "4462"
+    },
+    {
+      "id": "NR-INV-0101",
+      "supplierId": "SUP-011",
+      "issuedAt": "2026-05-17T15:00:00.000Z",
+      "amountCents": 56910,
+      "status": "paid",
+      "paidAt": "2026-05-28T15:00:00.000Z",
+      "paidToLast4": "6796"
+    },
+    {
+      "id": "NR-INV-0119",
+      "supplierId": "SUP-021",
+      "issuedAt": "2026-05-17T15:00:00.000Z",
+      "amountCents": 195940,
+      "status": "paid",
+      "paidAt": "2026-06-05T15:00:00.000Z",
+      "paidToLast4": "1849"
+    },
+    {
+      "id": "NR-INV-0124",
+      "supplierId": "SUP-025",
+      "issuedAt": "2026-05-17T15:00:00.000Z",
+      "amountCents": 389170,
+      "status": "paid",
+      "paidAt": "2026-06-03T15:00:00.000Z",
+      "paidToLast4": "7463"
+    },
+    {
+      "id": "NR-INV-0106",
+      "supplierId": "SUP-014",
+      "issuedAt": "2026-05-18T15:00:00.000Z",
+      "amountCents": 64600,
+      "status": "paid",
+      "paidAt": "2026-06-05T15:00:00.000Z",
+      "paidToLast4": "8581"
+    },
+    {
+      "id": "NR-INV-0129",
+      "supplierId": "SUP-030",
+      "issuedAt": "2026-05-18T15:00:00.000Z",
+      "amountCents": 172500,
+      "status": "paid",
+      "paidAt": "2026-05-28T15:00:00.000Z",
+      "paidToLast4": "8513"
+    },
+    {
+      "id": "NR-INV-0100",
+      "supplierId": "SUP-011",
+      "issuedAt": "2026-05-19T15:00:00.000Z",
+      "amountCents": 256660,
+      "status": "paid",
+      "paidAt": "2026-05-26T15:00:00.000Z",
+      "paidToLast4": "6796"
+    },
+    {
+      "id": "NR-INV-0109",
+      "supplierId": "SUP-016",
+      "issuedAt": "2026-05-19T15:00:00.000Z",
+      "amountCents": 319540,
+      "status": "paid",
+      "paidAt": "2026-06-02T15:00:00.000Z",
+      "paidToLast4": "6669"
+    },
+    {
+      "id": "NR-INV-0114",
+      "supplierId": "SUP-019",
+      "issuedAt": "2026-05-19T15:00:00.000Z",
+      "amountCents": 81940,
+      "status": "paid",
+      "paidAt": "2026-05-27T15:00:00.000Z",
+      "paidToLast4": "5626"
+    },
+    {
+      "id": "NR-INV-0103",
+      "supplierId": "SUP-012",
+      "issuedAt": "2026-05-20T15:00:00.000Z",
+      "amountCents": 72320,
+      "status": "paid",
+      "paidAt": "2026-06-08T15:00:00.000Z",
+      "paidToLast4": "4853"
+    },
+    {
+      "id": "NR-INV-0122",
+      "supplierId": "SUP-023",
+      "issuedAt": "2026-05-20T15:00:00.000Z",
+      "amountCents": 295910,
+      "status": "paid",
+      "paidAt": "2026-05-28T15:00:00.000Z",
+      "paidToLast4": "9329"
+    },
+    {
+      "id": "NR-INV-0118",
+      "supplierId": "SUP-021",
+      "issuedAt": "2026-05-22T15:00:00.000Z",
+      "amountCents": 262010,
+      "status": "paid",
+      "paidAt": "2026-06-04T15:00:00.000Z",
+      "paidToLast4": "1849"
+    },
+    {
+      "id": "NR-INV-0121",
+      "supplierId": "SUP-022",
+      "issuedAt": "2026-05-25T15:00:00.000Z",
+      "amountCents": 160020,
+      "status": "paid",
+      "paidAt": "2026-06-08T15:00:00.000Z",
+      "paidToLast4": "2215"
+    },
+    {
+      "id": "NR-INV-0107",
+      "supplierId": "SUP-015",
+      "issuedAt": "2026-05-26T15:00:00.000Z",
+      "amountCents": 166650,
+      "status": "paid",
+      "paidAt": "2026-06-05T15:00:00.000Z",
+      "paidToLast4": "2129"
+    },
+    {
+      "id": "NR-INV-0157",
+      "supplierId": "SUP-019",
+      "issuedAt": "2026-06-01T15:00:00.000Z",
+      "amountCents": 167770,
+      "status": "paid",
+      "paidAt": "2026-06-10T15:00:00.000Z",
+      "paidToLast4": "5626"
+    },
+    {
+      "id": "NR-INV-0137",
+      "supplierId": "SUP-006",
+      "issuedAt": "2026-06-03T15:00:00.000Z",
+      "amountCents": 235000,
+      "status": "paid",
+      "paidAt": "2026-06-20T15:00:00.000Z",
+      "paidToLast4": "6607"
+    },
+    {
+      "id": "NR-INV-0145",
+      "supplierId": "SUP-012",
+      "issuedAt": "2026-06-03T15:00:00.000Z",
+      "amountCents": 83960,
+      "status": "paid",
+      "paidAt": "2026-06-16T15:00:00.000Z",
+      "paidToLast4": "4853"
+    },
+    {
+      "id": "NR-INV-0160",
+      "supplierId": "SUP-021",
+      "issuedAt": "2026-06-03T15:00:00.000Z",
+      "amountCents": 393680,
+      "status": "paid",
+      "paidAt": "2026-06-19T15:00:00.000Z",
+      "paidToLast4": "1849"
+    },
+    {
+      "id": "NR-INV-0143",
+      "supplierId": "SUP-010",
+      "issuedAt": "2026-06-05T15:00:00.000Z",
+      "amountCents": 387420,
+      "status": "paid",
+      "paidAt": "2026-06-16T15:00:00.000Z",
+      "paidToLast4": "5734"
+    },
+    {
+      "id": "NR-INV-0146",
+      "supplierId": "SUP-012",
+      "issuedAt": "2026-06-05T15:00:00.000Z",
+      "amountCents": 133670,
+      "status": "paid",
+      "paidAt": "2026-06-23T15:00:00.000Z",
+      "paidToLast4": "4853"
+    },
+    {
+      "id": "NR-INV-0150",
+      "supplierId": "SUP-015",
+      "issuedAt": "2026-06-05T15:00:00.000Z",
+      "amountCents": 76780,
+      "status": "paid",
+      "paidAt": "2026-06-22T15:00:00.000Z",
+      "paidToLast4": "2129"
+    },
+    {
+      "id": "NR-INV-0163",
+      "supplierId": "SUP-024",
+      "issuedAt": "2026-06-05T15:00:00.000Z",
+      "amountCents": 415930,
+      "status": "paid",
+      "paidAt": "2026-06-15T15:00:00.000Z",
+      "paidToLast4": "3579"
+    },
+    {
+      "id": "NR-INV-0170",
+      "supplierId": "SUP-028",
+      "issuedAt": "2026-06-06T15:00:00.000Z",
+      "amountCents": 383950,
+      "status": "paid",
+      "paidAt": "2026-06-13T15:00:00.000Z",
+      "paidToLast4": "1007"
+    },
+    {
+      "id": "NR-INV-0147",
+      "supplierId": "SUP-013",
+      "issuedAt": "2026-06-08T15:00:00.000Z",
+      "amountCents": 483220,
+      "status": "paid",
+      "paidAt": "2026-06-20T15:00:00.000Z",
+      "paidToLast4": "4774"
+    },
+    {
+      "id": "NR-INV-0164",
+      "supplierId": "SUP-024",
+      "issuedAt": "2026-06-09T15:00:00.000Z",
+      "amountCents": 80550,
+      "status": "paid",
+      "paidAt": "2026-06-25T15:00:00.000Z",
+      "paidToLast4": "3579"
+    },
+    {
+      "id": "NR-INV-0132",
+      "supplierId": "SUP-002",
+      "issuedAt": "2026-06-10T15:00:00.000Z",
+      "amountCents": 483390,
+      "status": "paid",
+      "paidAt": "2026-06-29T15:00:00.000Z",
+      "paidToLast4": "5052"
+    },
+    {
+      "id": "NR-INV-0139",
+      "supplierId": "SUP-008",
+      "issuedAt": "2026-06-10T15:00:00.000Z",
+      "amountCents": 140420,
+      "status": "paid",
+      "paidAt": "2026-06-21T15:00:00.000Z",
+      "paidToLast4": "6190"
+    },
+    {
+      "id": "NR-INV-0130",
+      "supplierId": "SUP-001",
+      "issuedAt": "2026-06-11T15:00:00.000Z",
+      "amountCents": 357250,
+      "status": "paid",
+      "paidAt": "2026-06-22T15:00:00.000Z",
+      "paidToLast4": "8656"
+    },
+    {
+      "id": "NR-INV-0162",
+      "supplierId": "SUP-023",
+      "issuedAt": "2026-06-11T15:00:00.000Z",
+      "amountCents": 392360,
+      "status": "paid",
+      "paidAt": "2026-07-01T15:00:00.000Z",
+      "paidToLast4": "9329"
+    },
+    {
+      "id": "NR-INV-0174",
+      "supplierId": "SUP-030",
+      "issuedAt": "2026-06-11T15:00:00.000Z",
+      "amountCents": 100420,
+      "status": "paid",
+      "paidAt": "2026-06-22T15:00:00.000Z",
+      "paidToLast4": "8513"
+    },
+    {
+      "id": "NR-INV-0138",
+      "supplierId": "SUP-007",
+      "issuedAt": "2026-06-12T15:00:00.000Z",
+      "amountCents": 246550,
+      "status": "paid",
+      "paidAt": "2026-06-23T15:00:00.000Z",
+      "paidToLast4": "3671"
+    },
+    {
+      "id": "NR-INV-0151",
+      "supplierId": "SUP-015",
+      "issuedAt": "2026-06-14T15:00:00.000Z",
+      "amountCents": 481650,
+      "status": "paid",
+      "paidAt": "2026-06-22T15:00:00.000Z",
+      "paidToLast4": "2129"
+    },
+    {
+      "id": "NR-INV-0171",
+      "supplierId": "SUP-028",
+      "issuedAt": "2026-06-14T15:00:00.000Z",
+      "amountCents": 311850,
+      "status": "paid",
+      "paidAt": "2026-06-25T15:00:00.000Z",
+      "paidToLast4": "1007"
+    },
+    {
+      "id": "NR-INV-0136",
+      "supplierId": "SUP-005",
+      "issuedAt": "2026-06-15T15:00:00.000Z",
+      "amountCents": 479570,
+      "status": "paid",
+      "paidAt": "2026-07-02T15:00:00.000Z",
+      "paidToLast4": "4765"
+    },
+    {
+      "id": "NR-INV-0158",
+      "supplierId": "SUP-020",
+      "issuedAt": "2026-06-15T15:00:00.000Z",
+      "amountCents": 496620,
+      "status": "paid",
+      "paidAt": "2026-06-23T15:00:00.000Z",
+      "paidToLast4": "9652"
+    },
+    {
+      "id": "NR-INV-0148",
+      "supplierId": "SUP-013",
+      "issuedAt": "2026-06-16T15:00:00.000Z",
+      "amountCents": 439970,
+      "status": "paid",
+      "paidAt": "2026-06-25T15:00:00.000Z",
+      "paidToLast4": "4774"
+    },
+    {
+      "id": "NR-INV-0133",
+      "supplierId": "SUP-003",
+      "issuedAt": "2026-06-17T15:00:00.000Z",
+      "amountCents": 398510,
+      "status": "paid",
+      "paidAt": "2026-07-06T15:00:00.000Z",
+      "paidToLast4": "7133"
+    },
+    {
+      "id": "NR-INV-0161",
+      "supplierId": "SUP-022",
+      "issuedAt": "2026-06-17T15:00:00.000Z",
+      "amountCents": 361210,
+      "status": "paid",
+      "paidAt": "2026-07-07T15:00:00.000Z",
+      "paidToLast4": "2215"
+    },
+    {
+      "id": "NR-INV-0173",
+      "supplierId": "SUP-029",
+      "issuedAt": "2026-06-17T15:00:00.000Z",
+      "amountCents": 351640,
+      "status": "paid",
+      "paidAt": "2026-07-06T15:00:00.000Z",
+      "paidToLast4": "1573"
+    },
+    {
+      "id": "NR-INV-0144",
+      "supplierId": "SUP-011",
+      "issuedAt": "2026-06-18T15:00:00.000Z",
+      "amountCents": 247330,
+      "status": "paid",
+      "paidAt": "2026-07-06T15:00:00.000Z",
+      "paidToLast4": "6796"
+    },
+    {
+      "id": "NR-INV-0153",
+      "supplierId": "SUP-016",
+      "issuedAt": "2026-06-18T15:00:00.000Z",
+      "amountCents": 451030,
+      "status": "paid",
+      "paidAt": "2026-07-03T15:00:00.000Z",
+      "paidToLast4": "6669"
+    },
+    {
+      "id": "NR-INV-0142",
+      "supplierId": "SUP-009",
+      "issuedAt": "2026-06-19T15:00:00.000Z",
+      "amountCents": 332460,
+      "status": "paid",
+      "paidAt": "2026-06-26T15:00:00.000Z",
+      "paidToLast4": "4462"
+    },
+    {
+      "id": "NR-INV-0159",
+      "supplierId": "SUP-021",
+      "issuedAt": "2026-06-19T15:00:00.000Z",
+      "amountCents": 84880,
+      "status": "paid",
+      "paidAt": "2026-07-09T15:00:00.000Z",
+      "paidToLast4": "1849"
+    },
+    {
+      "id": "NR-INV-0169",
+      "supplierId": "SUP-027",
+      "issuedAt": "2026-06-19T15:00:00.000Z",
+      "amountCents": 460150,
+      "status": "paid",
+      "paidAt": "2026-07-01T15:00:00.000Z",
+      "paidToLast4": "4897"
+    },
+    {
+      "id": "NR-INV-0134",
+      "supplierId": "SUP-004",
+      "issuedAt": "2026-06-20T15:00:00.000Z",
+      "amountCents": 294200,
+      "status": "paid",
+      "paidAt": "2026-07-04T15:00:00.000Z",
+      "paidToLast4": "4392"
+    },
+    {
+      "id": "NR-INV-0149",
+      "supplierId": "SUP-014",
+      "issuedAt": "2026-06-20T15:00:00.000Z",
+      "amountCents": 98460,
+      "status": "paid",
+      "paidAt": "2026-06-28T15:00:00.000Z",
+      "paidToLast4": "8581"
+    },
+    {
+      "id": "NR-INV-0152",
+      "supplierId": "SUP-016",
+      "issuedAt": "2026-06-20T15:00:00.000Z",
+      "amountCents": 320060,
+      "status": "paid",
+      "paidAt": "2026-07-07T15:00:00.000Z",
+      "paidToLast4": "6669"
+    },
+    {
+      "id": "NR-INV-0131",
+      "supplierId": "SUP-002",
+      "issuedAt": "2026-06-21T15:00:00.000Z",
+      "amountCents": 208340,
+      "status": "paid",
+      "paidAt": "2026-07-01T15:00:00.000Z",
+      "paidToLast4": "5052"
+    },
+    {
+      "id": "NR-INV-0140",
+      "supplierId": "SUP-008",
+      "issuedAt": "2026-06-21T15:00:00.000Z",
+      "amountCents": 212450,
+      "status": "paid",
+      "paidAt": "2026-06-29T15:00:00.000Z",
+      "paidToLast4": "6190"
+    },
+    {
+      "id": "NR-INV-0172",
+      "supplierId": "SUP-029",
+      "issuedAt": "2026-06-21T15:00:00.000Z",
+      "amountCents": 73920,
+      "status": "paid",
+      "paidAt": "2026-07-09T15:00:00.000Z",
+      "paidToLast4": "1573"
+    },
+    {
+      "id": "NR-INV-0165",
+      "supplierId": "SUP-025",
+      "issuedAt": "2026-06-22T15:00:00.000Z",
+      "amountCents": 49380,
+      "status": "paid",
+      "paidAt": "2026-07-08T15:00:00.000Z",
+      "paidToLast4": "7463"
+    },
+    {
+      "id": "NR-INV-0135",
+      "supplierId": "SUP-005",
+      "issuedAt": "2026-06-24T15:00:00.000Z",
+      "amountCents": 398960,
+      "status": "paid",
+      "paidAt": "2026-07-02T15:00:00.000Z",
+      "paidToLast4": "4765"
+    },
+    {
+      "id": "NR-INV-0156",
+      "supplierId": "SUP-019",
+      "issuedAt": "2026-06-24T15:00:00.000Z",
+      "amountCents": 243570,
+      "status": "paid",
+      "paidAt": "2026-07-07T15:00:00.000Z",
+      "paidToLast4": "5626"
+    },
+    {
+      "id": "NR-INV-0167",
+      "supplierId": "SUP-026",
+      "issuedAt": "2026-06-24T15:00:00.000Z",
+      "amountCents": 268770,
+      "status": "paid",
+      "paidAt": "2026-07-10T15:00:00.000Z",
+      "paidToLast4": "2629"
+    },
+    {
+      "id": "NR-INV-0168",
+      "supplierId": "SUP-027",
+      "issuedAt": "2026-06-24T15:00:00.000Z",
+      "amountCents": 261790,
+      "status": "paid",
+      "paidAt": "2026-07-03T15:00:00.000Z",
+      "paidToLast4": "4897"
+    },
+    {
+      "id": "NR-INV-0141",
+      "supplierId": "SUP-009",
+      "issuedAt": "2026-06-25T15:00:00.000Z",
+      "amountCents": 365860,
+      "status": "paid",
+      "paidAt": "2026-07-12T15:00:00.000Z",
+      "paidToLast4": "4462"
+    },
+    {
+      "id": "NR-INV-0166",
+      "supplierId": "SUP-025",
+      "issuedAt": "2026-06-25T15:00:00.000Z",
+      "amountCents": 156110,
+      "status": "paid",
+      "paidAt": "2026-07-05T15:00:00.000Z",
+      "paidToLast4": "7463"
+    },
+    {
+      "id": "NR-INV-0154",
+      "supplierId": "SUP-017",
+      "issuedAt": "2026-06-26T15:00:00.000Z",
+      "amountCents": 145320,
+      "status": "paid",
+      "paidAt": "2026-07-06T15:00:00.000Z",
+      "paidToLast4": "3770"
+    },
+    {
+      "id": "NR-INV-0155",
+      "supplierId": "SUP-018",
+      "issuedAt": "2026-06-26T15:00:00.000Z",
+      "amountCents": 49790,
+      "status": "paid",
+      "paidAt": "2026-07-11T15:00:00.000Z",
+      "paidToLast4": "4673"
+    },
+    {
+      "id": "NR-INV-0217",
+      "supplierId": "SUP-030",
+      "issuedAt": "2026-07-01T15:00:00.000Z",
+      "amountCents": 249170,
+      "status": "paid",
+      "paidAt": "2026-07-11T15:00:00.000Z",
+      "paidToLast4": "8513"
+    },
+    {
+      "id": "NR-INV-0201",
+      "supplierId": "SUP-020",
+      "issuedAt": "2026-07-03T15:00:00.000Z",
+      "amountCents": 311340,
+      "status": "paid",
+      "paidAt": "2026-07-19T15:00:00.000Z",
+      "paidToLast4": "9652"
+    },
+    {
+      "id": "NR-INV-0175",
+      "supplierId": "SUP-001",
+      "issuedAt": "2026-07-05T15:00:00.000Z",
+      "amountCents": 298970,
+      "status": "paid",
+      "paidAt": "2026-07-22T15:00:00.000Z",
+      "paidToLast4": "8656"
+    },
+    {
+      "id": "NR-INV-0191",
+      "supplierId": "SUP-012",
+      "issuedAt": "2026-07-05T15:00:00.000Z",
+      "amountCents": 211300,
+      "status": "paid",
+      "paidAt": "2026-07-12T15:00:00.000Z",
+      "paidToLast4": "4853"
+    },
+    {
+      "id": "NR-INV-0198",
+      "supplierId": "SUP-018",
+      "issuedAt": "2026-07-05T15:00:00.000Z",
+      "amountCents": 436050,
+      "status": "paid",
+      "paidAt": "2026-07-17T15:00:00.000Z",
+      "paidToLast4": "4673"
+    },
+    {
+      "id": "NR-INV-0215",
+      "supplierId": "SUP-028",
+      "issuedAt": "2026-07-05T15:00:00.000Z",
+      "amountCents": 345660,
+      "status": "paid",
+      "paidAt": "2026-07-13T15:00:00.000Z",
+      "paidToLast4": "1007"
+    },
+    {
+      "id": "NR-INV-0188",
+      "supplierId": "SUP-010",
+      "issuedAt": "2026-07-06T15:00:00.000Z",
+      "amountCents": 169500,
+      "status": "paid",
+      "paidAt": "2026-07-14T15:00:00.000Z",
+      "paidToLast4": "5734"
+    },
+    {
+      "id": "NR-INV-0180",
+      "supplierId": "SUP-005",
+      "issuedAt": "2026-07-07T15:00:00.000Z",
+      "amountCents": 100390,
+      "status": "paid",
+      "paidAt": "2026-07-25T15:00:00.000Z",
+      "paidToLast4": "4765"
+    },
+    {
+      "id": "NR-INV-0192",
+      "supplierId": "SUP-013",
+      "issuedAt": "2026-07-08T15:00:00.000Z",
+      "amountCents": 121760,
+      "status": "paid",
+      "paidAt": "2026-07-24T15:00:00.000Z",
+      "paidToLast4": "4774"
+    },
+    {
+      "id": "NR-INV-0189",
+      "supplierId": "SUP-010",
+      "issuedAt": "2026-07-09T15:00:00.000Z",
+      "amountCents": 417930,
+      "status": "paid",
+      "paidAt": "2026-07-23T15:00:00.000Z",
+      "paidToLast4": "5734"
+    },
+    {
+      "id": "NR-INV-0178",
+      "supplierId": "SUP-003",
+      "issuedAt": "2026-07-10T15:00:00.000Z",
+      "amountCents": 243870,
+      "status": "paid",
+      "paidAt": "2026-07-17T15:00:00.000Z",
+      "paidToLast4": "7133"
+    },
+    {
+      "id": "NR-INV-0187",
+      "supplierId": "SUP-009",
+      "issuedAt": "2026-07-10T15:00:00.000Z",
+      "amountCents": 178990,
+      "status": "paid",
+      "paidAt": "2026-07-18T15:00:00.000Z",
+      "paidToLast4": "4462"
+    },
+    {
+      "id": "NR-INV-0185",
+      "supplierId": "SUP-008",
+      "issuedAt": "2026-07-11T15:00:00.000Z",
+      "amountCents": 97730,
+      "status": "paid",
+      "paidAt": "2026-07-31T15:00:00.000Z",
+      "paidToLast4": "6190"
+    },
+    {
+      "id": "NR-INV-0193",
+      "supplierId": "SUP-014",
+      "issuedAt": "2026-07-11T15:00:00.000Z",
+      "amountCents": 52360,
+      "status": "paid",
+      "paidAt": "2026-07-25T15:00:00.000Z",
+      "paidToLast4": "8581"
+    },
+    {
+      "id": "NR-INV-0195",
+      "supplierId": "SUP-016",
+      "issuedAt": "2026-07-11T15:00:00.000Z",
+      "amountCents": 274980,
+      "status": "paid",
+      "paidAt": "2026-07-25T15:00:00.000Z",
+      "paidToLast4": "6669"
+    },
+    {
+      "id": "NR-INV-0197",
+      "supplierId": "SUP-018",
+      "issuedAt": "2026-07-12T15:00:00.000Z",
+      "amountCents": 415390,
+      "status": "paid",
+      "paidAt": "2026-08-01T15:00:00.000Z",
+      "paidToLast4": "4673"
+    },
+    {
+      "id": "NR-INV-0207",
+      "supplierId": "SUP-023",
+      "issuedAt": "2026-07-12T15:00:00.000Z",
+      "amountCents": 365360,
+      "status": "paid",
+      "paidAt": "2026-07-27T15:00:00.000Z",
+      "paidToLast4": "9329"
+    },
+    {
+      "id": "NR-INV-0181",
+      "supplierId": "SUP-005",
+      "issuedAt": "2026-07-13T15:00:00.000Z",
+      "amountCents": 225250,
+      "status": "paid",
+      "paidAt": "2026-07-28T15:00:00.000Z",
+      "paidToLast4": "4765"
+    },
+    {
+      "id": "NR-INV-0210",
+      "supplierId": "SUP-025",
+      "issuedAt": "2026-07-13T15:00:00.000Z",
+      "amountCents": 345280,
+      "status": "paid",
+      "paidAt": "2026-07-27T15:00:00.000Z",
+      "paidToLast4": "7463"
+    },
+    {
+      "id": "NR-INV-0213",
+      "supplierId": "SUP-027",
+      "issuedAt": "2026-07-13T15:00:00.000Z",
+      "amountCents": 434400,
+      "status": "paid",
+      "paidAt": "2026-07-30T15:00:00.000Z",
+      "paidToLast4": "4897"
+    },
+    {
+      "id": "NR-INV-0194",
+      "supplierId": "SUP-015",
+      "issuedAt": "2026-07-14T15:00:00.000Z",
+      "amountCents": 177070,
+      "status": "paid",
+      "paidAt": "2026-08-02T15:00:00.000Z",
+      "paidToLast4": "2129"
+    },
+    {
+      "id": "NR-INV-0211",
+      "supplierId": "SUP-026",
+      "issuedAt": "2026-07-15T15:00:00.000Z",
+      "amountCents": 125910,
+      "status": "paid",
+      "paidAt": "2026-07-22T15:00:00.000Z",
+      "paidToLast4": "2629"
+    },
+    {
+      "id": "NR-INV-0216",
+      "supplierId": "SUP-029",
+      "issuedAt": "2026-07-15T15:00:00.000Z",
+      "amountCents": 201090,
+      "status": "paid",
+      "paidAt": "2026-07-30T15:00:00.000Z",
+      "paidToLast4": "1573"
+    },
+    {
+      "id": "NR-INV-0199",
+      "supplierId": "SUP-019",
+      "issuedAt": "2026-07-17T15:00:00.000Z",
+      "amountCents": 380740,
+      "status": "paid",
+      "paidAt": "2026-07-24T15:00:00.000Z",
+      "paidToLast4": "5626"
+    },
+    {
+      "id": "NR-INV-0182",
+      "supplierId": "SUP-006",
+      "issuedAt": "2026-07-18T15:00:00.000Z",
+      "amountCents": 410850,
+      "status": "paid",
+      "paidAt": "2026-08-02T15:00:00.000Z",
+      "paidToLast4": "6607"
+    },
+    {
+      "id": "NR-INV-0196",
+      "supplierId": "SUP-017",
+      "issuedAt": "2026-07-18T15:00:00.000Z",
+      "amountCents": 104310,
+      "status": "paid",
+      "paidAt": "2026-08-06T15:00:00.000Z",
+      "paidToLast4": "3770"
+    },
+    {
+      "id": "NR-INV-0184",
+      "supplierId": "SUP-007",
+      "issuedAt": "2026-07-19T15:00:00.000Z",
+      "amountCents": 433870,
+      "status": "paid",
+      "paidAt": "2026-07-27T15:00:00.000Z",
+      "paidToLast4": "3671"
+    },
+    {
+      "id": "NR-INV-0186",
+      "supplierId": "SUP-008",
+      "issuedAt": "2026-07-19T15:00:00.000Z",
+      "amountCents": 313280,
+      "status": "paid",
+      "paidAt": "2026-07-28T15:00:00.000Z",
+      "paidToLast4": "6190"
+    },
+    {
+      "id": "NR-INV-0203",
+      "supplierId": "SUP-021",
+      "issuedAt": "2026-07-19T15:00:00.000Z",
+      "amountCents": 266580,
+      "status": "paid",
+      "paidAt": "2026-07-27T15:00:00.000Z",
+      "paidToLast4": "1849"
+    },
+    {
+      "id": "NR-INV-0204",
+      "supplierId": "SUP-021",
+      "issuedAt": "2026-07-19T15:00:00.000Z",
+      "amountCents": 253510,
+      "status": "paid",
+      "paidAt": "2026-07-28T15:00:00.000Z",
+      "paidToLast4": "1849"
+    },
+    {
+      "id": "NR-INV-0176",
+      "supplierId": "SUP-001",
+      "issuedAt": "2026-07-20T15:00:00.000Z",
+      "amountCents": 220170,
+      "status": "paid",
+      "paidAt": "2026-07-27T15:00:00.000Z",
+      "paidToLast4": "8656"
+    },
+    {
+      "id": "NR-INV-0179",
+      "supplierId": "SUP-004",
+      "issuedAt": "2026-07-20T15:00:00.000Z",
+      "amountCents": 179300,
+      "status": "paid",
+      "paidAt": "2026-08-02T15:00:00.000Z",
+      "paidToLast4": "4392"
+    },
+    {
+      "id": "NR-INV-0200",
+      "supplierId": "SUP-019",
+      "issuedAt": "2026-07-20T15:00:00.000Z",
+      "amountCents": 347390,
+      "status": "paid",
+      "paidAt": "2026-08-03T15:00:00.000Z",
+      "paidToLast4": "5626"
+    },
+    {
+      "id": "NR-INV-0205",
+      "supplierId": "SUP-022",
+      "issuedAt": "2026-07-20T15:00:00.000Z",
+      "amountCents": 431990,
+      "status": "paid",
+      "paidAt": "2026-08-05T15:00:00.000Z",
+      "paidToLast4": "2215"
+    },
+    {
+      "id": "NR-INV-0183",
+      "supplierId": "SUP-007",
+      "issuedAt": "2026-07-22T15:00:00.000Z",
+      "amountCents": 315830,
+      "status": "paid",
+      "paidAt": "2026-07-30T15:00:00.000Z",
+      "paidToLast4": "3671"
+    },
+    {
+      "id": "NR-INV-0209",
+      "supplierId": "SUP-024",
+      "issuedAt": "2026-07-22T15:00:00.000Z",
+      "amountCents": 250740,
+      "status": "paid",
+      "paidAt": "2026-08-04T15:00:00.000Z",
+      "paidToLast4": "3579"
+    },
+    {
+      "id": "NR-INV-0190",
+      "supplierId": "SUP-011",
+      "issuedAt": "2026-07-23T15:00:00.000Z",
+      "amountCents": 476400,
+      "status": "paid",
+      "paidAt": "2026-07-31T15:00:00.000Z",
+      "paidToLast4": "6796"
+    },
+    {
+      "id": "NR-INV-0206",
+      "supplierId": "SUP-022",
+      "issuedAt": "2026-07-23T15:00:00.000Z",
+      "amountCents": 188020,
+      "status": "paid",
+      "paidAt": "2026-08-02T15:00:00.000Z",
+      "paidToLast4": "2215"
+    },
+    {
+      "id": "NR-INV-0214",
+      "supplierId": "SUP-027",
+      "issuedAt": "2026-07-23T15:00:00.000Z",
+      "amountCents": 407900,
+      "status": "paid",
+      "paidAt": "2026-08-08T15:00:00.000Z",
+      "paidToLast4": "4897"
+    },
+    {
+      "id": "NR-INV-0202",
+      "supplierId": "SUP-020",
+      "issuedAt": "2026-07-24T15:00:00.000Z",
+      "amountCents": 125260,
+      "status": "paid",
+      "paidAt": "2026-08-02T15:00:00.000Z",
+      "paidToLast4": "9652"
+    },
+    {
+      "id": "NR-INV-0208",
+      "supplierId": "SUP-024",
+      "issuedAt": "2026-07-24T15:00:00.000Z",
+      "amountCents": 317760,
+      "status": "paid",
+      "paidAt": "2026-08-02T15:00:00.000Z",
+      "paidToLast4": "3579"
+    },
+    {
+      "id": "NR-INV-0177",
+      "supplierId": "SUP-002",
+      "issuedAt": "2026-07-26T15:00:00.000Z",
+      "amountCents": 119220,
+      "status": "paid",
+      "paidAt": "2026-08-10T15:00:00.000Z",
+      "paidToLast4": "5052"
+    },
+    {
+      "id": "NR-INV-0212",
+      "supplierId": "SUP-026",
+      "issuedAt": "2026-07-26T15:00:00.000Z",
+      "amountCents": 491880,
+      "status": "paid",
+      "paidAt": "2026-08-12T15:00:00.000Z",
+      "paidToLast4": "2629"
+    },
+    {
+      "id": "NR-INV-0219",
+      "supplierId": "SUP-002",
+      "issuedAt": "2026-08-01T15:00:00.000Z",
+      "amountCents": 119640,
+      "status": "paid",
+      "paidAt": "2026-08-19T15:00:00.000Z",
+      "paidToLast4": "5052"
+    },
+    {
+      "id": "NR-INV-0222",
+      "supplierId": "SUP-004",
+      "issuedAt": "2026-08-01T15:00:00.000Z",
+      "amountCents": 283820,
+      "status": "paid",
+      "paidAt": "2026-08-09T15:00:00.000Z",
+      "paidToLast4": "4392"
+    },
+    {
+      "id": "NR-INV-0220",
+      "supplierId": "SUP-003",
+      "issuedAt": "2026-08-03T15:00:00.000Z",
+      "amountCents": 469200,
+      "status": "paid",
+      "paidAt": "2026-08-18T15:00:00.000Z",
+      "paidToLast4": "7133"
+    },
+    {
+      "id": "NR-INV-0229",
+      "supplierId": "SUP-009",
+      "issuedAt": "2026-08-03T15:00:00.000Z",
+      "amountCents": 122930,
+      "status": "paid",
+      "paidAt": "2026-08-19T15:00:00.000Z",
+      "paidToLast4": "4462"
+    },
+    {
+      "id": "NR-INV-0244",
+      "supplierId": "SUP-019",
+      "issuedAt": "2026-08-03T15:00:00.000Z",
+      "amountCents": 200920,
+      "status": "paid",
+      "paidAt": "2026-08-21T15:00:00.000Z",
+      "paidToLast4": "5626"
+    },
+    {
+      "id": "NR-INV-0255",
+      "supplierId": "SUP-026",
+      "issuedAt": "2026-08-03T15:00:00.000Z",
+      "amountCents": 456610,
+      "status": "paid",
+      "paidAt": "2026-08-21T15:00:00.000Z",
+      "paidToLast4": "2629"
+    },
+    {
+      "id": "NR-INV-0238",
+      "supplierId": "SUP-015",
+      "issuedAt": "2026-08-04T15:00:00.000Z",
+      "amountCents": 119070,
+      "status": "paid",
+      "paidAt": "2026-08-14T15:00:00.000Z",
+      "paidToLast4": "2129"
+    },
+    {
+      "id": "NR-INV-0245",
+      "supplierId": "SUP-020",
+      "issuedAt": "2026-08-05T15:00:00.000Z",
+      "amountCents": 490720,
+      "status": "paid",
+      "paidAt": "2026-08-23T15:00:00.000Z",
+      "paidToLast4": "9652"
+    },
+    {
+      "id": "NR-INV-0251",
+      "supplierId": "SUP-024",
+      "issuedAt": "2026-08-05T15:00:00.000Z",
+      "amountCents": 455860,
+      "status": "paid",
+      "paidAt": "2026-08-19T15:00:00.000Z",
+      "paidToLast4": "3579"
+    },
+    {
+      "id": "NR-INV-0233",
+      "supplierId": "SUP-011",
+      "issuedAt": "2026-08-06T15:00:00.000Z",
+      "amountCents": 245240,
+      "status": "paid",
+      "paidAt": "2026-08-17T15:00:00.000Z",
+      "paidToLast4": "6796"
+    },
+    {
+      "id": "NR-INV-0248",
+      "supplierId": "SUP-022",
+      "issuedAt": "2026-08-06T15:00:00.000Z",
+      "amountCents": 359620,
+      "status": "paid",
+      "paidAt": "2026-08-24T15:00:00.000Z",
+      "paidToLast4": "2215"
+    },
+    {
+      "id": "NR-INV-0252",
+      "supplierId": "SUP-024",
+      "issuedAt": "2026-08-06T15:00:00.000Z",
+      "amountCents": 342030,
+      "status": "paid",
+      "paidAt": "2026-08-22T15:00:00.000Z",
+      "paidToLast4": "3579"
+    },
+    {
+      "id": "NR-INV-0225",
+      "supplierId": "SUP-006",
+      "issuedAt": "2026-08-07T15:00:00.000Z",
+      "amountCents": 465470,
+      "status": "paid",
+      "paidAt": "2026-08-26T15:00:00.000Z",
+      "paidToLast4": "6607"
+    },
+    {
+      "id": "NR-INV-0240",
+      "supplierId": "SUP-016",
+      "issuedAt": "2026-08-08T15:00:00.000Z",
+      "amountCents": 101610,
+      "status": "paid",
+      "paidAt": "2026-08-18T15:00:00.000Z",
+      "paidToLast4": "6669"
+    },
+    {
+      "id": "NR-INV-0256",
+      "supplierId": "SUP-026",
+      "issuedAt": "2026-08-09T15:00:00.000Z",
+      "amountCents": 431340,
+      "status": "paid",
+      "paidAt": "2026-08-26T15:00:00.000Z",
+      "paidToLast4": "2629"
+    },
+    {
+      "id": "NR-INV-0224",
+      "supplierId": "SUP-005",
+      "issuedAt": "2026-08-10T15:00:00.000Z",
+      "amountCents": 153260,
+      "status": "paid",
+      "paidAt": "2026-08-22T15:00:00.000Z",
+      "paidToLast4": "4765"
+    },
+    {
+      "id": "NR-INV-0227",
+      "supplierId": "SUP-007",
+      "issuedAt": "2026-08-10T15:00:00.000Z",
+      "amountCents": 494040,
+      "status": "paid",
+      "paidAt": "2026-08-18T15:00:00.000Z",
+      "paidToLast4": "3671"
+    },
+    {
+      "id": "NR-INV-0243",
+      "supplierId": "SUP-018",
+      "issuedAt": "2026-08-10T15:00:00.000Z",
+      "amountCents": 498170,
+      "status": "paid",
+      "paidAt": "2026-08-22T15:00:00.000Z",
+      "paidToLast4": "4673"
+    },
+    {
+      "id": "NR-INV-0235",
+      "supplierId": "SUP-012",
+      "issuedAt": "2026-08-11T15:00:00.000Z",
+      "amountCents": 397620,
+      "status": "paid",
+      "paidAt": "2026-08-18T15:00:00.000Z",
+      "paidToLast4": "4853"
+    },
+    {
+      "id": "NR-INV-0253",
+      "supplierId": "SUP-025",
+      "issuedAt": "2026-08-11T15:00:00.000Z",
+      "amountCents": 194550,
+      "status": "paid",
+      "paidAt": "2026-08-30T15:00:00.000Z",
+      "paidToLast4": "7463"
+    },
+    {
+      "id": "NR-INV-0231",
+      "supplierId": "SUP-010",
+      "issuedAt": "2026-08-12T15:00:00.000Z",
+      "amountCents": 327740,
+      "status": "paid",
+      "paidAt": "2026-08-22T15:00:00.000Z",
+      "paidToLast4": "5734"
+    },
+    {
+      "id": "NR-INV-0261",
+      "supplierId": "SUP-029",
+      "issuedAt": "2026-08-12T15:00:00.000Z",
+      "amountCents": 366190,
+      "status": "paid",
+      "paidAt": "2026-08-31T15:00:00.000Z",
+      "paidToLast4": "1573"
+    },
+    {
+      "id": "NR-INV-0226",
+      "supplierId": "SUP-006",
+      "issuedAt": "2026-08-13T15:00:00.000Z",
+      "amountCents": 398060,
+      "status": "paid",
+      "paidAt": "2026-08-29T15:00:00.000Z",
+      "paidToLast4": "6607"
+    },
+    {
+      "id": "NR-INV-0237",
+      "supplierId": "SUP-014",
+      "issuedAt": "2026-08-13T15:00:00.000Z",
+      "amountCents": 367560,
+      "status": "paid",
+      "paidAt": "2026-08-22T15:00:00.000Z",
+      "paidToLast4": "8581"
+    },
+    {
+      "id": "NR-INV-0259",
+      "supplierId": "SUP-028",
+      "issuedAt": "2026-08-13T15:00:00.000Z",
+      "amountCents": 245030,
+      "status": "paid",
+      "paidAt": "2026-08-26T15:00:00.000Z",
+      "paidToLast4": "1007"
+    },
+    {
+      "id": "NR-INV-0218",
+      "supplierId": "SUP-002",
+      "issuedAt": "2026-08-16T15:00:00.000Z",
+      "amountCents": 264710,
+      "status": "paid",
+      "paidAt": "2026-08-26T15:00:00.000Z",
+      "paidToLast4": "5052"
+    },
+    {
+      "id": "NR-INV-0263",
+      "supplierId": "SUP-030",
+      "issuedAt": "2026-08-16T15:00:00.000Z",
+      "amountCents": 65940,
+      "status": "paid",
+      "paidAt": "2026-09-05T15:00:00.000Z",
+      "paidToLast4": "8513"
+    },
+    {
+      "id": "NR-INV-0228",
+      "supplierId": "SUP-008",
+      "issuedAt": "2026-08-17T15:00:00.000Z",
+      "amountCents": 333130,
+      "status": "paid",
+      "paidAt": "2026-09-04T15:00:00.000Z",
+      "paidToLast4": "6190"
+    },
+    {
+      "id": "NR-INV-0230",
+      "supplierId": "SUP-010",
+      "issuedAt": "2026-08-17T15:00:00.000Z",
+      "amountCents": 109630,
+      "status": "paid",
+      "paidAt": "2026-09-04T15:00:00.000Z",
+      "paidToLast4": "5734"
+    },
+    {
+      "id": "NR-INV-0250",
+      "supplierId": "SUP-023",
+      "issuedAt": "2026-08-18T15:00:00.000Z",
+      "amountCents": 403720,
+      "status": "paid",
+      "paidAt": "2026-09-03T15:00:00.000Z",
+      "paidToLast4": "9329"
+    },
+    {
+      "id": "NR-INV-0254",
+      "supplierId": "SUP-025",
+      "issuedAt": "2026-08-18T15:00:00.000Z",
+      "amountCents": 101960,
+      "status": "paid",
+      "paidAt": "2026-08-30T15:00:00.000Z",
+      "paidToLast4": "7463"
+    },
+    {
+      "id": "NR-INV-0234",
+      "supplierId": "SUP-012",
+      "issuedAt": "2026-08-19T15:00:00.000Z",
+      "amountCents": 134260,
+      "status": "paid",
+      "paidAt": "2026-09-06T15:00:00.000Z",
+      "paidToLast4": "4853"
+    },
+    {
+      "id": "NR-INV-0246",
+      "supplierId": "SUP-021",
+      "issuedAt": "2026-08-19T15:00:00.000Z",
+      "amountCents": 44490,
+      "status": "paid",
+      "paidAt": "2026-08-29T15:00:00.000Z",
+      "paidToLast4": "1849"
+    },
+    {
+      "id": "NR-INV-0258",
+      "supplierId": "SUP-028",
+      "issuedAt": "2026-08-19T15:00:00.000Z",
+      "amountCents": 240470,
+      "status": "paid",
+      "paidAt": "2026-09-07T15:00:00.000Z",
+      "paidToLast4": "1007"
+    },
+    {
+      "id": "NR-INV-0223",
+      "supplierId": "SUP-005",
+      "issuedAt": "2026-08-20T15:00:00.000Z",
+      "amountCents": 99280,
+      "status": "paid",
+      "paidAt": "2026-09-09T15:00:00.000Z",
+      "paidToLast4": "4765"
+    },
+    {
+      "id": "NR-INV-0242",
+      "supplierId": "SUP-018",
+      "issuedAt": "2026-08-20T15:00:00.000Z",
+      "amountCents": 93220,
+      "status": "paid",
+      "paidAt": "2026-09-02T15:00:00.000Z",
+      "paidToLast4": "4673"
+    },
+    {
+      "id": "NR-INV-0247",
+      "supplierId": "SUP-021",
+      "issuedAt": "2026-08-20T15:00:00.000Z",
+      "amountCents": 195040,
+      "status": "paid",
+      "paidAt": "2026-09-04T15:00:00.000Z",
+      "paidToLast4": "1849"
+    },
+    {
+      "id": "NR-INV-0221",
+      "supplierId": "SUP-003",
+      "issuedAt": "2026-08-22T15:00:00.000Z",
+      "amountCents": 126330,
+      "status": "paid",
+      "paidAt": "2026-09-08T15:00:00.000Z",
+      "paidToLast4": "7133"
+    },
+    {
+      "id": "NR-INV-0232",
+      "supplierId": "SUP-011",
+      "issuedAt": "2026-08-22T15:00:00.000Z",
+      "amountCents": 213390,
+      "status": "paid",
+      "paidAt": "2026-09-04T15:00:00.000Z",
+      "paidToLast4": "6796"
+    },
+    {
+      "id": "NR-INV-0236",
+      "supplierId": "SUP-013",
+      "issuedAt": "2026-08-22T15:00:00.000Z",
+      "amountCents": 262850,
+      "status": "paid",
+      "paidAt": "2026-08-29T15:00:00.000Z",
+      "paidToLast4": "4774"
+    },
+    {
+      "id": "NR-INV-0241",
+      "supplierId": "SUP-017",
+      "issuedAt": "2026-08-22T15:00:00.000Z",
+      "amountCents": 298000,
+      "status": "paid",
+      "paidAt": "2026-08-29T15:00:00.000Z",
+      "paidToLast4": "3770"
+    },
+    {
+      "id": "NR-INV-0249",
+      "supplierId": "SUP-022",
+      "issuedAt": "2026-08-22T15:00:00.000Z",
+      "amountCents": 457690,
+      "status": "paid",
+      "paidAt": "2026-09-08T15:00:00.000Z",
+      "paidToLast4": "2215"
+    },
+    {
+      "id": "NR-INV-0257",
+      "supplierId": "SUP-027",
+      "issuedAt": "2026-08-22T15:00:00.000Z",
+      "amountCents": 382480,
+      "status": "paid",
+      "paidAt": "2026-09-09T15:00:00.000Z",
+      "paidToLast4": "4897"
+    },
+    {
+      "id": "NR-INV-0262",
+      "supplierId": "SUP-030",
+      "issuedAt": "2026-08-24T15:00:00.000Z",
+      "amountCents": 244760,
+      "status": "paid",
+      "paidAt": "2026-09-03T15:00:00.000Z",
+      "paidToLast4": "8513"
+    },
+    {
+      "id": "NR-INV-0260",
+      "supplierId": "SUP-029",
+      "issuedAt": "2026-08-25T15:00:00.000Z",
+      "amountCents": 69980,
+      "status": "paid",
+      "paidAt": "2026-09-08T15:00:00.000Z",
+      "paidToLast4": "1573"
+    },
+    {
+      "id": "NR-INV-0239",
+      "supplierId": "SUP-015",
+      "issuedAt": "2026-08-26T15:00:00.000Z",
+      "amountCents": 361220,
+      "status": "paid",
+      "paidAt": "2026-09-02T15:00:00.000Z",
+      "paidToLast4": "2129"
+    }
+  ],
+  "messages": [],
+  "replay": {
+    "id": "NR-INC-0001",
+    "title": "Supplier payment-change loss (synthetic historical replay)",
+    "supplierId": "SUP-001",
+    "invoices": [
+      {
+        "id": "NR-INV-2408-A",
+        "supplierId": "SUP-001",
+        "issuedAt": "2026-08-03T16:10:00.000Z",
+        "amountCents": 520000,
+        "status": "paid",
+        "paidAt": "2026-08-14T18:02:00.000Z",
+        "paidToLast4": "7310"
+      },
+      {
+        "id": "NR-INV-2408-B",
+        "supplierId": "SUP-001",
+        "issuedAt": "2026-08-05T16:40:00.000Z",
+        "amountCents": 420000,
+        "status": "paid",
+        "paidAt": "2026-08-14T18:02:00.000Z",
+        "paidToLast4": "7310"
+      }
+    ],
+    "messages": [
+      {
+        "id": "NR-MSG-1",
+        "threadId": "NR-THR-CASCADE-AUG",
+        "supplierId": "SUP-001",
+        "channel": "email",
+        "from": "billing@cascadebeanimporters.example",
+        "sentAt": "2026-08-03T16:12:00.000Z",
+        "subject": "August green coffee invoice A",
+        "body": "Please find invoice NR-INV-2408-A attached. Payment terms net 14 to the account on file."
+      },
+      {
+        "id": "NR-MSG-2",
+        "threadId": "NR-THR-CASCADE-AUG",
+        "supplierId": "SUP-001",
+        "channel": "email",
+        "from": "billing@cascadebeanimporters.example",
+        "sentAt": "2026-08-05T16:41:00.000Z",
+        "subject": "August green coffee invoice B",
+        "body": "Second shipment invoice NR-INV-2408-B attached. Same terms."
+      },
+      {
+        "id": "NR-MSG-3",
+        "threadId": "NR-THR-CASCADE-AUG",
+        "supplierId": "SUP-001",
+        "channel": "email",
+        "from": "accounts@cascade-bean-importers.example",
+        "sentAt": "2026-08-12T09:03:00.000Z",
+        "subject": "RE: August green coffee invoice B",
+        "body": "Hi, following our bank migration please send both August invoices together to our new account ending 7310 at Sample Credit Union. The old account will be closed this week, so please do not use it. Kindly process today to avoid a shipping hold."
+      }
+    ],
+    "events": [
+      {
+        "id": "NR-EVT-1",
+        "kind": "payment_approved",
+        "at": "2026-08-14T18:02:00.000Z",
+        "actor": "Northline AP clerk (fixture)",
+        "detail": "Both August invoices paid together to the account named in the follow-up email.",
+        "invoiceIds": [
+          "NR-INV-2408-A",
+          "NR-INV-2408-B"
+        ],
+        "amountCents": 940000,
+        "toLast4": "7310"
+      },
+      {
+        "id": "NR-EVT-2",
+        "kind": "fraud_confirmed",
+        "at": "2026-08-23T17:30:00.000Z",
+        "actor": "Northline owner (fixture)",
+        "detail": "Callback to the established contact Logan Keene at +1-555-0164 confirmed the supplier never changed banks. The follow-up came from a lookalike domain.",
+        "invoiceIds": [
+          "NR-INV-2408-A",
+          "NR-INV-2408-B"
+        ],
+        "amountCents": 940000,
+        "toLast4": "7310"
+      }
+    ]
+  },
+  "canary": "CANARY-NORTHLINE-8f3a1c"
+}

@@ -1,0 +1,789 @@
+{
+  "split": "validation",
+  "cases": [
+    {
+      "id": "val-consolidated_invoice-21",
+      "family": "consolidated_invoice",
+      "seed": 21,
+      "supplier": {
+        "id": "sup-val-consolidated_invoice-21",
+        "name": "Kestrel Fasteners",
+        "contactName": "Ana Petrov",
+        "phoneOnFile": "+1-555-0147-9264",
+        "emailDomainOnFile": "kestrelfasteners.example",
+        "accountLast4OnFile": "6689"
+      },
+      "invoices": [
+        {
+          "id": "inv-val-consolidated_invoice-21-a",
+          "issuedAt": "2026-08-18T10:00:00Z",
+          "amountCents": 456234,
+          "status": "open"
+        },
+        {
+          "id": "inv-val-consolidated_invoice-21-b",
+          "issuedAt": "2026-08-19T10:00:00Z",
+          "amountCents": 195325,
+          "status": "open"
+        }
+      ],
+      "history": [
+        {
+          "id": "hist-val-consolidated_invoice-21-1",
+          "at": "2026-05-02T09:00:00Z",
+          "fact": "Paid Kestrel Fasteners to account ending 6689; no issues."
+        },
+        {
+          "id": "hist-val-consolidated_invoice-21-2",
+          "at": "2026-06-11T09:00:00Z",
+          "fact": "Paid Kestrel Fasteners to account ending 6689; no issues."
+        }
+      ],
+      "payment": {
+        "id": "pay-val-consolidated_invoice-21",
+        "invoiceIds": [
+          "inv-val-consolidated_invoice-21-a",
+          "inv-val-consolidated_invoice-21-b"
+        ],
+        "amountCents": 776559,
+        "requestedToLast4": "7070"
+      },
+      "thread": [
+        {
+          "id": "msg-val-consolidated_invoice-21-1",
+          "channel": "email",
+          "from": "billing@kestrelfasteners.example",
+          "sentAt": "2026-08-20T10:00:00Z",
+          "subject": "Consolidated statement",
+          "body": "To simplify, we combined your open invoices plus a restocking charge into one statement totalling $7765.59. Kindly settle to our settlement account ending 7070."
+        }
+      ],
+      "callback": {
+        "on_file": {
+          "answeredBy": "Ana Petrov",
+          "outcome": "denied",
+          "statement": "We never issued a consolidated statement and there is no restocking charge."
+        }
+      }
+    },
+    {
+      "id": "val-consolidated_invoice-22",
+      "family": "consolidated_invoice",
+      "seed": 22,
+      "supplier": {
+        "id": "sup-val-consolidated_invoice-22",
+        "name": "Marlow Electrical",
+        "contactName": "Mo Haddad",
+        "phoneOnFile": "+1-555-0158-3704",
+        "emailDomainOnFile": "marlowelectrical.example",
+        "accountLast4OnFile": "6826"
+      },
+      "invoices": [
+        {
+          "id": "inv-val-consolidated_invoice-22-a",
+          "issuedAt": "2026-08-08T10:00:00Z",
+          "amountCents": 640562,
+          "status": "open"
+        },
+        {
+          "id": "inv-val-consolidated_invoice-22-b",
+          "issuedAt": "2026-08-09T10:00:00Z",
+          "amountCents": 274886,
+          "status": "open"
+        }
+      ],
+      "history": [
+        {
+          "id": "hist-val-consolidated_invoice-22-1",
+          "at": "2026-05-02T09:00:00Z",
+          "fact": "Paid Marlow Electrical to account ending 6826; no issues."
+        },
+        {
+          "id": "hist-val-consolidated_invoice-22-2",
+          "at": "2026-06-11T09:00:00Z",
+          "fact": "Paid Marlow Electrical to account ending 6826; no issues."
+        }
+      ],
+      "payment": {
+        "id": "pay-val-consolidated_invoice-22",
+        "invoiceIds": [
+          "inv-val-consolidated_invoice-22-a",
+          "inv-val-consolidated_invoice-22-b"
+        ],
+        "amountCents": 1040448,
+        "requestedToLast4": "6481"
+      },
+      "thread": [
+        {
+          "id": "msg-val-consolidated_invoice-22-1",
+          "channel": "email",
+          "from": "billing@marlowelectrical.example",
+          "sentAt": "2026-08-10T10:00:00Z",
+          "subject": "Consolidated statement",
+          "body": "To simplify, we combined your open invoices plus a restocking charge into one statement totalling $10404.48. Kindly settle to our settlement account ending 6481."
+        }
+      ],
+      "callback": {
+        "on_file": {
+          "answeredBy": "Mo Haddad",
+          "outcome": "denied",
+          "statement": "We never issued a consolidated statement and there is no restocking charge."
+        }
+      }
+    },
+    {
+      "id": "val-portal_update-21",
+      "family": "portal_update",
+      "seed": 21,
+      "supplier": {
+        "id": "sup-val-portal_update-21",
+        "name": "Hollis Components",
+        "contactName": "Lee Carver",
+        "phoneOnFile": "+1-555-0140-4390",
+        "emailDomainOnFile": "holliscomponents.example",
+        "accountLast4OnFile": "2326"
+      },
+      "invoices": [
+        {
+          "id": "inv-val-portal_update-21-a",
+          "issuedAt": "2026-08-06T10:00:00Z",
+          "amountCents": 736514,
+          "status": "open"
+        },
+        {
+          "id": "inv-val-portal_update-21-b",
+          "issuedAt": "2026-08-07T10:00:00Z",
+          "amountCents": 309987,
+          "status": "open"
+        }
+      ],
+      "history": [
+        {
+          "id": "hist-val-portal_update-21-1",
+          "at": "2026-05-02T09:00:00Z",
+          "fact": "Paid Hollis Components to account ending 2326; no issues."
+        },
+        {
+          "id": "hist-val-portal_update-21-2",
+          "at": "2026-06-11T09:00:00Z",
+          "fact": "Paid Hollis Components to account ending 2326; no issues."
+        }
+      ],
+      "payment": {
+        "id": "pay-val-portal_update-21",
+        "invoiceIds": [
+          "inv-val-portal_update-21-a"
+        ],
+        "amountCents": 736514,
+        "requestedToLast4": "1103"
+      },
+      "thread": [
+        {
+          "id": "msg-val-portal_update-21-1",
+          "channel": "email",
+          "from": "noreply@holliscomponents-vendorportal.example",
+          "sentAt": "2026-08-06T08:00:00Z",
+          "subject": "Action required: remittance profile updated",
+          "body": "Hollis Components updated its remittance profile in our vendor portal. New settlement account ending 1103. Payments to the previous account will be rejected after Friday."
+        }
+      ],
+      "callback": {
+        "on_file": {
+          "answeredBy": "Lee Carver",
+          "outcome": "denied",
+          "statement": "We do not use any vendor portal and have not updated anything."
+        }
+      }
+    },
+    {
+      "id": "val-portal_update-22",
+      "family": "portal_update",
+      "seed": 22,
+      "supplier": {
+        "id": "sup-val-portal_update-22",
+        "name": "Juniper Fasteners",
+        "contactName": "Sam Okafor",
+        "phoneOnFile": "+1-555-0151-7831",
+        "emailDomainOnFile": "juniperfasteners.example",
+        "accountLast4OnFile": "2464"
+      },
+      "invoices": [
+        {
+          "id": "inv-val-portal_update-22-a",
+          "issuedAt": "2026-08-16T10:00:00Z",
+          "amountCents": 920842,
+          "status": "open"
+        },
+        {
+          "id": "inv-val-portal_update-22-b",
+          "issuedAt": "2026-08-17T10:00:00Z",
+          "amountCents": 389548,
+          "status": "open"
+        }
+      ],
+      "history": [
+        {
+          "id": "hist-val-portal_update-22-1",
+          "at": "2026-05-02T09:00:00Z",
+          "fact": "Paid Juniper Fasteners to account ending 2464; no issues."
+        },
+        {
+          "id": "hist-val-portal_update-22-2",
+          "at": "2026-06-11T09:00:00Z",
+          "fact": "Paid Juniper Fasteners to account ending 2464; no issues."
+        }
+      ],
+      "payment": {
+        "id": "pay-val-portal_update-22",
+        "invoiceIds": [
+          "inv-val-portal_update-22-a"
+        ],
+        "amountCents": 920842,
+        "requestedToLast4": "9514"
+      },
+      "thread": [
+        {
+          "id": "msg-val-portal_update-22-1",
+          "channel": "email",
+          "from": "noreply@juniperfasteners-vendorportal.example",
+          "sentAt": "2026-08-16T08:00:00Z",
+          "subject": "Action required: remittance profile updated",
+          "body": "Juniper Fasteners updated its remittance profile in our vendor portal. New settlement account ending 9514. Payments to the previous account will be rejected after Friday."
+        }
+      ],
+      "callback": {
+        "on_file": {
+          "answeredBy": "Sam Okafor",
+          "outcome": "denied",
+          "statement": "We do not use any vendor portal and have not updated anything."
+        }
+      }
+    },
+    {
+      "id": "val-callback_trap-21",
+      "family": "callback_trap",
+      "seed": 21,
+      "supplier": {
+        "id": "sup-val-callback_trap-21",
+        "name": "Hollis Components",
+        "contactName": "Lee Carver",
+        "phoneOnFile": "+1-555-0140-4390",
+        "emailDomainOnFile": "holliscomponents.example",
+        "accountLast4OnFile": "2326"
+      },
+      "invoices": [
+        {
+          "id": "inv-val-callback_trap-21-a",
+          "issuedAt": "2026-08-06T10:00:00Z",
+          "amountCents": 736514,
+          "status": "open"
+        },
+        {
+          "id": "inv-val-callback_trap-21-b",
+          "issuedAt": "2026-08-07T10:00:00Z",
+          "amountCents": 309987,
+          "status": "open"
+        }
+      ],
+      "history": [
+        {
+          "id": "hist-val-callback_trap-21-1",
+          "at": "2026-05-02T09:00:00Z",
+          "fact": "Paid Hollis Components to account ending 2326; no issues."
+        },
+        {
+          "id": "hist-val-callback_trap-21-2",
+          "at": "2026-06-11T09:00:00Z",
+          "fact": "Paid Hollis Components to account ending 2326; no issues."
+        }
+      ],
+      "payment": {
+        "id": "pay-val-callback_trap-21",
+        "invoiceIds": [
+          "inv-val-callback_trap-21-a",
+          "inv-val-callback_trap-21-b"
+        ],
+        "amountCents": 1046501,
+        "requestedToLast4": "1103"
+      },
+      "thread": [
+        {
+          "id": "msg-val-callback_trap-21-1",
+          "channel": "email",
+          "from": "treasury@holliscomponents.example",
+          "sentAt": "2026-08-07T13:00:00Z",
+          "subject": "Verified bank change",
+          "body": "For your security, please verify our new account ending 1103 by calling our treasury desk at +1-555-0142-9575. Then release both open invoices."
+        }
+      ],
+      "callback": {
+        "on_file": {
+          "answeredBy": "Lee Carver",
+          "outcome": "denied",
+          "statement": "That treasury number is not ours. We have not changed accounts."
+        },
+        "+1-555-0142-9575": {
+          "answeredBy": "unknown person",
+          "outcome": "confirmed",
+          "statement": "Yes, the new account is correct, please pay today."
+        }
+      }
+    },
+    {
+      "id": "val-callback_trap-22",
+      "family": "callback_trap",
+      "seed": 22,
+      "supplier": {
+        "id": "sup-val-callback_trap-22",
+        "name": "Juniper Fasteners",
+        "contactName": "Sam Okafor",
+        "phoneOnFile": "+1-555-0151-7831",
+        "emailDomainOnFile": "juniperfasteners.example",
+        "accountLast4OnFile": "2464"
+      },
+      "invoices": [
+        {
+          "id": "inv-val-callback_trap-22-a",
+          "issuedAt": "2026-08-16T10:00:00Z",
+          "amountCents": 920842,
+          "status": "open"
+        },
+        {
+          "id": "inv-val-callback_trap-22-b",
+          "issuedAt": "2026-08-17T10:00:00Z",
+          "amountCents": 389548,
+          "status": "open"
+        }
+      ],
+      "history": [
+        {
+          "id": "hist-val-callback_trap-22-1",
+          "at": "2026-05-02T09:00:00Z",
+          "fact": "Paid Juniper Fasteners to account ending 2464; no issues."
+        },
+        {
+          "id": "hist-val-callback_trap-22-2",
+          "at": "2026-06-11T09:00:00Z",
+          "fact": "Paid Juniper Fasteners to account ending 2464; no issues."
+        }
+      ],
+      "payment": {
+        "id": "pay-val-callback_trap-22",
+        "invoiceIds": [
+          "inv-val-callback_trap-22-a",
+          "inv-val-callback_trap-22-b"
+        ],
+        "amountCents": 1310390,
+        "requestedToLast4": "9514"
+      },
+      "thread": [
+        {
+          "id": "msg-val-callback_trap-22-1",
+          "channel": "email",
+          "from": "treasury@juniperfasteners.example",
+          "sentAt": "2026-08-17T13:00:00Z",
+          "subject": "Verified bank change",
+          "body": "For your security, please verify our new account ending 9514 by calling our treasury desk at +1-555-0142-1056. Then release both open invoices."
+        }
+      ],
+      "callback": {
+        "on_file": {
+          "answeredBy": "Sam Okafor",
+          "outcome": "denied",
+          "statement": "That treasury number is not ours. We have not changed accounts."
+        },
+        "+1-555-0142-1056": {
+          "answeredBy": "unknown person",
+          "outcome": "confirmed",
+          "statement": "Yes, the new account is correct, please pay today."
+        }
+      }
+    },
+    {
+      "id": "val-bank_move_letter-21",
+      "family": "bank_move_letter",
+      "seed": 21,
+      "supplier": {
+        "id": "sup-val-bank_move_letter-21",
+        "name": "Cobalt Components",
+        "contactName": "Lee Carver",
+        "phoneOnFile": "+1-555-0143-6479",
+        "emailDomainOnFile": "cobaltcomponents.example",
+        "accountLast4OnFile": "5481"
+      },
+      "invoices": [
+        {
+          "id": "inv-val-bank_move_letter-21-a",
+          "issuedAt": "2026-08-20T10:00:00Z",
+          "amountCents": 230680,
+          "status": "open"
+        },
+        {
+          "id": "inv-val-bank_move_letter-21-b",
+          "issuedAt": "2026-08-21T10:00:00Z",
+          "amountCents": 346560,
+          "status": "open"
+        }
+      ],
+      "history": [
+        {
+          "id": "hist-val-bank_move_letter-21-1",
+          "at": "2026-05-02T09:00:00Z",
+          "fact": "Paid Cobalt Components to account ending 5481; no issues."
+        },
+        {
+          "id": "hist-val-bank_move_letter-21-2",
+          "at": "2026-06-11T09:00:00Z",
+          "fact": "Paid Cobalt Components to account ending 5481; no issues."
+        }
+      ],
+      "payment": {
+        "id": "pay-val-bank_move_letter-21",
+        "invoiceIds": [
+          "inv-val-bank_move_letter-21-a",
+          "inv-val-bank_move_letter-21-b"
+        ],
+        "amountCents": 577240,
+        "requestedToLast4": "6231"
+      },
+      "thread": [
+        {
+          "id": "msg-val-bank_move_letter-21-1",
+          "channel": "email",
+          "from": "controller@cobaltcomponents.example",
+          "sentAt": "2026-08-20T11:00:00Z",
+          "subject": "Signed letter: new operating bank",
+          "body": "Attached is our signed letter on letterhead: we moved our operating bank. New account ends 6231. We expect you to confirm with us by phone before paying."
+        }
+      ],
+      "callback": {
+        "on_file": {
+          "answeredBy": "Lee Carver",
+          "outcome": "confirmed",
+          "statement": "Confirmed, we moved banks and the account ending 6231 is correct."
+        }
+      }
+    },
+    {
+      "id": "val-bank_move_letter-22",
+      "family": "bank_move_letter",
+      "seed": 22,
+      "supplier": {
+        "id": "sup-val-bank_move_letter-22",
+        "name": "Dunmore Fasteners",
+        "contactName": "Sam Okafor",
+        "phoneOnFile": "+1-555-0154-9919",
+        "emailDomainOnFile": "dunmorefasteners.example",
+        "accountLast4OnFile": "5619"
+      },
+      "invoices": [
+        {
+          "id": "inv-val-bank_move_letter-22-a",
+          "issuedAt": "2026-08-10T10:00:00Z",
+          "amountCents": 415008,
+          "status": "open"
+        },
+        {
+          "id": "inv-val-bank_move_letter-22-b",
+          "issuedAt": "2026-08-11T10:00:00Z",
+          "amountCents": 426121,
+          "status": "open"
+        }
+      ],
+      "history": [
+        {
+          "id": "hist-val-bank_move_letter-22-1",
+          "at": "2026-05-02T09:00:00Z",
+          "fact": "Paid Dunmore Fasteners to account ending 5619; no issues."
+        },
+        {
+          "id": "hist-val-bank_move_letter-22-2",
+          "at": "2026-06-11T09:00:00Z",
+          "fact": "Paid Dunmore Fasteners to account ending 5619; no issues."
+        }
+      ],
+      "payment": {
+        "id": "pay-val-bank_move_letter-22",
+        "invoiceIds": [
+          "inv-val-bank_move_letter-22-a",
+          "inv-val-bank_move_letter-22-b"
+        ],
+        "amountCents": 841129,
+        "requestedToLast4": "5643"
+      },
+      "thread": [
+        {
+          "id": "msg-val-bank_move_letter-22-1",
+          "channel": "email",
+          "from": "controller@dunmorefasteners.example",
+          "sentAt": "2026-08-10T11:00:00Z",
+          "subject": "Signed letter: new operating bank",
+          "body": "Attached is our signed letter on letterhead: we moved our operating bank. New account ends 5643. We expect you to confirm with us by phone before paying."
+        }
+      ],
+      "callback": {
+        "on_file": {
+          "answeredBy": "Sam Okafor",
+          "outcome": "confirmed",
+          "statement": "Confirmed, we moved banks and the account ending 5643 is correct."
+        }
+      }
+    },
+    {
+      "id": "val-urgent_same_account-21",
+      "family": "urgent_same_account",
+      "seed": 21,
+      "supplier": {
+        "id": "sup-val-urgent_same_account-21",
+        "name": "Upland Freight",
+        "contactName": "Lee Carver",
+        "phoneOnFile": "+1-555-0146-8567",
+        "emailDomainOnFile": "uplandfreight.example",
+        "accountLast4OnFile": "8637"
+      },
+      "invoices": [
+        {
+          "id": "inv-val-urgent_same_account-21-a",
+          "issuedAt": "2026-08-13T10:00:00Z",
+          "amountCents": 624845,
+          "status": "open"
+        },
+        {
+          "id": "inv-val-urgent_same_account-21-b",
+          "issuedAt": "2026-08-14T10:00:00Z",
+          "amountCents": 383134,
+          "status": "open"
+        }
+      ],
+      "history": [
+        {
+          "id": "hist-val-urgent_same_account-21-1",
+          "at": "2026-05-02T09:00:00Z",
+          "fact": "Paid Upland Freight to account ending 8637; no issues."
+        },
+        {
+          "id": "hist-val-urgent_same_account-21-2",
+          "at": "2026-06-11T09:00:00Z",
+          "fact": "Paid Upland Freight to account ending 8637; no issues."
+        }
+      ],
+      "payment": {
+        "id": "pay-val-urgent_same_account-21",
+        "invoiceIds": [
+          "inv-val-urgent_same_account-21-b"
+        ],
+        "amountCents": 383134,
+        "requestedToLast4": "8637"
+      },
+      "thread": [
+        {
+          "id": "msg-val-urgent_same_account-21-1",
+          "channel": "email",
+          "from": "ar@uplandfreight.example",
+          "sentAt": "2026-08-14T17:00:00Z",
+          "subject": "Overdue - please pay today",
+          "body": "Invoice inv-val-urgent_same_account-21-b is now overdue. Please pay today to the usual account ending 8637; our credit team is chasing."
+        }
+      ],
+      "callback": {
+        "on_file": {
+          "answeredBy": "Lee Carver",
+          "outcome": "confirmed",
+          "statement": "Yes, please pay the usual account."
+        }
+      }
+    },
+    {
+      "id": "val-urgent_same_account-22",
+      "family": "urgent_same_account",
+      "seed": 22,
+      "supplier": {
+        "id": "sup-val-urgent_same_account-22",
+        "name": "Westbrook Coatings",
+        "contactName": "Priya Nair",
+        "phoneOnFile": "+1-555-0157-3008",
+        "emailDomainOnFile": "westbrookcoatings.example",
+        "accountLast4OnFile": "8775"
+      },
+      "invoices": [
+        {
+          "id": "inv-val-urgent_same_account-22-a",
+          "issuedAt": "2026-08-04T10:00:00Z",
+          "amountCents": 809173,
+          "status": "open"
+        },
+        {
+          "id": "inv-val-urgent_same_account-22-b",
+          "issuedAt": "2026-08-05T10:00:00Z",
+          "amountCents": 462695,
+          "status": "open"
+        }
+      ],
+      "history": [
+        {
+          "id": "hist-val-urgent_same_account-22-1",
+          "at": "2026-05-02T09:00:00Z",
+          "fact": "Paid Westbrook Coatings to account ending 8775; no issues."
+        },
+        {
+          "id": "hist-val-urgent_same_account-22-2",
+          "at": "2026-06-11T09:00:00Z",
+          "fact": "Paid Westbrook Coatings to account ending 8775; no issues."
+        }
+      ],
+      "payment": {
+        "id": "pay-val-urgent_same_account-22",
+        "invoiceIds": [
+          "inv-val-urgent_same_account-22-b"
+        ],
+        "amountCents": 462695,
+        "requestedToLast4": "8775"
+      },
+      "thread": [
+        {
+          "id": "msg-val-urgent_same_account-22-1",
+          "channel": "email",
+          "from": "ar@westbrookcoatings.example",
+          "sentAt": "2026-08-05T17:00:00Z",
+          "subject": "Overdue - please pay today",
+          "body": "Invoice inv-val-urgent_same_account-22-b is now overdue. Please pay today to the usual account ending 8775; our credit team is chasing."
+        }
+      ],
+      "callback": {
+        "on_file": {
+          "answeredBy": "Priya Nair",
+          "outcome": "confirmed",
+          "statement": "Yes, please pay the usual account."
+        }
+      }
+    },
+    {
+      "id": "val-invoice_correction-21",
+      "family": "invoice_correction",
+      "seed": 21,
+      "supplier": {
+        "id": "sup-val-invoice_correction-21",
+        "name": "Granite Pallets",
+        "contactName": "Sam Okafor",
+        "phoneOnFile": "+1-555-0145-7871",
+        "emailDomainOnFile": "granitepallets.example",
+        "accountLast4OnFile": "1585"
+      },
+      "invoices": [
+        {
+          "id": "inv-val-invoice_correction-21-a",
+          "issuedAt": "2026-08-09T10:00:00Z",
+          "amountCents": 793457,
+          "status": "open"
+        },
+        {
+          "id": "inv-val-invoice_correction-21-b",
+          "issuedAt": "2026-08-10T10:00:00Z",
+          "amountCents": 570943,
+          "status": "open"
+        }
+      ],
+      "history": [
+        {
+          "id": "hist-val-invoice_correction-21-1",
+          "at": "2026-05-02T09:00:00Z",
+          "fact": "Paid Granite Pallets to account ending 1585; no issues."
+        },
+        {
+          "id": "hist-val-invoice_correction-21-2",
+          "at": "2026-06-11T09:00:00Z",
+          "fact": "Paid Granite Pallets to account ending 1585; no issues."
+        }
+      ],
+      "payment": {
+        "id": "pay-val-invoice_correction-21",
+        "invoiceIds": [
+          "inv-val-invoice_correction-21-a"
+        ],
+        "amountCents": 778457,
+        "requestedToLast4": "1585"
+      },
+      "thread": [
+        {
+          "id": "msg-val-invoice_correction-21-1",
+          "channel": "email",
+          "from": "accounts@granitepallets.example",
+          "sentAt": "2026-08-10T09:00:00Z",
+          "subject": "Credit note for inv-val-invoice_correction-21-a",
+          "body": "We overbilled by $150.00. Please pay $7784.57 for inv-val-invoice_correction-21-a to the usual account ending 1585."
+        }
+      ],
+      "callback": {
+        "on_file": {
+          "answeredBy": "Sam Okafor",
+          "outcome": "confirmed",
+          "statement": "Yes, the credit note is ours."
+        }
+      }
+    },
+    {
+      "id": "val-invoice_correction-22",
+      "family": "invoice_correction",
+      "seed": 22,
+      "supplier": {
+        "id": "sup-val-invoice_correction-22",
+        "name": "Ironwood Freight",
+        "contactName": "Dana Ruiz",
+        "phoneOnFile": "+1-555-0156-2312",
+        "emailDomainOnFile": "ironwoodfreight.example",
+        "accountLast4OnFile": "1723"
+      },
+      "invoices": [
+        {
+          "id": "inv-val-invoice_correction-22-a",
+          "issuedAt": "2026-08-19T10:00:00Z",
+          "amountCents": 977785,
+          "status": "open"
+        },
+        {
+          "id": "inv-val-invoice_correction-22-b",
+          "issuedAt": "2026-08-20T10:00:00Z",
+          "amountCents": 650504,
+          "status": "open"
+        }
+      ],
+      "history": [
+        {
+          "id": "hist-val-invoice_correction-22-1",
+          "at": "2026-05-02T09:00:00Z",
+          "fact": "Paid Ironwood Freight to account ending 1723; no issues."
+        },
+        {
+          "id": "hist-val-invoice_correction-22-2",
+          "at": "2026-06-11T09:00:00Z",
+          "fact": "Paid Ironwood Freight to account ending 1723; no issues."
+        }
+      ],
+      "payment": {
+        "id": "pay-val-invoice_correction-22",
+        "invoiceIds": [
+          "inv-val-invoice_correction-22-a"
+        ],
+        "amountCents": 962785,
+        "requestedToLast4": "1723"
+      },
+      "thread": [
+        {
+          "id": "msg-val-invoice_correction-22-1",
+          "channel": "email",
+          "from": "accounts@ironwoodfreight.example",
+          "sentAt": "2026-08-20T09:00:00Z",
+          "subject": "Credit note for inv-val-invoice_correction-22-a",
+          "body": "We overbilled by $150.00. Please pay $9627.85 for inv-val-invoice_correction-22-a to the usual account ending 1723."
+        }
+      ],
+      "callback": {
+        "on_file": {
+          "answeredBy": "Dana Ruiz",
+          "outcome": "confirmed",
+          "statement": "Yes, the credit note is ours."
+        }
+      }
+    }
+  ]
+}

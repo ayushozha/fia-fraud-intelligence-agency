@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FIA — Workspace</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/workspace.css" />
+</head>
+<body class="wsp">
+  <header class="wsp-top">
+    <a class="brand" href="/">
+      <span class="wordmark">FI<span class="lambda">Λ</span></span>
+      <span class="brand-rule"></span>
+      <span class="brand-name">Fraud<br />Intelligence<br />Agency</span>
+    </a>
+    <nav class="wsp-nav">
+      <a class="on" href="">Workspace</a>
+      <a href="/">Network</a>
+      <span class="off" title="Not built yet">Intelligence</span>
+      <span class="off" title="Not built yet">Reports</span>
+    </nav>
+    <div class="wsp-right">
+      <div class="mode" role="group" aria-label="Data mode">
+        <button data-mode="showcase">Showcase</button>
+        <button data-mode="live">Live</button>
+      </div>
+      <label class="switcher">
+        <span class="switcher-mark" id="switch-mark"></span>
+        <select id="switch">
+          <option value="northline">Northline Roasters</option>
+          <option value="harbor">Harbor Print</option>
+        </select>
+      </label>
+      <span class="caps wsp-motto">A safer<br />more trusted<br />economy</span>
+    </div>
+  </header>
+
+  <main class="wsp-main">
+    <h1 id="title">Workspace</h1>
+    <p class="lede">Private intelligence. Shared defenses. Network awareness.</p>
+    <p class="mode-banner" id="mode-banner"></p>
+
+    <section class="stats" id="stats"></section>
+
+    <section class="panels">
+      <article class="panel" id="private"></article>
+
+      <article class="panel intel">
+        <div class="panel-head">
+          <h2>Network intelligence</h2>
+          <span class="chip" id="relay-chip"></span>
+        </div>
+        <p class="caps intel-label">Approved defense packages only</p>
+        <div class="graph" id="graph"></div>
+      </article>
+
+      <article class="panel share">
+        <h2>What businesses share</h2>
+        <ul class="list">
+          <li><span class="tick">✓</span><div><b>Defense procedures</b><span class="caps">Proven ways to stop fraud</span></div></li>
+          <li><span class="tick">✓</span><div><b>Synthetic test cases</b><span class="caps">Realistic attack patterns</span></div></li>
+          <li><span class="tick">✓</span><div><b>Measured results</b><span class="caps">What works (and what doesn't)</span></div></li>
+          <li><span class="tick">✓</span><div><b>Applicability notes</b><span class="caps">When and how to apply</span></div></li>
+        </ul>
+        <div class="rule"></div>
+        <h2 class="private-h">What stays private</h2>
+        <ul class="list">
+          <li><span class="lockc" data-lock></span><div><b>Invoices and transactions</b><span class="caps">Your financial data</span></div></li>
+          <li><span class="lockc" data-lock></span><div><b>Supplier records</b><span class="caps">Your vendor information</span></div></li>
+          <li><span class="lockc" data-lock></span><div><b>Credentials</b><span class="caps">Your access and keys</span></div></li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="activity" id="activity"></section>
+  </main>
+
+  <footer class="powered">
+    <div><p class="powered-by">Powered by</p><p class="caps powered-sub">Trusted partners. Integrated for a safer tomorrow.</p></div>
+    <div class="powered-row" id="powered"></div>
+    <p class="caps powered-end">Same threats.<br />Stronger together.</p>
+  </footer>
+
+  <aside class="drawer" id="drawer" aria-hidden="true">
+    <button class="drawer-close" id="drawer-close" aria-label="Close">×</button>
+    <div id="drawer-body"></div>
+  </aside>
+
+  <script type="module" src="/workspace.js"></script>
+</body>
+</html>

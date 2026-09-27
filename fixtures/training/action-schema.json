@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FIA defender action proposal",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["decision", "verify_via", "checks", "reason"],
+  "properties": {
+    "decision": { "enum": ["proceed", "hold_pending_verification", "release_after_verification", "reject_change"] },
+    "verify_via": { "enum": ["established_contact_on_file", "none"] },
+    "checks": { "type": "array", "items": { "enum": ["full_thread_review", "related_invoice_reconciliation", "timeline_vs_history", "independent_contact_verification", "verification_status_check"] } },
+    "reason": { "type": "string", "maxLength": 400 }
+  }
+}

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FIA — Story</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/demo.css" />
+</head>
+<body class="demo">
+  <header class="top">
+    <a class="brand" href="/">
+      <span class="wordmark">FI<span class="lambda">Λ</span></span>
+      <span class="brand-rule"></span>
+      <span class="brand-name">Fraud<br />Intelligence<br />Agency</span>
+    </a>
+    <nav class="progress" id="progress" aria-label="Scenes"></nav>
+    <div class="motto"><span class="caps">Synthetic data<br />Simulated payments</span></div>
+  </header>
+
+  <main class="stage">
+    <h1 class="demo-title">Northline learns. Harbor benefits. Neither gives up its data.</h1>
+    <section id="scene"></section>
+  </main>
+
+  <footer class="partners" id="partners">
+    <p class="caps partners-label">Built with<br />trusted partners</p>
+    <div class="sponsor-row" id="sponsors"></div>
+    <p class="caps partners-end"><span class="motto-rule"></span>Different businesses.<br />A safer tomorrow.</p>
+  </footer>
+
+  <div class="scene-nav">
+    <button class="btn" id="prev">← Back</button>
+    <button class="btn" id="next">Next scene →</button>
+  </div>
+
+  <aside class="drawer" id="drawer" aria-hidden="true">
+    <button class="drawer-close" id="drawer-close" aria-label="Close">×</button>
+    <div id="drawer-body"></div>
+  </aside>
+
+  <script type="module" src="/demo.js"></script>
+</body>
+</html>

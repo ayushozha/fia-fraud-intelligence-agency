@@ -1,0 +1,113 @@
+{
+  "split": "final",
+  "labels": [
+    {
+      "id": "fin-executive_pressure-31",
+      "family": "executive_pressure",
+      "kind": "fraud",
+      "bankChangeClaimed": true,
+      "expectedDecision": "hold",
+      "verificationRequired": true,
+      "alreadyVerified": false
+    },
+    {
+      "id": "fin-executive_pressure-32",
+      "family": "executive_pressure",
+      "kind": "fraud",
+      "bankChangeClaimed": true,
+      "expectedDecision": "hold",
+      "verificationRequired": true,
+      "alreadyVerified": false
+    },
+    {
+      "id": "fin-executive_pressure-33",
+      "family": "executive_pressure",
+      "kind": "fraud",
+      "bankChangeClaimed": true,
+      "expectedDecision": "hold",
+      "verificationRequired": true,
+      "alreadyVerified": false
+    },
+    {
+      "id": "fin-thread_hijack-31",
+      "family": "thread_hijack",
+      "kind": "fraud",
+      "bankChangeClaimed": true,
+      "expectedDecision": "hold",
+      "verificationRequired": true,
+      "alreadyVerified": false
+    },
+    {
+      "id": "fin-thread_hijack-32",
+      "family": "thread_hijack",
+      "kind": "fraud",
+      "bankChangeClaimed": true,
+      "expectedDecision": "hold",
+      "verificationRequired": true,
+      "alreadyVerified": false
+    },
+    {
+      "id": "fin-thread_hijack-33",
+      "family": "thread_hijack",
+      "kind": "fraud",
+      "bankChangeClaimed": true,
+      "expectedDecision": "hold",
+      "verificationRequired": true,
+      "alreadyVerified": false
+    },
+    {
+      "id": "fin-acquisition_rebrand-31",
+      "family": "acquisition_rebrand",
+      "kind": "legitimate",
+      "bankChangeClaimed": true,
+      "expectedDecision": "release",
+      "verificationRequired": true,
+      "alreadyVerified": false
+    },
+    {
+      "id": "fin-acquisition_rebrand-32",
+      "family": "acquisition_rebrand",
+      "kind": "legitimate",
+      "bankChangeClaimed": true,
+      "expectedDecision": "release",
+      "verificationRequired": true,
+      "alreadyVerified": false
+    },
+    {
+      "id": "fin-acquisition_rebrand-33",
+      "family": "acquisition_rebrand",
+      "kind": "legitimate",
+      "bankChangeClaimed": true,
+      "expectedDecision": "release",
+      "verificationRequired": true,
+      "alreadyVerified": false
+    },
+    {
+      "id": "fin-address_change_only-31",
+      "family": "address_change_only",
+      "kind": "legitimate",
+      "bankChangeClaimed": false,
+      "expectedDecision": "release",
+      "verificationRequired": false,
+      "alreadyVerified": false
+    },
+    {
+      "id": "fin-address_change_only-32",
+      "family": "address_change_only",
+      "kind": "legitimate",
+      "bankChangeClaimed": false,
+      "expectedDecision": "release",
+      "verificationRequired": false,
+      "alreadyVerified": false
+    },
+    {
+      "id": "fin-address_change_only-33",
+      "family": "address_change_only",
+      "kind": "legitimate",
+      "bankChangeClaimed": false,
+      "expectedDecision": "release",
+      "verificationRequired": false,
+      "alreadyVerified": false
+    }
+  ]
+}

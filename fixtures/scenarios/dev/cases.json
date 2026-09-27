@@ -1,0 +1,801 @@
+{
+  "split": "dev",
+  "cases": [
+    {
+      "id": "dev-lookalike_domain-11",
+      "family": "lookalike_domain",
+      "seed": 11,
+      "supplier": {
+        "id": "sup-dev-lookalike_domain-11",
+        "name": "Juniper Coatings",
+        "contactName": "Dana Ruiz",
+        "phoneOnFile": "+1-555-0123-8076",
+        "emailDomainOnFile": "junipercoatings.example",
+        "accountLast4OnFile": "4104"
+      },
+      "invoices": [
+        {
+          "id": "inv-dev-lookalike_domain-11-a",
+          "issuedAt": "2026-08-17T10:00:00Z",
+          "amountCents": 187402,
+          "status": "open"
+        },
+        {
+          "id": "inv-dev-lookalike_domain-11-b",
+          "issuedAt": "2026-08-18T10:00:00Z",
+          "amountCents": 150951,
+          "status": "open"
+        }
+      ],
+      "history": [
+        {
+          "id": "hist-dev-lookalike_domain-11-1",
+          "at": "2026-05-02T09:00:00Z",
+          "fact": "Paid Juniper Coatings to account ending 4104; no issues."
+        },
+        {
+          "id": "hist-dev-lookalike_domain-11-2",
+          "at": "2026-06-11T09:00:00Z",
+          "fact": "Paid Juniper Coatings to account ending 4104; no issues."
+        }
+      ],
+      "payment": {
+        "id": "pay-dev-lookalike_domain-11",
+        "invoiceIds": [
+          "inv-dev-lookalike_domain-11-a",
+          "inv-dev-lookalike_domain-11-b"
+        ],
+        "amountCents": 338353,
+        "requestedToLast4": "3116"
+      },
+      "thread": [
+        {
+          "id": "msg-dev-lookalike_domain-11-1",
+          "channel": "email",
+          "from": "accounts@junipercoatings.example",
+          "sentAt": "2026-08-17T09:00:00Z",
+          "subject": "Invoice attached",
+          "body": "Please find invoice inv-dev-lookalike_domain-11-a attached. Payment terms as usual."
+        },
+        {
+          "id": "msg-dev-lookalike_domain-11-2",
+          "channel": "email",
+          "from": "accounts@jjunipercoatings.example",
+          "sentAt": "2026-08-18T16:00:00Z",
+          "subject": "RE: Invoice attached - updated banking",
+          "body": "Our bank has changed. Please remit both open invoices to the new account ending 3116 today to avoid a late fee. Old account is closed."
+        }
+      ],
+      "callback": {
+        "on_file": {
+          "answeredBy": "Dana Ruiz",
+          "outcome": "denied",
+          "statement": "We have not changed our bank details. Do not pay that account."
+        }
+      }
+    },
+    {
+      "id": "dev-lookalike_domain-12",
+      "family": "lookalike_domain",
+      "seed": 12,
+      "supplier": {
+        "id": "sup-dev-lookalike_domain-12",
+        "name": "Linden Office Supply",
+        "contactName": "Ana Petrov",
+        "phoneOnFile": "+1-555-0134-2516",
+        "emailDomainOnFile": "lindenofficesupply.example",
+        "accountLast4OnFile": "4242"
+      },
+      "invoices": [
+        {
+          "id": "inv-dev-lookalike_domain-12-a",
+          "issuedAt": "2026-08-07T10:00:00Z",
+          "amountCents": 371730,
+          "status": "open"
+        },
+        {
+          "id": "inv-dev-lookalike_domain-12-b",
+          "issuedAt": "2026-08-08T10:00:00Z",
+          "amountCents": 230512,
+          "status": "open"
+        }
+      ],
+      "history": [
+        {
+          "id": "hist-dev-lookalike_domain-12-1",
+          "at": "2026-05-02T09:00:00Z",
+          "fact": "Paid Linden Office Supply to account ending 4242; no issues."
+        },
+        {
+          "id": "hist-dev-lookalike_domain-12-2",
+          "at": "2026-06-11T09:00:00Z",
+          "fact": "Paid Linden Office Supply to account ending 4242; no issues."
+        }
+      ],
+      "payment": {
+        "id": "pay-dev-lookalike_domain-12",
+        "invoiceIds": [
+          "inv-dev-lookalike_domain-12-a",
+          "inv-dev-lookalike_domain-12-b"
+        ],
+        "amountCents": 602242,
+        "requestedToLast4": "2527"
+      },
+      "thread": [
+        {
+          "id": "msg-dev-lookalike_domain-12-1",
+          "channel": "email",
+          "from": "accounts@lindenofficesupply.example",
+          "sentAt": "2026-08-07T09:00:00Z",
+          "subject": "Invoice attached",
+          "body": "Please find invoice inv-dev-lookalike_domain-12-a attached. Payment terms as usual."
+        },
+        {
+          "id": "msg-dev-lookalike_domain-12-2",
+          "channel": "email",
+          "from": "accounts@llindenofficesupply.example",
+          "sentAt": "2026-08-08T16:00:00Z",
+          "subject": "RE: Invoice attached - updated banking",
+          "body": "Our bank has changed. Please remit both open invoices to the new account ending 2527 today to avoid a late fee. Old account is closed."
+        }
+      ],
+      "callback": {
+        "on_file": {
+          "answeredBy": "Ana Petrov",
+          "outcome": "denied",
+          "statement": "We have not changed our bank details. Do not pay that account."
+        }
+      }
+    },
+    {
+      "id": "dev-mailbox_takeover-11",
+      "family": "mailbox_takeover",
+      "seed": 11,
+      "supplier": {
+        "id": "sup-dev-mailbox_takeover-11",
+        "name": "Juniper Coatings",
+        "contactName": "Dana Ruiz",
+        "phoneOnFile": "+1-555-0123-8076",
+        "emailDomainOnFile": "junipercoatings.example",
+        "accountLast4OnFile": "4104"
+      },
+      "invoices": [
+        {
+          "id": "inv-dev-mailbox_takeover-11-a",
+          "issuedAt": "2026-08-17T10:00:00Z",
+          "amountCents": 187402,
+          "status": "open"
+        },
+        {
+          "id": "inv-dev-mailbox_takeover-11-b",
+          "issuedAt": "2026-08-18T10:00:00Z",
+          "amountCents": 150951,
+          "status": "open"
+        }
+      ],
+      "history": [
+        {
+          "id": "hist-dev-mailbox_takeover-11-1",
+          "at": "2026-05-02T09:00:00Z",
+          "fact": "Paid Juniper Coatings to account ending 4104; no issues."
+        },
+        {
+          "id": "hist-dev-mailbox_takeover-11-2",
+          "at": "2026-06-11T09:00:00Z",
+          "fact": "Paid Juniper Coatings to account ending 4104; no issues."
+        }
+      ],
+      "payment": {
+        "id": "pay-dev-mailbox_takeover-11",
+        "invoiceIds": [
+          "inv-dev-mailbox_takeover-11-b"
+        ],
+        "amountCents": 150951,
+        "requestedToLast4": "3116"
+      },
+      "thread": [
+        {
+          "id": "msg-dev-mailbox_takeover-11-1",
+          "channel": "email",
+          "from": "dana@junipercoatings.example",
+          "sentAt": "2026-08-18T11:00:00Z",
+          "subject": "Change of remittance details",
+          "body": "Hi, we moved our operating account for audit reasons. From now on please pay account ending 3116. Please confirm by reply only, I am travelling and unreachable by phone."
+        }
+      ],
+      "callback": {
+        "on_file": {
+          "answeredBy": "Dana Ruiz",
+          "outcome": "denied",
+          "statement": "That email did not come from me. Our mailbox was compromised last week."
+        }
+      }
+    },
+    {
+      "id": "dev-mailbox_takeover-12",
+      "family": "mailbox_takeover",
+      "seed": 12,
+      "supplier": {
+        "id": "sup-dev-mailbox_takeover-12",
+        "name": "Linden Office Supply",
+        "contactName": "Ana Petrov",
+        "phoneOnFile": "+1-555-0134-2516",
+        "emailDomainOnFile": "lindenofficesupply.example",
+        "accountLast4OnFile": "4242"
+      },
+      "invoices": [
+        {
+          "id": "inv-dev-mailbox_takeover-12-a",
+          "issuedAt": "2026-08-07T10:00:00Z",
+          "amountCents": 371730,
+          "status": "open"
+        },
+        {
+          "id": "inv-dev-mailbox_takeover-12-b",
+          "issuedAt": "2026-08-08T10:00:00Z",
+          "amountCents": 230512,
+          "status": "open"
+        }
+      ],
+      "history": [
+        {
+          "id": "hist-dev-mailbox_takeover-12-1",
+          "at": "2026-05-02T09:00:00Z",
+          "fact": "Paid Linden Office Supply to account ending 4242; no issues."
+        },
+        {
+          "id": "hist-dev-mailbox_takeover-12-2",
+          "at": "2026-06-11T09:00:00Z",
+          "fact": "Paid Linden Office Supply to account ending 4242; no issues."
+        }
+      ],
+      "payment": {
+        "id": "pay-dev-mailbox_takeover-12",
+        "invoiceIds": [
+          "inv-dev-mailbox_takeover-12-b"
+        ],
+        "amountCents": 230512,
+        "requestedToLast4": "2527"
+      },
+      "thread": [
+        {
+          "id": "msg-dev-mailbox_takeover-12-1",
+          "channel": "email",
+          "from": "ana@lindenofficesupply.example",
+          "sentAt": "2026-08-08T11:00:00Z",
+          "subject": "Change of remittance details",
+          "body": "Hi, we moved our operating account for audit reasons. From now on please pay account ending 2527. Please confirm by reply only, I am travelling and unreachable by phone."
+        }
+      ],
+      "callback": {
+        "on_file": {
+          "answeredBy": "Ana Petrov",
+          "outcome": "denied",
+          "statement": "That email did not come from me. Our mailbox was compromised last week."
+        }
+      }
+    },
+    {
+      "id": "dev-phone_pretext-11",
+      "family": "phone_pretext",
+      "seed": 11,
+      "supplier": {
+        "id": "sup-dev-phone_pretext-11",
+        "name": "Pembrook Coatings",
+        "contactName": "Dana Ruiz",
+        "phoneOnFile": "+1-555-0120-5987",
+        "emailDomainOnFile": "pembrookcoatings.example",
+        "accountLast4OnFile": "9949"
+      },
+      "invoices": [
+        {
+          "id": "inv-dev-phone_pretext-11-a",
+          "issuedAt": "2026-08-03T10:00:00Z",
+          "amountCents": 693236,
+          "status": "open"
+        },
+        {
+          "id": "inv-dev-phone_pretext-11-b",
+          "issuedAt": "2026-08-04T10:00:00Z",
+          "amountCents": 114377,
+          "status": "open"
+        }
+      ],
+      "history": [
+        {
+          "id": "hist-dev-phone_pretext-11-1",
+          "at": "2026-05-02T09:00:00Z",
+          "fact": "Paid Pembrook Coatings to account ending 9949; no issues."
+        },
+        {
+          "id": "hist-dev-phone_pretext-11-2",
+          "at": "2026-06-11T09:00:00Z",
+          "fact": "Paid Pembrook Coatings to account ending 9949; no issues."
+        }
+      ],
+      "payment": {
+        "id": "pay-dev-phone_pretext-11",
+        "invoiceIds": [
+          "inv-dev-phone_pretext-11-a"
+        ],
+        "amountCents": 693236,
+        "requestedToLast4": "6987"
+      },
+      "thread": [
+        {
+          "id": "msg-dev-phone_pretext-11-1",
+          "channel": "phone_transcript",
+          "from": "caller claiming Pembrook Coatings (+1-555-0199-4768)",
+          "sentAt": "2026-08-03T14:00:00Z",
+          "subject": "Inbound call transcript",
+          "body": "Caller: This is billing at Pembrook Coatings. Our account ending 9949 is frozen, so pay invoice inv-dev-phone_pretext-11-a to account ending 6987. You can call me back on this number."
+        }
+      ],
+      "callback": {
+        "on_file": {
+          "answeredBy": "Dana Ruiz",
+          "outcome": "denied",
+          "statement": "Nobody from our billing team called you. Our account is not frozen."
+        }
+      }
+    },
+    {
+      "id": "dev-phone_pretext-12",
+      "family": "phone_pretext",
+      "seed": 12,
+      "supplier": {
+        "id": "sup-dev-phone_pretext-12",
+        "name": "Quarry Electrical",
+        "contactName": "Mo Haddad",
+        "phoneOnFile": "+1-555-0131-9427",
+        "emailDomainOnFile": "quarryelectrical.example",
+        "accountLast4OnFile": "1086"
+      },
+      "invoices": [
+        {
+          "id": "inv-dev-phone_pretext-12-a",
+          "issuedAt": "2026-08-13T10:00:00Z",
+          "amountCents": 877564,
+          "status": "open"
+        },
+        {
+          "id": "inv-dev-phone_pretext-12-b",
+          "issuedAt": "2026-08-14T10:00:00Z",
+          "amountCents": 193938,
+          "status": "open"
+        }
+      ],
+      "history": [
+        {
+          "id": "hist-dev-phone_pretext-12-1",
+          "at": "2026-05-02T09:00:00Z",
+          "fact": "Paid Quarry Electrical to account ending 1086; no issues."
+        },
+        {
+          "id": "hist-dev-phone_pretext-12-2",
+          "at": "2026-06-11T09:00:00Z",
+          "fact": "Paid Quarry Electrical to account ending 1086; no issues."
+        }
+      ],
+      "payment": {
+        "id": "pay-dev-phone_pretext-12",
+        "invoiceIds": [
+          "inv-dev-phone_pretext-12-a"
+        ],
+        "amountCents": 877564,
+        "requestedToLast4": "6399"
+      },
+      "thread": [
+        {
+          "id": "msg-dev-phone_pretext-12-1",
+          "channel": "phone_transcript",
+          "from": "caller claiming Quarry Electrical (+1-555-0199-5249)",
+          "sentAt": "2026-08-13T14:00:00Z",
+          "subject": "Inbound call transcript",
+          "body": "Caller: This is billing at Quarry Electrical. Our account ending 1086 is frozen, so pay invoice inv-dev-phone_pretext-12-a to account ending 6399. You can call me back on this number."
+        }
+      ],
+      "callback": {
+        "on_file": {
+          "answeredBy": "Mo Haddad",
+          "outcome": "denied",
+          "statement": "Nobody from our billing team called you. Our account is not frozen."
+        }
+      }
+    },
+    {
+      "id": "dev-routine_invoice-11",
+      "family": "routine_invoice",
+      "seed": 11,
+      "supplier": {
+        "id": "sup-dev-routine_invoice-11",
+        "name": "Thistle Packaging",
+        "contactName": "Mo Haddad",
+        "phoneOnFile": "+1-555-0122-7379",
+        "emailDomainOnFile": "thistlepackaging.example",
+        "accountLast4OnFile": "6052"
+      },
+      "invoices": [
+        {
+          "id": "inv-dev-routine_invoice-11-a",
+          "issuedAt": "2026-08-12T10:00:00Z",
+          "amountCents": 356013,
+          "status": "open"
+        },
+        {
+          "id": "inv-dev-routine_invoice-11-b",
+          "issuedAt": "2026-08-13T10:00:00Z",
+          "amountCents": 338759,
+          "status": "open"
+        }
+      ],
+      "history": [
+        {
+          "id": "hist-dev-routine_invoice-11-1",
+          "at": "2026-05-02T09:00:00Z",
+          "fact": "Paid Thistle Packaging to account ending 6052; no issues."
+        },
+        {
+          "id": "hist-dev-routine_invoice-11-2",
+          "at": "2026-06-11T09:00:00Z",
+          "fact": "Paid Thistle Packaging to account ending 6052; no issues."
+        }
+      ],
+      "payment": {
+        "id": "pay-dev-routine_invoice-11",
+        "invoiceIds": [
+          "inv-dev-routine_invoice-11-a"
+        ],
+        "amountCents": 356013,
+        "requestedToLast4": "6052"
+      },
+      "thread": [
+        {
+          "id": "msg-dev-routine_invoice-11-1",
+          "channel": "email",
+          "from": "accounts@thistlepackaging.example",
+          "sentAt": "2026-08-12T09:00:00Z",
+          "subject": "Invoice inv-dev-routine_invoice-11-a",
+          "body": "Attached is invoice inv-dev-routine_invoice-11-a. Bank details unchanged, account ending 6052."
+        }
+      ],
+      "callback": {
+        "on_file": {
+          "answeredBy": "Mo Haddad",
+          "outcome": "confirmed",
+          "statement": "Yes, that invoice is ours and our bank details are unchanged."
+        }
+      }
+    },
+    {
+      "id": "dev-routine_invoice-12",
+      "family": "routine_invoice",
+      "seed": 12,
+      "supplier": {
+        "id": "sup-dev-routine_invoice-12",
+        "name": "Vantage Coatings",
+        "contactName": "Lee Carver",
+        "phoneOnFile": "+1-555-0133-1820",
+        "emailDomainOnFile": "vantagecoatings.example",
+        "accountLast4OnFile": "6190"
+      },
+      "invoices": [
+        {
+          "id": "inv-dev-routine_invoice-12-a",
+          "issuedAt": "2026-08-02T10:00:00Z",
+          "amountCents": 540341,
+          "status": "open"
+        },
+        {
+          "id": "inv-dev-routine_invoice-12-b",
+          "issuedAt": "2026-08-03T10:00:00Z",
+          "amountCents": 418320,
+          "status": "open"
+        }
+      ],
+      "history": [
+        {
+          "id": "hist-dev-routine_invoice-12-1",
+          "at": "2026-05-02T09:00:00Z",
+          "fact": "Paid Vantage Coatings to account ending 6190; no issues."
+        },
+        {
+          "id": "hist-dev-routine_invoice-12-2",
+          "at": "2026-06-11T09:00:00Z",
+          "fact": "Paid Vantage Coatings to account ending 6190; no issues."
+        }
+      ],
+      "payment": {
+        "id": "pay-dev-routine_invoice-12",
+        "invoiceIds": [
+          "inv-dev-routine_invoice-12-a"
+        ],
+        "amountCents": 540341,
+        "requestedToLast4": "6190"
+      },
+      "thread": [
+        {
+          "id": "msg-dev-routine_invoice-12-1",
+          "channel": "email",
+          "from": "accounts@vantagecoatings.example",
+          "sentAt": "2026-08-02T09:00:00Z",
+          "subject": "Invoice inv-dev-routine_invoice-12-a",
+          "body": "Attached is invoice inv-dev-routine_invoice-12-a. Bank details unchanged, account ending 6190."
+        }
+      ],
+      "callback": {
+        "on_file": {
+          "answeredBy": "Lee Carver",
+          "outcome": "confirmed",
+          "statement": "Yes, that invoice is ours and our bank details are unchanged."
+        }
+      }
+    },
+    {
+      "id": "dev-bank_merger_confirmed-11",
+      "family": "bank_merger_confirmed",
+      "seed": 11,
+      "supplier": {
+        "id": "sup-dev-bank_merger_confirmed-11",
+        "name": "Ironwood Pallets",
+        "contactName": "Mo Haddad",
+        "phoneOnFile": "+1-555-0128-2556",
+        "emailDomainOnFile": "ironwoodpallets.example",
+        "accountLast4OnFile": "3363"
+      },
+      "invoices": [
+        {
+          "id": "inv-dev-bank_merger_confirmed-11-a",
+          "issuedAt": "2026-08-19T10:00:00Z",
+          "amountCents": 244344,
+          "status": "open"
+        },
+        {
+          "id": "inv-dev-bank_merger_confirmed-11-b",
+          "issuedAt": "2026-08-20T10:00:00Z",
+          "amountCents": 411907,
+          "status": "open"
+        }
+      ],
+      "history": [
+        {
+          "id": "hist-dev-bank_merger_confirmed-11-1",
+          "at": "2026-05-02T09:00:00Z",
+          "fact": "Paid Ironwood Pallets to account ending 3363; no issues."
+        },
+        {
+          "id": "hist-dev-bank_merger_confirmed-11-2",
+          "at": "2026-06-11T09:00:00Z",
+          "fact": "Paid Ironwood Pallets to account ending 3363; no issues."
+        }
+      ],
+      "payment": {
+        "id": "pay-dev-bank_merger_confirmed-11",
+        "invoiceIds": [
+          "inv-dev-bank_merger_confirmed-11-a"
+        ],
+        "amountCents": 244344,
+        "requestedToLast4": "8663"
+      },
+      "thread": [
+        {
+          "id": "msg-dev-bank_merger_confirmed-11-1",
+          "channel": "email",
+          "from": "finance@ironwoodpallets.example",
+          "sentAt": "2026-08-19T10:00:00Z",
+          "subject": "Bank merger notice",
+          "body": "Our bank merged with a regional lender; our account number changed to one ending 8663. Please verify with us by phone using the number you already have for us."
+        }
+      ],
+      "callback": {
+        "on_file": {
+          "answeredBy": "Mo Haddad",
+          "outcome": "confirmed",
+          "statement": "Yes, after the bank merger our account now ends in 8663. That change is genuine."
+        }
+      }
+    },
+    {
+      "id": "dev-bank_merger_confirmed-12",
+      "family": "bank_merger_confirmed",
+      "seed": 12,
+      "supplier": {
+        "id": "sup-dev-bank_merger_confirmed-12",
+        "name": "Juniper Components",
+        "contactName": "Lee Carver",
+        "phoneOnFile": "+1-555-0139-5997",
+        "emailDomainOnFile": "junipercomponents.example",
+        "accountLast4OnFile": "3501"
+      },
+      "invoices": [
+        {
+          "id": "inv-dev-bank_merger_confirmed-12-a",
+          "issuedAt": "2026-08-10T10:00:00Z",
+          "amountCents": 428672,
+          "status": "open"
+        },
+        {
+          "id": "inv-dev-bank_merger_confirmed-12-b",
+          "issuedAt": "2026-08-11T10:00:00Z",
+          "amountCents": 491468,
+          "status": "open"
+        }
+      ],
+      "history": [
+        {
+          "id": "hist-dev-bank_merger_confirmed-12-1",
+          "at": "2026-05-02T09:00:00Z",
+          "fact": "Paid Juniper Components to account ending 3501; no issues."
+        },
+        {
+          "id": "hist-dev-bank_merger_confirmed-12-2",
+          "at": "2026-06-11T09:00:00Z",
+          "fact": "Paid Juniper Components to account ending 3501; no issues."
+        }
+      ],
+      "payment": {
+        "id": "pay-dev-bank_merger_confirmed-12",
+        "invoiceIds": [
+          "inv-dev-bank_merger_confirmed-12-a"
+        ],
+        "amountCents": 428672,
+        "requestedToLast4": "8075"
+      },
+      "thread": [
+        {
+          "id": "msg-dev-bank_merger_confirmed-12-1",
+          "channel": "email",
+          "from": "finance@junipercomponents.example",
+          "sentAt": "2026-08-10T10:00:00Z",
+          "subject": "Bank merger notice",
+          "body": "Our bank merged with a regional lender; our account number changed to one ending 8075. Please verify with us by phone using the number you already have for us."
+        }
+      ],
+      "callback": {
+        "on_file": {
+          "answeredBy": "Lee Carver",
+          "outcome": "confirmed",
+          "statement": "Yes, after the bank merger our account now ends in 8075. That change is genuine."
+        }
+      }
+    },
+    {
+      "id": "dev-previously_verified-11",
+      "family": "previously_verified",
+      "seed": 11,
+      "supplier": {
+        "id": "sup-dev-previously_verified-11",
+        "name": "Elmstead Components",
+        "contactName": "Dana Ruiz",
+        "phoneOnFile": "+1-555-0126-1164",
+        "emailDomainOnFile": "elmsteadcomponents.example",
+        "accountLast4OnFile": "8244"
+      },
+      "invoices": [
+        {
+          "id": "inv-dev-previously_verified-11-a",
+          "issuedAt": "2026-08-10T10:00:00Z",
+          "amountCents": 581567,
+          "status": "open"
+        },
+        {
+          "id": "inv-dev-previously_verified-11-b",
+          "issuedAt": "2026-08-11T10:00:00Z",
+          "amountCents": 187524,
+          "status": "open"
+        }
+      ],
+      "history": [
+        {
+          "id": "hist-dev-previously_verified-11-1",
+          "at": "2026-05-02T09:00:00Z",
+          "fact": "Paid Elmstead Components to account ending 7259; no issues."
+        },
+        {
+          "id": "hist-dev-previously_verified-11-2",
+          "at": "2026-06-11T09:00:00Z",
+          "fact": "Paid Elmstead Components to account ending 7259; no issues."
+        },
+        {
+          "id": "vrf-dev-previously_verified-11",
+          "at": "2026-07-20T09:00:00Z",
+          "fact": "Bank change to account ending 8244 verified by callback to Dana Ruiz at the number on file; supplier record updated."
+        }
+      ],
+      "payment": {
+        "id": "pay-dev-previously_verified-11",
+        "invoiceIds": [
+          "inv-dev-previously_verified-11-b"
+        ],
+        "amountCents": 187524,
+        "requestedToLast4": "8244"
+      },
+      "thread": [
+        {
+          "id": "msg-dev-previously_verified-11-1",
+          "channel": "email",
+          "from": "accounts@elmsteadcomponents.example",
+          "sentAt": "2026-08-11T10:00:00Z",
+          "subject": "Reminder",
+          "body": "Friendly reminder that invoice inv-dev-previously_verified-11-b is due. As arranged in July, please pay the account ending 8244."
+        }
+      ],
+      "callback": {
+        "on_file": {
+          "answeredBy": "Dana Ruiz",
+          "outcome": "confirmed",
+          "statement": "Yes, account ending 8244 is ours, as confirmed in July."
+        }
+      }
+    },
+    {
+      "id": "dev-previously_verified-12",
+      "family": "previously_verified",
+      "seed": 12,
+      "supplier": {
+        "id": "sup-dev-previously_verified-12",
+        "name": "Fairlight Office Supply",
+        "contactName": "Ana Petrov",
+        "phoneOnFile": "+1-555-0137-4604",
+        "emailDomainOnFile": "fairlightofficesupply.example",
+        "accountLast4OnFile": "7656"
+      },
+      "invoices": [
+        {
+          "id": "inv-dev-previously_verified-12-a",
+          "issuedAt": "2026-08-01T10:00:00Z",
+          "amountCents": 765895,
+          "status": "open"
+        },
+        {
+          "id": "inv-dev-previously_verified-12-b",
+          "issuedAt": "2026-08-02T10:00:00Z",
+          "amountCents": 267085,
+          "status": "open"
+        }
+      ],
+      "history": [
+        {
+          "id": "hist-dev-previously_verified-12-1",
+          "at": "2026-05-02T09:00:00Z",
+          "fact": "Paid Fairlight Office Supply to account ending 7397; no issues."
+        },
+        {
+          "id": "hist-dev-previously_verified-12-2",
+          "at": "2026-06-11T09:00:00Z",
+          "fact": "Paid Fairlight Office Supply to account ending 7397; no issues."
+        },
+        {
+          "id": "vrf-dev-previously_verified-12",
+          "at": "2026-07-20T09:00:00Z",
+          "fact": "Bank change to account ending 7656 verified by callback to Ana Petrov at the number on file; supplier record updated."
+        }
+      ],
+      "payment": {
+        "id": "pay-dev-previously_verified-12",
+        "invoiceIds": [
+          "inv-dev-previously_verified-12-b"
+        ],
+        "amountCents": 267085,
+        "requestedToLast4": "7656"
+      },
+      "thread": [
+        {
+          "id": "msg-dev-previously_verified-12-1",
+          "channel": "email",
+          "from": "accounts@fairlightofficesupply.example",
+          "sentAt": "2026-08-02T10:00:00Z",
+          "subject": "Reminder",
+          "body": "Friendly reminder that invoice inv-dev-previously_verified-12-b is due. As arranged in July, please pay the account ending 7656."
+        }
+      ],
+      "callback": {
+        "on_file": {
+          "answeredBy": "Ana Petrov",
+          "outcome": "confirmed",
+          "statement": "Yes, account ending 7656 is ours, as confirmed in July."
+        }
+      }
+    }
+  ]
+}

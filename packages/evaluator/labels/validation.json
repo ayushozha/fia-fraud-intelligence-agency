@@ -1,0 +1,113 @@
+{
+  "split": "validation",
+  "labels": [
+    {
+      "id": "val-consolidated_invoice-21",
+      "family": "consolidated_invoice",
+      "kind": "fraud",
+      "bankChangeClaimed": true,
+      "expectedDecision": "hold",
+      "verificationRequired": true,
+      "alreadyVerified": false
+    },
+    {
+      "id": "val-consolidated_invoice-22",
+      "family": "consolidated_invoice",
+      "kind": "fraud",
+      "bankChangeClaimed": true,
+      "expectedDecision": "hold",
+      "verificationRequired": true,
+      "alreadyVerified": false
+    },
+    {
+      "id": "val-portal_update-21",
+      "family": "portal_update",
+      "kind": "fraud",
+      "bankChangeClaimed": true,
+      "expectedDecision": "hold",
+      "verificationRequired": true,
+      "alreadyVerified": false
+    },
+    {
+      "id": "val-portal_update-22",
+      "family": "portal_update",
+      "kind": "fraud",
+      "bankChangeClaimed": true,
+      "expectedDecision": "hold",
+      "verificationRequired": true,
+      "alreadyVerified": false
+    },
+    {
+      "id": "val-callback_trap-21",
+      "family": "callback_trap",
+      "kind": "fraud",
+      "bankChangeClaimed": true,
+      "expectedDecision": "hold",
+      "verificationRequired": true,
+      "alreadyVerified": false
+    },
+    {
+      "id": "val-callback_trap-22",
+      "family": "callback_trap",
+      "kind": "fraud",
+      "bankChangeClaimed": true,
+      "expectedDecision": "hold",
+      "verificationRequired": true,
+      "alreadyVerified": false
+    },
+    {
+      "id": "val-bank_move_letter-21",
+      "family": "bank_move_letter",
+      "kind": "legitimate",
+      "bankChangeClaimed": true,
+      "expectedDecision": "release",
+      "verificationRequired": true,
+      "alreadyVerified": false
+    },
+    {
+      "id": "val-bank_move_letter-22",
+      "family": "bank_move_letter",
+      "kind": "legitimate",
+      "bankChangeClaimed": true,
+      "expectedDecision": "release",
+      "verificationRequired": true,
+      "alreadyVerified": false
+    },
+    {
+      "id": "val-urgent_same_account-21",
+      "family": "urgent_same_account",
+      "kind": "legitimate",
+      "bankChangeClaimed": false,
+      "expectedDecision": "release",
+      "verificationRequired": false,
+      "alreadyVerified": false
+    },
+    {
+      "id": "val-urgent_same_account-22",
+      "family": "urgent_same_account",
+      "kind": "legitimate",
+      "bankChangeClaimed": false,
+      "expectedDecision": "release",
+      "verificationRequired": false,
+      "alreadyVerified": false
+    },
+    {
+      "id": "val-invoice_correction-21",
+      "family": "invoice_correction",
+      "kind": "legitimate",
+      "bankChangeClaimed": false,
+      "expectedDecision": "release",
+      "verificationRequired": false,
+      "alreadyVerified": false
+    },
+    {
+      "id": "val-invoice_correction-22",
+      "family": "invoice_correction",
+      "kind": "legitimate",
+      "bankChangeClaimed": false,
+      "expectedDecision": "release",
+      "verificationRequired": false,
+      "alreadyVerified": false
+    }
+  ]
+}

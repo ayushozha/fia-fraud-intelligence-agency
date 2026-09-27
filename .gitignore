@@ -1,0 +1,12 @@
+node_modules/
+data/
+artifacts/
+qm/
+.env
+.DS_Store
+demo-snapshot/
+integrations/river/vendor/
+.venv/
+__pycache__/
+*.pyc
+.ks-test2.ts

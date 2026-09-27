@@ -1,0 +1,79 @@
+{
+  "suite": "fia-payment-change-v1",
+  "generator": "fixtures/scenarios/build.ts",
+  "frozen_at": "2026-09-27T23:00:54.783Z",
+  "splits": {
+    "dev": {
+      "families": [
+        "lookalike_domain",
+        "mailbox_takeover",
+        "phone_pretext",
+        "routine_invoice",
+        "bank_merger_confirmed",
+        "previously_verified"
+      ],
+      "seeds": [
+        11,
+        12
+      ],
+      "cases": 12,
+      "fraud": 6,
+      "legitimate": 6,
+      "cases_sha256": "488c1d89818d6d84e2df49a3eb8f7fc7dfe95085272427d3abba4cd7ac40168e",
+      "labels_sha256": "154e4c693e02d347b1ce2cba988bc76dbbde79db7a1abbf874a38d60a96f5820"
+    },
+    "validation": {
+      "families": [
+        "consolidated_invoice",
+        "portal_update",
+        "callback_trap",
+        "bank_move_letter",
+        "urgent_same_account",
+        "invoice_correction"
+      ],
+      "seeds": [
+        21,
+        22
+      ],
+      "cases": 12,
+      "fraud": 6,
+      "legitimate": 6,
+      "cases_sha256": "059a4706f9e606107cd92b162d97833e056147d114e0ae6eda362ed236e643f6",
+      "labels_sha256": "d1bde5685dfb68693070a04e4816bdc4afa63d9a305b065aa64aaced961481eb"
+    },
+    "final": {
+      "families": [
+        "executive_pressure",
+        "thread_hijack",
+        "acquisition_rebrand",
+        "address_change_only"
+      ],
+      "seeds": [
+        31,
+        32,
+        33
+      ],
+      "cases": 12,
+      "fraud": 6,
+      "legitimate": 6,
+      "cases_sha256": "f29028790fec1cde0324194c0bd720808fa853ac5377bb5782ed4d9a7de23bf4",
+      "labels_sha256": "a14d52572bd0fae32c1c6bbcbeb2427c590c8ab77352e99339fe9bfd61cc557a"
+    }
+  },
+  "near_duplicate_check": {
+    "method": "word-trigram Jaccard over thread bodies, all cross-split pairs",
+    "threshold": 0.5,
+    "max_cross_split": {
+      "a": "dev-mailbox_takeover-11",
+      "b": "val-bank_move_letter-21",
+      "jaccard": 0.042
+    },
+    "passed": true
+  },
+  "split_rule": "split by scenario family (template) and seed range before expansion; no family appears in two splits",
+  "visibility": {
+    "dev": "QM scenario workers and developers",
+    "validation": "case inputs to defender; labels only in packages/evaluator/labels",
+    "final": "locked; case inputs and labels never sent to QM workers, procedure extraction, or training"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "note": "Out-of-band pinned Ed25519 publisher keys (MVP trust pinning, spec 8.2). Public keys only.",
+  "keys": [
+    {
+      "participant": "northline",
+      "key_id": "ed25519:58e8b46e5e7be3ee",
+      "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAp3fsWo3hSqOQvILC6R3ADE91IVx/NwTo37zeDw54l9c=\n-----END PUBLIC KEY-----\n"
+    },
+    {
+      "participant": "harbor",
+      "key_id": "ed25519:1168f9a48710bd6b",
+      "public_key_pem": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAfkMwGFrUSuSfObAyFUQjY57rujEUtFb2EfQJDE3DjAU=\n-----END PUBLIC KEY-----\n"
+    }
+  ]
+}

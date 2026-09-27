@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FIA — Fraud Intelligence Agency</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <span class="wordmark">FI<span class="lambda">Λ</span></span>
+      <span class="brand-rule"></span>
+      <span class="brand-name">Fraud<br />Intelligence<br />Agency</span>
+    </div>
+    <div class="motto"><a class="btn story-link" href="/demo">Story mode →</a><span class="motto-rule"></span><span class="caps">A safer<br />more trusted<br />economy</span></div>
+  </header>
+
+  <main>
+    <p class="synthetic caps">Synthetic data · Simulated payments</p>
+    <h1>Private workspaces. Shared intelligence.</h1>
+    <p class="lede">Each business keeps its own data, agents, and decisions. Only approved defenses move through the network.</p>
+
+    <section class="network">
+      <article class="workspace" id="ws-northline" data-ws="northline"></article>
+
+      <div class="boundary">
+        <p class="caps boundary-label">Approved intelligence only</p>
+        <svg class="wires" viewBox="0 0 470 180" aria-hidden="true">
+          <defs>
+            <linearGradient id="wire" x1="0" x2="1">
+              <stop offset="0" stop-color="#9db8ea" stop-opacity=".25" />
+              <stop offset=".5" stop-color="#6f95e0" />
+              <stop offset="1" stop-color="#9db8ea" stop-opacity=".25" />
+            </linearGradient>
+            <radialGradient id="halo">
+              <stop offset="0" stop-color="#8fb1f2" stop-opacity=".55" />
+              <stop offset="1" stop-color="#8fb1f2" stop-opacity="0" />
+            </radialGradient>
+          </defs>
+          <path d="M0 48 C 50 48, 70 90, 105 90 M0 132 C 50 132, 70 90, 105 90" stroke="url(#wire)" stroke-width="1.4" fill="none" />
+          <path d="M470 48 C 420 48, 400 90, 365 90 M470 132 C 420 132, 400 90, 365 90" stroke="url(#wire)" stroke-width="1.4" fill="none" />
+          <line x1="105" y1="90" x2="365" y2="90" stroke="url(#wire)" stroke-width="1.6" />
+          <path d="M28 82 l8 8 -8 8 M40 82 l8 8 -8 8" stroke="#1d2b4a" stroke-width="1.6" fill="none" opacity=".35" />
+          <path d="M40 82 l8 8 -8 8" stroke="#1d2b4a" stroke-width="1.8" fill="none" />
+          <path d="M420 82 l8 8 -8 8 M432 82 l8 8 -8 8" stroke="#1d2b4a" stroke-width="1.6" fill="none" opacity=".35" />
+          <path d="M432 82 l8 8 -8 8" stroke="#1d2b4a" stroke-width="1.8" fill="none" />
+          <circle cx="105" cy="90" r="6" fill="#fff" stroke="#5b86dc" stroke-width="2.2" />
+          <circle cx="365" cy="90" r="6" fill="#fff" stroke="#5b86dc" stroke-width="2.2" />
+          <circle cx="235" cy="90" r="52" fill="url(#halo)" />
+          <path id="route-half" d="M0 48 C 50 48, 70 90, 105 90 L 235 90" fill="none" stroke="none" />
+          <path id="route-full" d="M0 48 C 50 48, 70 90, 105 90 L 365 90 C 400 90, 420 132, 470 132" fill="none" stroke="none" />
+          <g class="packet">
+            <rect x="-9" y="-7" width="18" height="14" rx="3" fill="#fff" stroke="#3f6fd6" stroke-width="1.6" />
+            <path d="M-9 -3 H9 M0 -7 V7" stroke="#3f6fd6" stroke-width="1.1" />
+            <animateMotion id="packet-a" dur="3.2s" repeatCount="indefinite" rotate="0" path="M0 48 C 50 48, 70 90, 105 90 L 235 90" />
+          </g>
+        </svg>
+        <button class="shield" id="package-btn" title="Inspect the package crossing the boundary">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v5.5c0 4.3 3 8 7 9.5 4-1.5 7-5.2 7-9.5V6l-7-3Z" fill="none" stroke="#fff" stroke-width="1.6" stroke-linejoin="round" /></svg>
+        </button>
+        <span class="drop"></span>
+        <div class="scope">
+          <p class="absent">No invoices. No supplier records.<br />No credentials.</p>
+          <p class="caps scope-may">Procedure · synthetic tests · measured report</p>
+          <p class="package-state" id="package-state">Checking relay…</p>
+        </div>
+      </div>
+
+      <article class="workspace" id="ws-harbor" data-ws="harbor"></article>
+    </section>
+
+    <section class="strength" id="strength"></section>
+
+    <section class="together">
+      <svg class="globe" viewBox="0 0 900 230" preserveAspectRatio="none" aria-hidden="true" id="globe"></svg>
+      <p class="together-line">Same threats.<br />Stronger together.</p>
+      <span class="together-rule"></span>
+    </section>
+  </main>
+
+  <footer class="partners">
+    <p class="caps partners-label">Built with<br />trusted partners</p>
+    <div class="sponsor-row" id="sponsors"></div>
+    <p class="caps partners-end"><span class="motto-rule"></span>Different businesses.<br />A safer tomorrow.</p>
+  </footer>
+
+  <aside class="drawer" id="drawer" aria-hidden="true">
+    <button class="drawer-close" id="drawer-close" aria-label="Close">×</button>
+    <div id="drawer-body"></div>
+  </aside>
+
+  <script type="module" src="/network.js"></script>
+</body>
+</html>

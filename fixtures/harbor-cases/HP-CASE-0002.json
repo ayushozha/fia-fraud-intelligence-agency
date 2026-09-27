@@ -1,0 +1,21 @@
+{
+  "id": "HP-CASE-0002",
+  "title": "Packaging remittance update from lookalike sender (synthetic, offline check)",
+  "supplierId": "SUP-009",
+  "invoices": [
+    { "id": "HP-INV-C2-A", "supplierId": "SUP-009", "issuedAt": "2026-09-24T16:00:00.000Z", "amountCents": 441000, "status": "open", "paidAt": null, "paidToLast4": null }
+  ],
+  "messages": [
+    {
+      "id": "HP-MSG-C2-1",
+      "threadId": "HP-THR-PIERNINE-SEP",
+      "supplierId": "SUP-009",
+      "channel": "email",
+      "from": "remittance@pier-nine-packaging.example",
+      "sentAt": "2026-09-26T13:18:00.000Z",
+      "subject": "Updated remittance details for HP-INV-C2-A",
+      "body": "Hello Harbor team, our finance office has consolidated banking. Please remit HP-INV-C2-A to Coastal Unity Bank, account ending 6604, and update your vendor file. Reese is travelling, so reply to this address only."
+    }
+  ],
+  "events": []
+}

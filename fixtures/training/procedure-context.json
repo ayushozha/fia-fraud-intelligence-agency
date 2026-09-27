@@ -1,0 +1,11 @@
+{
+  "id": "payment-change-verification-reference",
+  "source": "Reference text of the payment-change verification lesson (spec 7.3). Used only when the installed procedure text is not exposed by the workspace; the training record states which source was used.",
+  "steps": [
+    "Inspect payment-change claims across the full thread and approved transcribed channels.",
+    "Reconcile related invoices using the receiving business's permitted policy window.",
+    "Compare claimed timelines with local history, treating inconsistencies as reasons to verify.",
+    "Verify through an established, independently selected contact/channel; keep unresolved payments paused.",
+    "Distinguish already-verified legitimate changes from unresolved or rejected requests."
+  ]
+}

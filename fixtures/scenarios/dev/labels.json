@@ -1,0 +1,113 @@
+{
+  "split": "dev",
+  "labels": [
+    {
+      "id": "dev-lookalike_domain-11",
+      "family": "lookalike_domain",
+      "kind": "fraud",
+      "bankChangeClaimed": true,
+      "expectedDecision": "hold",
+      "verificationRequired": true,
+      "alreadyVerified": false
+    },
+    {
+      "id": "dev-lookalike_domain-12",
+      "family": "lookalike_domain",
+      "kind": "fraud",
+      "bankChangeClaimed": true,
+      "expectedDecision": "hold",
+      "verificationRequired": true,
+      "alreadyVerified": false
+    },
+    {
+      "id": "dev-mailbox_takeover-11",
+      "family": "mailbox_takeover",
+      "kind": "fraud",
+      "bankChangeClaimed": true,
+      "expectedDecision": "hold",
+      "verificationRequired": true,
+      "alreadyVerified": false
+    },
+    {
+      "id": "dev-mailbox_takeover-12",
+      "family": "mailbox_takeover",
+      "kind": "fraud",
+      "bankChangeClaimed": true,
+      "expectedDecision": "hold",
+      "verificationRequired": true,
+      "alreadyVerified": false
+    },
+    {
+      "id": "dev-phone_pretext-11",
+      "family": "phone_pretext",
+      "kind": "fraud",
+      "bankChangeClaimed": true,
+      "expectedDecision": "hold",
+      "verificationRequired": true,
+      "alreadyVerified": false
+    },
+    {
+      "id": "dev-phone_pretext-12",
+      "family": "phone_pretext",
+      "kind": "fraud",
+      "bankChangeClaimed": true,
+      "expectedDecision": "hold",
+      "verificationRequired": true,
+      "alreadyVerified": false
+    },
+    {
+      "id": "dev-routine_invoice-11",
+      "family": "routine_invoice",
+      "kind": "legitimate",
+      "bankChangeClaimed": false,
+      "expectedDecision": "release",
+      "verificationRequired": false,
+      "alreadyVerified": false
+    },
+    {
+      "id": "dev-routine_invoice-12",
+      "family": "routine_invoice",
+      "kind": "legitimate",
+      "bankChangeClaimed": false,
+      "expectedDecision": "release",
+      "verificationRequired": false,
+      "alreadyVerified": false
+    },
+    {
+      "id": "dev-bank_merger_confirmed-11",
+      "family": "bank_merger_confirmed",
+      "kind": "legitimate",
+      "bankChangeClaimed": true,
+      "expectedDecision": "release",
+      "verificationRequired": true,
+      "alreadyVerified": false
+    },
+    {
+      "id": "dev-bank_merger_confirmed-12",
+      "family": "bank_merger_confirmed",
+      "kind": "legitimate",
+      "bankChangeClaimed": true,
+      "expectedDecision": "release",
+      "verificationRequired": true,
+      "alreadyVerified": false
+    },
+    {
+      "id": "dev-previously_verified-11",
+      "family": "previously_verified",
+      "kind": "legitimate",
+      "bankChangeClaimed": false,
+      "expectedDecision": "release",
+      "verificationRequired": false,
+      "alreadyVerified": true
+    },
+    {
+      "id": "dev-previously_verified-12",
+      "family": "previously_verified",
+      "kind": "legitimate",
+      "bankChangeClaimed": false,
+      "expectedDecision": "release",
+      "verificationRequired": false,
+      "alreadyVerified": true
+    }
+  ]
+}

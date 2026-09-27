@@ -1,0 +1,11 @@
+{
+  "id": "ap-payment-change-checklist",
+  "version": "1.0",
+  "description": "Sensible existing accounts-payable checklist used as the incumbent baseline (variant 1) before any learned procedure.",
+  "steps": [
+    "Confirm the invoice matches a purchase order or an expected delivery.",
+    "Check that the payee account on the invoice matches the account on file.",
+    "If payment details differ from the account on file, ask a manager before paying.",
+    "Do not pay invoices that are marked urgent without manager sign-off."
+  ]
+}

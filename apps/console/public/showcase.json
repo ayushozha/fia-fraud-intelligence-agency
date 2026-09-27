@@ -1,0 +1,26 @@
+{
+  "note": "Illustrative presentation data for the hackathon demo. Not measured. Sponsor badges are never taken from this file.",
+  "stats": {
+    "businesses": { "value": 1429, "pct": 12, "series": [3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 10, 11] },
+    "threatsDetected": { "value": 312, "pct": 28, "series": [4, 6, 5, 7, 6, 8, 7, 9, 8, 10, 9, 11, 12, 13] },
+    "threatsBlocked": { "value": 267, "pct": 34, "series": [3, 4, 4, 5, 6, 5, 7, 7, 8, 8, 9, 10, 11, 12] },
+    "sharedDefenses": { "value": 94, "pct": 19, "series": [2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9] }
+  },
+  "agentStatus": {
+    "maya": { "label": "Monitoring", "tone": "on" },
+    "jordan": { "label": "Active", "tone": "on" },
+    "lena": { "label": "Monitoring", "tone": "on" },
+    "chris": { "label": "Active", "tone": "on" }
+  },
+  "participants": [
+    { "id": "northline", "name": "Northline Roasters", "mark": "leaf", "published": 1 },
+    { "id": "summit", "name": "Summit Goods", "mark": "mountain", "published": 1 },
+    { "id": "harbor", "name": "Harbor Print", "mark": "wave", "published": 1 },
+    { "id": "lumen", "name": "Lumen Parts", "mark": "cube", "published": 1 }
+  ],
+  "activity": [
+    { "who": "Harbor Print", "mark": "wave", "text": "published a new supplier verification package", "badge": "New", "tone": "blue", "ago": "2m ago" },
+    { "who": "Northline Roasters", "mark": "leaf", "text": "imported a vendor risk pattern", "badge": "Processed", "tone": "green", "ago": "12m ago" },
+    { "who": "3 businesses", "mark": "people", "text": "blocked similar attempts", "badge": "High impact", "tone": "red", "ago": "28m ago" }
+  ]
+}

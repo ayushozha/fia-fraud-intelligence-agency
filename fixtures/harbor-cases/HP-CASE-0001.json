@@ -1,0 +1,32 @@
+{
+  "id": "HP-CASE-0001",
+  "title": "Freight remittance change via forwarded voicemail (synthetic, unseen)",
+  "supplierId": "SUP-004",
+  "invoices": [
+    { "id": "HP-INV-C1-A", "supplierId": "SUP-004", "issuedAt": "2026-09-18T15:20:00.000Z", "amountCents": 318000, "status": "open", "paidAt": null, "paidToLast4": null },
+    { "id": "HP-INV-C1-B", "supplierId": "SUP-004", "issuedAt": "2026-09-22T14:05:00.000Z", "amountCents": 296000, "status": "open", "paidAt": null, "paidToLast4": null }
+  ],
+  "messages": [
+    {
+      "id": "HP-MSG-C1-1",
+      "threadId": "HP-THR-GULLWING-SEP",
+      "supplierId": "SUP-004",
+      "channel": "email",
+      "from": "billing@gullwingfreight.example",
+      "sentAt": "2026-09-22T14:07:00.000Z",
+      "subject": "September freight invoices",
+      "body": "Attached are HP-INV-C1-A and HP-INV-C1-B for the September pallet runs. Usual terms."
+    },
+    {
+      "id": "HP-MSG-C1-2",
+      "threadId": "HP-THR-GULLWING-SEP",
+      "supplierId": "SUP-004",
+      "channel": "phone_transcript",
+      "from": "Front desk voicemail transcription, caller ID +1-555-0190, forwarded by reception@harborprint.example",
+      "sentAt": "2026-09-25T20:41:00.000Z",
+      "subject": "FW: Voicemail for accounts payable",
+      "body": "Transcript: Hi, this is Kai from Gullwing Freight accounts. Heads up, we moved our receivables to Tidewater Commerce Bank, account ending 2291, effective immediately. Please send both September freight invoices there on this week's run, our old account is frozen during the switch. If anything is unclear just call me back on my new direct line, +1-555-0190. Thanks."
+    }
+  ],
+  "events": []
+}
