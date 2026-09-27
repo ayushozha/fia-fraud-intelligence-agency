@@ -321,7 +321,12 @@ function scene4() {
   };
 }
 
+function gate(text, sceneIndex, label) {
+  return `<div class="gate"><p><b>Waiting on an earlier step.</b> ${esc(text)}</p><button class="btn" data-go="${sceneIndex}">${esc(label)}</button></div>`;
+}
+
 function scene5() {
+  const accepted = settled("acceptance");
   const c = st.fx?.harbor?.[0];
   const o = st.out.harbor_investigation ?? {};
   const sup = pick(o, ["supplier.name", "supplierName", "supplier"]) ?? c?.supplier;
@@ -331,7 +336,7 @@ function scene5() {
   const detail = done && !headline && stage("harbor_investigation").status !== "reduced" ? cleanDetail(stage("harbor_investigation").detail) : null;
   const held = st.held.harbor;
   return {
-    body: `<div class="two">
+    body: `${accepted ? "" : gate("Harbor hasn't installed Northline's defense yet, so its investigator has no procedure to apply. Go back to Scene 4 and click Accept defense.", 3, "← Scene 4: Accept defense")}<div class="two">
       <div class="col">
         <article class="pay ${held ? "is-held" : ""}"><p class="caps">Harbor Print · payment</p><p class="amount">${c ? money(c.invoices.reduce((n, i) => n + i.amountCents, 0)) : ""}</p><span class="pay-state">${held ? "Payment held · Verification draft ready" : "Awaiting approval"}</span><p class="pay-to">${esc(sup ?? "")}</p></article>
         ${msg ? `<article class="msg"><p class="caps">New supplier · different wording · synthetic</p><p class="msg-from">${esc(msg.from)}</p><p class="msg-body">${esc(msg.body)}</p></article>` : ""}
@@ -344,14 +349,14 @@ function scene5() {
           ${factIds("harbor_investigation").length ? `<div class="refs">${factIds("harbor_investigation").map((f) => `<code class="fact">${esc(f)}</code>`).join("")}</div>` : ""}
           ${refChips("harbor_investigation", /run|request|task|model|procedure/i)}${reducedNote("harbor_investigation")}
           ${errBox("harbor_investigation", "harbor_investigation")}
-          ${!done && !st.busy.harbor_investigation ? `<button class="btn" data-retry="harbor_investigation">Run investigation</button>` : ""}
+          ${accepted && !done && !st.busy.harbor_investigation ? `<button class="btn" data-retry="harbor_investigation">Run investigation</button>` : ""}
         </article>
       </div>
     </div>`,
     action: held ? null : { label: st.busy["hold-harbor"] ? "Holding…" : "Hold payment", disabled: !done || st.busy["hold-harbor"], run: () => holdPayment("harbor", "harbor_investigation", c?.invoices.map((i) => i.id) ?? []) },
     extra: errBox("hold-harbor"),
     enter: () => {
-      if (stage("harbor_investigation")?.status === "not_run" && !st.err.harbor_investigation && !st.busy.harbor_investigation) runStage("harbor", "harbor_investigation", { reduced: true });
+      if (settled("acceptance") && stage("harbor_investigation")?.status === "not_run" && !st.err.harbor_investigation && !st.busy.harbor_investigation) runStage("harbor", "harbor_investigation", { reduced: true });
     },
   };
 }
@@ -391,7 +396,8 @@ function scene6() {
       </div>
       <p class="closing-line">Share the lesson. Keep the ledger.</p>
     </div>`,
-    action: { label: st.busy.offline_proof ? "Checking…" : ran ? "Run offline check again" : "Check offline", disabled: st.busy.offline_proof, run: () => runStage("harbor", "offline_proof", {}) },
+    action: { label: st.busy.offline_proof ? "Checking…" : ran ? "Run offline check again" : "Check offline", disabled: st.busy.offline_proof || !settled("harbor_investigation"), run: () => runStage("harbor", "offline_proof", {}) },
+    extra: settled("harbor_investigation") ? "" : gate("The offline check re-runs Harbor's defender on a fresh case, so Harbor must first have stopped the new attack in Scene 5.", 4, "← Scene 5: A new attack"),
     enter: async () => {
       if (ran && !st.out.offline_proof && !st.offlineReport) {
         const r = await call("/ws/harbor/api/investigations/offline_proof", null, "GET");
