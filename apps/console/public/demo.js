@@ -106,7 +106,7 @@ function companyCard(ws, extra = "") {
   return `<article class="co" data-ws="${ws}">
     <div class="co-head"><span class="mark ${d.mark}">${marks[d.mark]}</span><div><h2>${esc(d.name)}</h2><p class="caps">${esc(d.tagline)}</p></div></div>
     <div class="co-agents">${d.agents.map((a) => `<span class="co-agent"><span class="avatar ${a.id}">${esc(a.name[0])}</span><b>${esc(a.name)}</b><small class="caps">${esc(a.role)}</small></span>`).join("")}</div>
-    <div class="co-lock">${lock}<span>Messages · suppliers · payment records stay here</span></div>
+    <div class="co-lock">${lock}<span>${d.records ? `${d.records.suppliers} suppliers · ${d.records.invoices} invoices · private GBrain` : "Messages · suppliers · payment records"} — stay here</span></div>
     ${extra}
   </article>`;
 }
@@ -148,10 +148,91 @@ async function holdPayment(ws, stageId, fallbackIds) {
   render();
 }
 
+
+const evCache = {};
+const invCache = {};
+
+async function loadEvidence(ws, supplierName) {
+  if (!supplierName || evCache[ws]?.name === supplierName) return;
+  const list = await call(`/ws/${ws}/api/suppliers`, null, "GET");
+  const id = list.ok ? list.json.suppliers.find((x) => x.name === supplierName)?.id : null;
+  if (!id) return;
+  const r = await call(`/ws/${ws}/api/agents/maya/evidence?supplier=${encodeURIComponent(id)}`, null, "GET");
+  if (r.ok) evCache[ws] = { name: supplierName, ...r.json };
+}
+
+async function loadInvestigation(ws, stageId) {
+  const r = await call(`/ws/${ws}/api/investigations/${stageId}`, null, "GET");
+  invCache[stageId] = r.ok ? r.json.report ?? r.json : null;
+}
+
+function highlight(text) {
+  return esc(text)
+    .replace(/(account ending \d{4})/gi, '<mark class="hl">$1</mark>')
+    .replace(/(Sample Credit Union|Tidewater Commerce Bank)/g, '<mark class="hl">$1</mark>')
+    .replace(/(\+1-555-\d{4})/g, '<mark class="hl">$1</mark>')
+    .replace(/(today|immediately|urgent|avoid a shipping hold|do not use it)/gi, '<mark class="hl soft">$1</mark>');
+}
+
+function claimCompare(ws, msgs) {
+  const e = evCache[ws];
+  const all = msgs.map((m) => `${m.from} ${m.body}`).join(" ");
+  const claimAcct = all.match(/account ending (\d{4})/i)?.[1];
+  const claimBank = all.match(/(Sample Credit Union|Tidewater Commerce Bank)/)?.[1];
+  const suspect = msgs.find((m) => /bank|account/i.test(m.body)) ?? msgs.at(-1);
+  const sender = suspect?.from.match(/caller ID (\+[\d-]+)/)?.[1] ?? suspect?.from.match(/@([\w.-]+)/)?.[1] ?? suspect?.from ?? "";
+  const acctFact = e?.verified.find((f) => /payee account/i.test(f.text));
+  const contactFact = e?.verified.find((f) => /Established contact/i.test(f.text));
+  const vAcct = acctFact?.text.match(/account ending (\d{4})/)?.[1];
+  const vBank = acctFact?.text.match(/: ([^,]+), account/)?.[1];
+  const vName = contactFact?.text.match(/: ([^,]+), (\+[\d-]+); email domain ([\w.-]+)/);
+  const vContact = vName ? (sender.startsWith("+") ? vName[2] : vName[3]) : null;
+  const rows = [
+    ["Pay to", claimBank && claimAcct ? `${claimBank} · ending ${claimAcct}` : "—", vBank && vAcct ? `${vBank} · ending ${vAcct}` : "—", acctFact?.id, claimAcct && vAcct && claimAcct !== vAcct],
+    ["Who is asking", sender || "—", vContact ? `${vContact}${vName ? ` (${vName[1]})` : ""}` : "—", contactFact?.id, vContact && sender && !sender.includes(vContact)],
+  ];
+  return `<table class="cmp"><thead><tr><th></th><th>The message claims</th><th>${ws === "northline" ? "Northline's" : "Harbor's"} verified records</th></tr></thead><tbody>${rows.map(([k, c, v, id, bad]) => `<tr><th>${k}</th><td class="${bad ? "bad" : ""}">${esc(c)}${bad ? '<span class="x">≠</span>' : ""}</td><td class="good">${esc(v)}${id ? `<code class="fact">GBrain #${esc(id)}</code>` : ""}</td></tr>`).join("")}</tbody></table>
+    ${e ? `<p class="cmp-note">${e.policy[0] ? `Policy (GBrain #${esc(e.policy[0].id)}): ${esc(short(e.policy[0].text, 140))}` : ""}</p>` : `<p class="cmp-note">Loading ${ws === "northline" ? "Northline's" : "Harbor's"} private GBrain…</p>`}`;
+}
+
+const agentMeta = { maya: ["Maya", "Recalled verified facts from private GBrain"], chris: ["Chris", "Reconciled the related invoices"], jordan: ["Jordan", "Read the thread, recorded findings, proposed verification"], lena: ["Lena", "Recommended a hold, drafted an unsent message"] };
+
+function agentChain(stageId) {
+  const rep = invCache[stageId];
+  const steps = rep?.steps ?? [];
+  if (!steps.length) return "";
+  const by = {};
+  for (const x of steps) (by[x.agent] ??= []).push(x);
+  if (steps.some((x) => x.tool === "retrieve_evidence")) by.maya = by.maya ?? [{ tool: "retrieve_evidence", ok: true }];
+  const order = ["maya", "chris", "jordan", "lena"].filter((a) => by[a]);
+  return `<ol class="chain">${order.map((a) => `<li><span class="avatar ${a}">${agentMeta[a][0][0]}</span><div><b>${agentMeta[a][0]}</b><small>${agentMeta[a][1]}</small></div><span class="n">${by[a].length} ${by[a].length === 1 ? "step" : "steps"}</span></li>`).join("")}</ol>`;
+}
+
+const procToolMap = ["read_thread", "record_observation", "retrieve_evidence", "fetch_policy", "list_related_invoices", "hold_payment", "propose_verification", "draft_message"];
+
+function procedureApplied(stageId) {
+  const rep = invCache[stageId];
+  const done = new Set((rep?.steps ?? []).filter((x) => x.ok).map((x) => x.tool));
+  const steps = procedureSteps();
+  if (!steps.length) return "";
+  return `<ol class="applied">${steps.map((t, i) => {
+    const tool = procToolMap[i];
+    const ok = rep ? done.has(tool) : null;
+    return `<li class="${ok ? "ok" : ""}">${tick(ok)}<span>${esc(short(t, 88))}</span></li>`;
+  }).join("")}</ol>`;
+}
+
 function scene1() {
   return {
     body: `<div class="net">${companyCard("northline")}${bridge("Approved intelligence only")}${companyCard("harbor")}</div>
-      <p class="say">Two independent businesses. Each has its own employee agents and its own private records. Only approved defenses travel between them.</p>`,
+      <p class="say">Two independent businesses. Each has its own employee agents and its own private records. Only approved defenses travel between them.</p>
+      <section class="netrun how">
+        <div><span class="nr-n">1 · LEARN</span><b>A business is hit by fraud</b><small>its agents investigate with its own private memory</small></div>
+        <span class="nr-arrow">→</span>
+        <div><span class="nr-n">2 · SHARE</span><b>The lesson becomes a signed defense</b><small>procedure + tests, never records</small></div>
+        <span class="nr-arrow">→</span>
+        <div><span class="nr-n">3 · PROTECT</span><b>Other businesses test and adopt it</b><small>on their own data, by their own choice</small></div>
+      </section>`,
     action: { label: "Open suspicious request", run: async () => {
       if (!settled("incident_replay")) {
         const r = await call("/ws/northline/api/incidents", { fixture: "historical_replay" });
@@ -172,41 +253,48 @@ function scene2() {
   const inv = stage("investigation");
   const o = st.out.investigation ?? {};
   const finding = pick(o, ["finding", "headline", "result.finding"]) ?? refsOf("investigation", /^finding$/i)[0]?.value ?? (settled("investigation") ? cleanDetail(inv.detail) : null);
-  const facts = factIds("investigation");
   const held = st.held.northline;
   const conf = stage("confirmation");
   return {
-    body: `<div class="two">
-      <div class="col">
+    body: `<div class="x3 story">
+      <section class="x3-col">
+        <p class="caps x3-label">1 · A payment request arrives</p>
         <article class="pay ${held ? "is-held" : ""}">
           <p class="caps">Northline Roasters · payment</p>
           <p class="amount">${s ? money(s.total) : "$9,400"}</p>
           <span class="pay-state">${held ? "Held" : "Awaiting approval"}</span>
-          <p class="pay-to">${s ? `${esc(s.r.supplier)} · ${s.r.invoices.map((i) => esc(i.id)).join(", ")}` : ""}</p>
+          <p class="pay-to">${s ? `${esc(s.r.supplier)} · ${s.r.invoices.length} invoices` : ""}</p>
         </article>
-        ${s ? `<article class="msg"><p class="caps">Supplier message · synthetic</p><p class="msg-from">${esc(s.msg.from)}</p><p class="msg-subj">${esc(s.msg.subject)}</p><p class="msg-body">${esc(s.msg.body)}</p></article>` : ""}
-      </div>
-      <div class="col">
+        ${s ? `<article class="msg"><p class="caps">Supplier message · synthetic</p><p class="msg-from">${highlight(s.msg.from)}</p><p class="msg-subj">${esc(s.msg.subject)}</p><p class="msg-body">${highlight(s.msg.body)}</p></article>` : ""}
+      </section>
+      <section class="x3-col">
+        <p class="caps x3-label">2 · Checked against Northline's private memory</p>
+        ${s ? claimCompare("northline", s.r.messages) : ""}
+        <p class="private-tag">${lock}These records never leave Northline.</p>
+      </section>
+      <section class="x3-col">
+        <p class="caps x3-label">3 · Northline's agents act</p>
         <article class="finding">
-          <div class="finding-head"><span class="avatar jordan">J</span><div><b>Jordan · Investigator</b>${chips(["ufo", "gbrain"])}</div>${statusPill("investigation")}</div>
+          <div class="finding-head"><span class="avatar jordan">J</span><div><b>Jordan · Investigator</b>${chips(["ufo", "gbrain", "river"])}</div>${statusPill("investigation")}</div>
           ${finding ? `<p class="finding-text">${esc(finding)}</p>` : st.busy.investigation ? `<p class="note">Investigating with Northline's private GBrain…</p>` : `<p class="note">Not run yet.</p>`}
-          ${facts.length ? `<p class="caps">Cited GBrain facts</p><div class="refs">${facts.map((f) => `<code class="fact">${esc(f)}</code>`).join("")}</div>` : ""}
-          ${refChips("investigation", /run|request|task|session|trace/i)}
-          ${reducedNote("investigation")}
+          ${agentChain("investigation")}
           ${errBox("investigation", "investigation")}
           ${!settled("investigation") && !st.busy.investigation ? `<button class="btn" data-retry="investigation">${inv?.status === "not_run" && !st.err.investigation ? "Investigate" : "Retry investigation"}</button>` : ""}
         </article>
         ${held ? `<article class="confirm">
           <p class="caps">Simulated supplier verification</p>
-          ${settled("confirmation") ? `<p class="confirm-text">Fraud confirmed</p><p class="note">${esc(conf.detail)}</p>` : `<button class="btn" id="confirm-btn" ${st.busy.confirmation ? "disabled" : ""}>${st.busy.confirmation ? "Confirming…" : "Record simulated verification: fraud confirmed"}</button>`}
+          ${settled("confirmation") ? `<p class="confirm-text">Fraud confirmed</p><p class="note">A callback to the established contact on file confirmed the supplier never changed banks.</p>` : `<button class="btn" id="confirm-btn" ${st.busy.confirmation ? "disabled" : ""}>${st.busy.confirmation ? "Confirming…" : "Record simulated verification: fraud confirmed"}</button>`}
           ${errBox("confirmation")}
         </article>` : ""}
-      </div>
-    </div>`,
-    action: held ? null : { label: st.busy["hold-northline"] ? "Holding…" : "Hold payment", disabled: st.busy["hold-northline"], run: () => holdPayment("northline", "investigation", s?.r.invoices.map((i) => i.id) ?? []) },
+      </section>
+    </div>
+    ${inv?.status === "reduced" ? `<p class="honest">Reduced: UFO wasn't signed in, so a River-hosted model ran Jordan's same bounded tools. Details in the panel below.</p>` : ""}`,
+    action: held ? null : { label: st.busy["hold-northline"] ? "Holding…" : "Hold payment", disabled: st.busy["hold-northline"] || !settled("investigation"), run: () => holdPayment("northline", "investigation", s?.r.invoices.map((i) => i.id) ?? []) },
     extra: errBox("hold-northline"),
-    enter: () => {
+    enter: async () => {
       if (stage("investigation")?.status === "not_run" && !st.err.investigation && !st.busy.investigation) runStage("northline", "investigation", { reduced: true });
+      await Promise.all([loadEvidence("northline", st.fx?.northline?.supplier), loadInvestigation("northline", "investigation")]);
+      render();
     },
     wire: () => document.getElementById("confirm-btn")?.addEventListener("click", () => runStage("northline", "confirmation", { approve: true })),
   };
@@ -383,27 +471,103 @@ function checksPassed() {
   return refPass || (/pass/i.test(s.detail) && !/fail|not pass/i.test(s.detail));
 }
 
+const quarantinePlain = {
+  signature: "Signed by Northline's pinned key",
+  integrity: "Not altered in transit (hashes match)",
+  recipient_scope: "Addressed to Harbor",
+  layout: "Only the 6 expected files, nothing executable",
+  schema: "Strict format, unknown fields rejected",
+  tool_allowlist: "Uses only safe, allowlisted tools",
+};
+
+const acceptancePlain = {
+  "H-ACC-01": "Re-verified from the quarantined bytes",
+  "H-ACC-02": "Blanks filled from Harbor's own policy",
+  "H-ACC-03": "No release, publish or network steps",
+  "H-ACC-04": "No hard-coded amounts or thresholds",
+  "H-ACC-05": "Unverified change → payments stay on hold",
+  "H-ACC-06": "Verify via the known contact, never the requesting thread",
+  "H-ACC-07": "Covers forwarded voicemail transcripts",
+  "H-ACC-08": "Invoices reconciled with Harbor's own window",
+  "H-ACC-09": "Covers Northline's published test cases",
+};
+
+async function loadImport() {
+  const r = await call("/ws/harbor/api/imports", null, "GET");
+  st.imp = r.ok ? r.json : null;
+}
+
+function tick(ok) {
+  return `<span class="tk ${ok === true ? "ok" : ok === false ? "no" : "wait"}">${ok === true ? "✓" : ok === false ? "✕" : "·"}</span>`;
+}
+
 function scene4() {
   const acc = stage("acceptance");
+  const q = stage("import_quarantine");
   const active = acc?.status === "done" || acc?.status === "reduced";
+  const imp = st.imp;
+  const qChecks = imp?.verification?.checks ?? [];
+  const tests = imp?.acceptance?.tests ?? [];
+  const pkg = st.flow?.relay?.packages?.[0] ?? null;
+  const policy = tests.find((t) => t.id === "H-ACC-02");
+  const window = policy?.detail?.match(/reconcile_window_days = (\d+)/)?.[1];
+  const h = st.ws.harbor?.records;
+  const slug = imp?.memorable?.slug;
+  const sim = imp?.memorable?.recall?.similarity ?? imp?.memorable?.recall?.score;
+  const qOrder = ["signature", "integrity", "recipient_scope", "layout", "schema", "tool_allowlist"];
   return {
-    body: `<div class="arrive">
-      <article class="defense arrived">
-        <p class="from">From Northline</p>
-        <h2>${esc(candidateTitle())}</h2>
-        <div class="q-row"><span>Quarantine</span>${statusPill("import_quarantine")}</div>${refChips("import_quarantine", /package|version|signature|hash|digest|bytes/i)}${errBox("import_quarantine", "import_quarantine")}
-        <div class="q-row"><span>Harbor's own tests</span>${statusPill("acceptance")}</div>${refChips("acceptance")}${errBox("acceptance", "acceptance")}
+    body: `<div class="x4">
+      <section class="x3-col in4">
+        <p class="caps x3-label">1 · Arrives from Northline</p>
+        <article class="envelope ${active ? "" : "quarantined"}">
+          <header><span class="shield">${shieldSvg}</span><div><b>${esc(pkg ? `${pkg.id} · v${pkg.version}` : "FIA-DEF-0001")}</b><small>${pkg ? `${kb(pkg.bytes)} · from Northline · signed` : "from Northline"}</small></div></header>
+          <h4>${esc(candidateTitle())}</h4>
+          <ul class="mini-files">${(pkg?.files ?? Object.keys(fileMeaning)).map((f) => `<li>${esc((fileMeaning[f] ?? [f])[0])}</li>`).join("")}</ul>
+          <p class="q-state ${active ? "released" : ""}">${active ? "Released from quarantine" : settled("import_quarantine") ? "In quarantine · nothing runs yet" : st.busy.import_quarantine ? "Downloading into quarantine…" : "Waiting to download"}</p>
+        </article>
+        <div class="not-got">
+          <p class="caps">Harbor never receives</p>
+          <p>Northline's invoices · supplier names · bank details · policy values · access to Northline's systems</p>
+        </div>
+      </section>
+
+      <section class="x3-col check4">
+        <p class="caps x3-label">2 · Harbor checks it before trusting it</p>
+        <h4 class="grp">Is it authentic? ${statusPill("import_quarantine")}</h4>
+        <ul class="ticks">${(qChecks.length ? qOrder.map((n) => qChecks.find((c) => c.name === n)).filter(Boolean) : qOrder.map((name) => ({ name, ok: null }))).map((c) => `<li>${tick(c.ok)}<span>${esc(quarantinePlain[c.name] ?? c.name)}</span></li>`).join("")}</ul>
+        <h4 class="grp">Does it fit Harbor? ${statusPill("acceptance")}</h4>
+        <ul class="ticks two-col">${(tests.length ? tests : Object.keys(acceptancePlain).map((id) => ({ id, ok: null }))).map((t) => `<li>${tick(t.ok)}<span>${esc(acceptancePlain[t.id] ?? t.name)}</span></li>`).join("")}</ul>
+        ${window ? `<p class="slots">Harbor's own values fill the blanks: <b>${esc(window)}-day</b> invoice window and its <b>vendor-master contact</b> for verification ${(policy.evidence ?? []).map((e) => `<code class="fact">${esc(e.replace("gbrain fact ", "GBrain "))}</code>`).join(" ")}</p>` : ""}
         ${checksPassed() && !active ? `<p class="ready">Tested against Harbor's policies. Ready for your review.</p>` : ""}
-        ${active ? `<p class="ready ok">Accepted. Active in Harbor's own Memorable store.</p>` : ""}
-        ${acc?.detail && !checksPassed() && !active ? `<p class="note">${esc(acc.detail)}</p>` : ""}
-        ${chips(["memorable"])}
-      </article>
-      ${companyCard("harbor")}
+        ${errBox("import_quarantine", "import_quarantine")}${errBox("acceptance", "acceptance")}
+      </section>
+
+      <section class="x3-col vault4 ${active ? "installed" : ""}">
+        <p class="caps x3-label">3 · Installed in Harbor's own memory</p>
+        <header><span class="mark wave">${marks.wave}</span><div><b>Harbor Print</b><small>private workspace</small></div></header>
+        <ul class="locked">
+          <li>${lock}<span><b>Harbor's suppliers &amp; records</b><small>${h ? `${h.suppliers} suppliers · ${h.invoices} invoices` : ""}</small></span></li>
+          <li>${lock}<span><b>Harbor's private GBrain</b><small>its own policy &amp; verified facts</small></span></li>
+        </ul>
+        <div class="slot ${active ? "filled" : ""}">
+          ${active ? `<span class="slot-icon">${iconFor("memorable")}</span><div><b>Defense active · FIA-DEF-0001 v1.0.0</b><small>Stored in Harbor's Memorable${sim != null ? ` · recalled offline (similarity ${esc(sim)})` : ""}</small>${slug ? `<code>${esc(short(slug, 34))}</code>` : ""}</div>` : `<div><b>Waiting for Harbor's owner</b><small>Nothing is installed until the owner accepts this exact version.</small></div>`}
+        </div>
+        ${active ? `<p class="ready ok">Accepted. Northline's lesson is now Harbor's own capability.</p>` : ""}
+      </section>
     </div>`,
-    action: active ? null : { label: st.busy.acceptance ? "Accepting…" : "Accept defense", disabled: !checksPassed() || st.busy.acceptance, run: () => runStage("harbor", "acceptance", { approve: true }) },
+    action: active ? null : { label: st.busy.acceptance ? "Accepting…" : "Accept defense", disabled: !checksPassed() || st.busy.acceptance, run: async () => {
+      await runStage("harbor", "acceptance", { approve: true });
+      await loadImport();
+      render();
+    } },
     enter: async () => {
+      if (!st.candidate) st.candidate = await call("/ws/northline/api/procedures/candidate", null, "GET");
+      await loadImport();
+      render();
       if (!settled("import_quarantine") && !st.busy.import_quarantine && !st.err.import_quarantine) await runStage("harbor", "import_quarantine", {});
       if (settled("import_quarantine") && stage("acceptance")?.status === "not_run" && !st.err.acceptance) await runStage("harbor", "acceptance", {});
+      await loadImport();
+      render();
     },
   };
 }
@@ -416,34 +580,44 @@ function scene5() {
   const accepted = settled("acceptance");
   const c = st.fx?.harbor?.[0];
   const o = st.out.harbor_investigation ?? {};
-  const sup = pick(o, ["supplier.name", "supplierName", "supplier"]) ?? c?.supplier;
   const msg = c ? ([...c.messages].reverse().find((m) => /bank|account/i.test(m.body)) ?? c.messages.at(-1)) : null;
   const done = settled("harbor_investigation");
   const headline = pick(o, ["finding", "headline", "result.finding"]) ?? refsOf("harbor_investigation", /^finding$/i)[0]?.value ?? null;
-  const detail = done && !headline && stage("harbor_investigation").status !== "reduced" ? cleanDetail(stage("harbor_investigation").detail) : null;
   const held = st.held.harbor;
+  const draft = (invCache.harbor_investigation?.drafts ?? [])[0];
   return {
-    body: `${accepted ? "" : gate("Harbor hasn't installed Northline's defense yet, so its investigator has no procedure to apply. Go back to Scene 4 and click Accept defense.", 3, "← Scene 4: Accept defense")}<div class="two">
-      <div class="col">
-        <article class="pay ${held ? "is-held" : ""}"><p class="caps">Harbor Print · payment</p><p class="amount">${c ? money(c.invoices.reduce((n, i) => n + i.amountCents, 0)) : ""}</p><span class="pay-state">${held ? "Payment held · Verification draft ready" : "Awaiting approval"}</span><p class="pay-to">${esc(sup ?? "")}</p></article>
-        ${msg ? `<article class="msg"><p class="caps">New supplier · different wording · synthetic</p><p class="msg-from">${esc(msg.from)}</p><p class="msg-body">${esc(msg.body)}</p></article>` : ""}
-      </div>
-      <div class="col">
-        <article class="finding">
+    body: `${accepted ? "" : gate("Harbor hasn't installed Northline's defense yet, so its investigator has no procedure to apply. Go back to Scene 4 and click Accept defense.", 3, "← Scene 4: Accept defense")}
+    <div class="x3 story">
+      <section class="x3-col">
+        <p class="caps x3-label">1 · A different request reaches Harbor</p>
+        <article class="pay ${held ? "is-held" : ""}"><p class="caps">Harbor Print · payment</p><p class="amount">${c ? money(c.invoices.reduce((n, i) => n + i.amountCents, 0)) : ""}</p><span class="pay-state">${held ? "Payment held · Verification draft ready" : "Awaiting approval"}</span><p class="pay-to">${esc(c?.supplier ?? "")} · new supplier, different wording</p></article>
+        ${msg ? `<article class="msg"><p class="caps">Forwarded voicemail · synthetic</p><p class="msg-from">${highlight(msg.from)}</p><p class="msg-body">${highlight(msg.body)}</p></article>` : ""}
+      </section>
+      <section class="x3-col">
+        <p class="caps x3-label">2 · Checked against Harbor's own records</p>
+        ${c ? claimCompare("harbor", c.messages) : ""}
+        <p class="private-tag">${lock}Harbor never saw Northline's records — only Northline's method.</p>
+      </section>
+      <section class="x3-col">
+        <p class="caps x3-label">3 · Northline's procedure, run by Harbor's agents</p>
+        ${procedureApplied("harbor_investigation")}
+        <article class="finding compact">
           <div class="finding-head"><span class="avatar jordan">J</span><div><b>Harbor's investigator</b>${chips(["ufo", "gbrain", "memorable", "river"])}</div>${statusPill("harbor_investigation")}</div>
           ${done ? `<p class="finding-text">${esc(headline ?? "This needs verification. I applied Northline's procedure using Harbor's records.")}</p>` : st.busy.harbor_investigation ? `<p class="note">Recalling Northline's procedure and Harbor's own records…</p>` : `<p class="note">Not run yet.</p>`}
-          ${detail ? `<p class="note">${esc(detail)}</p>` : ""}
-          ${factIds("harbor_investigation").length ? `<div class="refs">${factIds("harbor_investigation").map((f) => `<code class="fact">${esc(f)}</code>`).join("")}</div>` : ""}
-          ${refChips("harbor_investigation", /run|request|task|model|procedure/i)}${reducedNote("harbor_investigation")}
+          ${held && draft ? `<p class="draft">Unsent draft to ${esc(draft.recipient)}</p>` : ""}
           ${errBox("harbor_investigation", "harbor_investigation")}
           ${accepted && !done && !st.busy.harbor_investigation ? `<button class="btn" data-retry="harbor_investigation">Run investigation</button>` : ""}
         </article>
-      </div>
-    </div>`,
+      </section>
+    </div>
+    ${stage("harbor_investigation")?.status === "reduced" ? `<p class="honest">Reduced: a River-hosted model ran Harbor's bounded tools (UFO local-provider path unavailable).</p>` : ""}`,
     action: held ? null : { label: st.busy["hold-harbor"] ? "Holding…" : "Hold payment", disabled: !done || st.busy["hold-harbor"], run: () => holdPayment("harbor", "harbor_investigation", c?.invoices.map((i) => i.id) ?? []) },
     extra: errBox("hold-harbor"),
-    enter: () => {
+    enter: async () => {
       if (settled("acceptance") && stage("harbor_investigation")?.status === "not_run" && !st.err.harbor_investigation && !st.busy.harbor_investigation) runStage("harbor", "harbor_investigation", { reduced: true });
+      if (!st.candidate) st.candidate = await call("/ws/northline/api/procedures/candidate", null, "GET");
+      await Promise.all([loadEvidence("harbor", c?.supplier), loadInvestigation("harbor", "harbor_investigation")]);
+      render();
     },
   };
 }
@@ -469,12 +643,17 @@ function scene6() {
   const ran = s && s.status !== "not_run";
   return {
     body: `<div class="offline">
+      <div class="cut">
+        <div class="cut-node"><span class="mark wave">${marks.wave}</span><b>Harbor</b><small>own GBrain · own Memorable · own queue</small></div>
+        <div class="cut-link"><span class="cut-x">✕</span><small>${ran ? esc(checks[0][1] && checks[0][1] !== false ? "external network blocked" : "not verified") : "network will be cut"}</small></div>
+        <div class="cut-node far"><span class="cloud">☁</span><b>Internet</b><small>relay · other companies · new bulletins</small></div>
+      </div>
       <article class="result">
         <div class="finding-head"><b>Harbor, network cut</b>${statusPill("offline_proof")}</div>
         ${chips(["gbrain", "memorable", "river"])}
-        ${ran ? `<ul class="checks">${checks.map(([l, v]) => `<li class="${v === false ? "no" : v == null ? "unk" : "yes"}">${esc(l)}<span>${v == null ? "not reported" : esc(typeof v === "object" ? JSON.stringify(v) : v)}</span></li>`).join("")}</ul><p class="note">${esc(s.detail)}</p>` : `<p class="note">Not run yet. This launches a real check — it does not just change a color.</p>`}
-        ${s?.status === "reduced" ? `<p class="reduced">Reduced: ${esc(s.detail)}</p>` : ""}
-        ${refChips("offline_proof")}${errBox("offline_proof")}
+        ${ran ? `<ul class="checks">${checks.map(([l, v]) => `<li class="${v === false ? "no" : v == null ? "unk" : "yes"}">${esc(l)}<span>${v == null ? "not reported" : esc(typeof v === "object" ? JSON.stringify(v) : v)}</span></li>`).join("")}</ul>` : `<p class="note">Not run yet. This cuts Harbor's external network, restarts its defender and injects a fresh case — a real check, not a color change.</p>`}
+        ${s?.status === "reduced" ? `<p class="reduced">Reduced: ${esc(s.detail.replace(/^\s*reduced:\s*/i, ""))}</p>` : ""}
+        ${errBox("offline_proof")}
       </article>
       <div class="closing">
         <div class="cl-co"><span class="mark leaf">${marks.leaf}</span><b>Northline</b><span class="cl-lock">${lock}</span></div>
@@ -622,8 +801,8 @@ const whatBuilders = [
 ];
 
 function whatPanel() {
-  const open = st.whatBy?.[st.i] ?? (st.i === 2 ? false : st.whatOpen);
-  return `<details class="wh" ${open ? "open" : ""}><summary><span class="caps">${st.i === 2 ? "Receipts · every ID behind this scene" : "What's happening · and why"}</span><span class="wh-toggle caps">${open ? "Hide" : "Show"}</span></summary><div class="wh-body">${whatBuilders[st.i]()}</div></details>`;
+  const open = st.whatBy?.[st.i] ?? (st.i >= 2 ? false : st.whatOpen);
+  return `<details class="wh" ${open ? "open" : ""}><summary><span class="caps">${st.i === 2 || st.i === 3 || st.i === 5 ? "Receipts · every ID behind this scene" : "What's happening · and why"}</span><span class="wh-toggle caps">${open ? "Hide" : "Show"}</span></summary><div class="wh-body">${whatBuilders[st.i]()}</div></details>`;
 }
 
 const builders = [scene1, scene2, scene3, scene4, scene5, scene6];
