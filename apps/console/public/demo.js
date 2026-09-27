@@ -254,32 +254,119 @@ function candidateTitle() {
   return pick(c ?? {}, ["title", "procedure.title", "name", "candidate.title"]) ?? "Check payment changes across the whole conversation—not just the invoice.";
 }
 
+const fileMeaning = {
+  "procedure.json": ["The procedure", "8 investigation steps, no names or numbers"],
+  "synthetic-tests.jsonl": ["Synthetic tests", "Invented cases Harbor can re-run"],
+  "validation-report.json": ["Measured results", "What the tests actually showed"],
+  "review-attestation.json": ["Reviewer sign-off", "Which reviewed version was approved"],
+  "manifest.json": ["Manifest", "Scope, policy slots, recipients, file hashes"],
+  "signature.ed25519": ["Signature", "Proves it came from Northline, unaltered"],
+};
+
+function kb(n) {
+  return n >= 1024 ? `${(n / 1024).toFixed(1)} KB` : `${n} B`;
+}
+
+function short(v, n = 10) {
+  const t = String(v ?? "");
+  return t.length > n + 2 ? `${t.slice(0, n)}…` : t;
+}
+
+function refVal(id, re) {
+  return refsOf(id, re)[0]?.value ?? null;
+}
+
+function procedureSteps() {
+  const c = st.candidate?.ok ? st.candidate.json : null;
+  const p = c?.candidate?.procedure ?? c?.procedure ?? c ?? {};
+  return (p.steps ?? []).map((x) => x.instruction ?? x.action ?? "").filter(Boolean);
+}
+
+function evalLine() {
+  const m = st.evals?.ok ? st.evals.json.metrics : null;
+  if (m?.candidate && m?.baseline) {
+    const c = m.candidate, b = m.baseline;
+    return `${c.correct_verification_handling.denominator} synthetic cases · ${c.correct_verification_handling.numerator}/${c.correct_verification_handling.denominator} handled correctly · ${c.unsafe_recommendations.numerator} unsafe · checklist alone: ${b.correct_verification_handling.numerator}/${b.correct_verification_handling.denominator} (no gain claimed)`;
+  }
+  const d = stage("evaluation")?.detail ?? "";
+  const hit = d.match(/correct handling (\d+\/\d+) with procedure vs (\d+\/\d+)/);
+  return hit ? `Correct handling ${hit[1]} with the procedure vs ${hit[2]} checklist-only · no gain claimed` : "Not run yet";
+}
+
+function pipeStep(n, id, sponsor, title, line, link) {
+  const status = st.busy[id] ? "running" : stage(id)?.status ?? "not_run";
+  return `<li class="ps ps-${status}" data-stage="${id}">
+    <span class="ps-n">${n}</span>
+    <span class="ps-icon">${iconFor(sponsor)}</span>
+    <div class="ps-text"><p class="ps-who caps">${esc(sponsor === "fia" ? "FIA · Ed25519" : sponsorNames[sponsor] ?? sponsor)}</p><b>${esc(title)}</b><p>${line}</p>${link ?? ""}</div>
+    ${statusPill(id)}
+  </li>`;
+}
+
 function scene3() {
   const done = settled("publication");
+  const pkg = st.flow?.relay?.packages?.[0] ?? null;
+  const d = st.ws.northline?.records;
+  const steps = procedureSteps();
+  const pageUrl = refVal("review", /page url/i);
+  const scanOk = /privacy scan clean/i.test(stage("extraction")?.detail ?? "");
+  const sizes = pkg?.fileSizes ?? {};
+  const files = pkg?.files ?? Object.keys(fileMeaning);
   return {
-    body: `<div class="share ${done || st.sent ? "sent" : ""}">
-      <div class="share-left">
-        <div class="vault">${lock}<span>Messages</span><span>Suppliers</span><span>Payment records</span><small class="caps">Stay at Northline</small></div>
-      </div>
-      <article class="defense">
-        <p class="caps">Defense · from Northline</p>
-        <h2>${esc(candidateTitle())}</h2>
-        <p class="lbl shared">Shared: Procedure and test evidence.</p>
-        <p class="lbl private">Private: Messages, suppliers, payment records.</p>
-      </article>
-      <div class="share-right"><span class="shield big">${shieldSvg}</span><p class="caps">To the network</p></div>
+    body: `<div class="x3">
+      <section class="x3-col vault3">
+        <header><span class="mark leaf">${marks.leaf}</span><div><p class="caps">Northline Roasters</p><h3>Stays private</h3></div></header>
+        <ul class="locked">
+          <li>${lock}<span><b>Supplier messages</b><small>${d ? `${d.unverifiedMessages} in the fraud thread` : "the fraud thread"}</small></span></li>
+          <li>${lock}<span><b>Supplier records &amp; bank details</b><small>${d ? `${d.suppliers} suppliers` : ""}</small></span></li>
+          <li>${lock}<span><b>Invoices &amp; payments</b><small>${d ? `${d.invoices} invoices` : ""}</small></span></li>
+          <li>${lock}<span><b>Private GBrain memory</b><small>verified facts &amp; observations</small></span></li>
+          <li>${lock}<span><b>Credentials &amp; keys</b><small>never packaged</small></span></li>
+        </ul>
+        <p class="x3-foot caps">Never leaves Northline</p>
+      </section>
+
+      <section class="x3-col pipe3">
+        <p class="caps x3-label">How the lesson becomes a defense</p>
+        <ol class="pipe">
+          ${pipeStep(1, "extraction", "memorable", "Turn the incident into a procedure", `${steps.length || 8} generic steps${scanOk ? " · privacy scan: no private data" : ""}`)}
+          ${pipeStep(2, "evaluation", "qm", "Test it on synthetic cases", esc(evalLine()))}
+          ${pipeStep(3, "review", "superset", "A human reviews the sanitized dossier", `Version ${esc(refVal("review", /page version/i) ?? "—")} approved`, pageUrl ? `<a class="ps-link" href="${esc(pageUrl)}" target="_blank" rel="noopener">Open review page ↗</a>` : "")}
+          ${pipeStep(4, "publication", "fia", "Sign and publish", pkg ? `Signed ${esc(short(pkg.publisherKeyId, 18))} · digest <code>${esc(short(pkg.payloadDigest, 12))}</code>` : "Not published yet")}
+        </ol>
+      </section>
+
+      <section class="x3-col pkg3 ${done ? "sent" : ""}">
+        <p class="caps x3-label">What actually travels</p>
+        <article class="envelope">
+          <header><span class="shield">${shieldSvg}</span><div><b>${esc(pkg ? `${pkg.id} · v${pkg.version}` : "Defense package")}</b><small>${pkg ? `${kb(pkg.bytes)} · ${files.length} files · signed` : "not published yet"}</small></div></header>
+          <ul class="files">${files.map((f) => {
+            const [label, what] = fileMeaning[f] ?? [f, ""];
+            return `<li><span class="f-name"><b>${esc(label)}</b><small>${esc(what)}</small></span><span class="f-size">${sizes[f] ? kb(sizes[f]) : ""}</span></li>`;
+          }).join("")}</ul>
+        </article>
+        <div class="route"><span class="route-line"></span><span class="route-dot"></span></div>
+        <div class="to-harbor"><span class="mark wave">${marks.wave}</span><div><b>Harbor Print</b><small>${pkg ? `only named recipient · via restricted relay` : "waiting"}</small></div></div>
+      </section>
     </div>
-    <ol class="steps-row">${shareSteps.map(([id, , sp, label]) => `<li class="sr ${stage(id)?.status ?? "not_run"} ${st.busy[id] ? "running" : ""}" data-stage="${id}">
-      <span class="sr-icon">${iconFor(sp)}</span><b>${esc(label)}</b>${statusPill(id)}${refChips(id, /run|request|id|page|hash|digest|version|job|receipt/i)}${reducedNote(id)}${errBox(id)}
-      ${stage(id)?.status === "blocked" || stage(id)?.status === "failed" ? `<small class="why">${esc(stage(id).detail)}</small>` : ""}</li>`).join("")}</ol>
-    ${evalsView()}`,
+
+    ${steps.length ? `<section class="inside"><p class="caps x3-label">Inside procedure.json — the knowledge Harbor receives</p><h3>${esc(candidateTitle())}</h3><ol class="inside-steps">${steps.map((t) => `<li>${esc(t)}</li>`).join("")}</ol><p class="inside-note">Company-specific values (policy window, contacts, accounts) are left as slots. Harbor fills them from its own records.</p></section>` : ""}
+
+    <section class="netrun">
+      <div><span class="nr-n">1</span><b>Publisher signs</b><small>Northline's owner approves the exact bytes</small></div>
+      <span class="nr-arrow">→</span>
+      <div><span class="nr-n">2</span><b>Relay delivers</b><small>stores the package; only named recipients can download</small></div>
+      <span class="nr-arrow">→</span>
+      <div><span class="nr-n">3</span><b>Recipient decides</b><small>verifies the signature, tests on its own data, owner accepts</small></div>
+    </section>
+    ${stage("evaluation")?.status === "reduced" ? `<p class="honest">QM swarm unavailable for this run, so FIA's fixed scorer ran the tests. It showed no improvement over the checklist, and none is claimed.</p>` : ""}`,
     action: done ? null : { label: st.sharing ? "Sharing…" : "Share defense", disabled: Boolean(st.sharing), run: shareDefense },
     enter: async () => {
       if (!st.candidate) {
         st.candidate = await call("/ws/northline/api/procedures/candidate", null, "GET");
         render();
       }
-      if (settled("publication") && !st.evals) {
+      if (!st.evals) {
         st.evals = await call("/ws/northline/api/evaluations/latest", null, "GET");
         render();
       }
@@ -535,7 +622,8 @@ const whatBuilders = [
 ];
 
 function whatPanel() {
-  return `<details class="wh" ${st.whatOpen ? "open" : ""}><summary><span class="caps">What's happening · and why</span><span class="wh-toggle caps">${st.whatOpen ? "Hide" : "Show"}</span></summary><div class="wh-body">${whatBuilders[st.i]()}</div></details>`;
+  const open = st.whatBy?.[st.i] ?? (st.i === 2 ? false : st.whatOpen);
+  return `<details class="wh" ${open ? "open" : ""}><summary><span class="caps">${st.i === 2 ? "Receipts · every ID behind this scene" : "What's happening · and why"}</span><span class="wh-toggle caps">${open ? "Hide" : "Show"}</span></summary><div class="wh-body">${whatBuilders[st.i]()}</div></details>`;
 }
 
 const builders = [scene1, scene2, scene3, scene4, scene5, scene6];
@@ -567,6 +655,7 @@ function render() {
   }));
   document.querySelector("details.wh")?.addEventListener("toggle", (e) => {
     st.whatOpen = e.target.open;
+    st.whatBy = { ...(st.whatBy ?? {}), [st.i]: e.target.open };
     const t = e.target.querySelector(".wh-toggle");
     if (t) t.textContent = st.whatOpen ? "Hide" : "Show";
   });

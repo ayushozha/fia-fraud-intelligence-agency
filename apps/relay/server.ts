@@ -76,7 +76,7 @@ createServer(async (req, res) => {
     const url = new URL(req.url ?? "/", "http://localhost");
     if (req.method === "GET" && url.pathname === "/api/relay/status") {
       const log = events();
-      const packages = stored().map((m) => ({ id: m.packageId, version: m.version, bytes: m.bytes, files: m.files.map((f) => f.path), signed: true, publisherKeyId: m.publisherKeyId, recipients: m.recipients, distribution: m.distribution, payloadDigest: m.payloadDigest, publisher: m.publisher, publishedAt: m.publishedAt }));
+      const packages = stored().map((m) => ({ id: m.packageId, version: m.version, bytes: m.bytes, files: m.files.map((f) => f.path), fileSizes: Object.fromEntries(m.files.map((f) => [f.path, f.bytes])), signed: true, publisherKeyId: m.publisherKeyId, recipients: m.recipients, distribution: m.distribution, payloadDigest: m.payloadDigest, publisher: m.publisher, publishedAt: m.publishedAt }));
       return send(res, 200, {
         packages,
         published: packages.length,
