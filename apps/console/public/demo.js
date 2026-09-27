@@ -92,6 +92,7 @@ function cleanDetail(d) {
 function statusPill(id) {
   const s = stage(id);
   const cls = st.busy[id] ? "running" : s?.status ?? "not_run";
+  if (!st.busy[id] && cls === "running" && /awaiting|ready for your review/i.test(s?.detail ?? "")) return `<span class="st st-blocked">Awaiting owner</span>`;
   return `<span class="st st-${cls}">${esc(st.busy[id] ? "Running" : statusText[cls] ?? cls)}</span>`;
 }
 
